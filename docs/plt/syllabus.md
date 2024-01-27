@@ -14,7 +14,7 @@ This course is designed to acquaint the student with the concept off fundamental
 Course Contents:
 
 ## 1. Programming Languages 14 hours
-
+```
     1.1. Introduction
     1.2 Analogy with Natural Language
     1.3 Classification of Computer Language (Low Level Language and High Level Language)
@@ -36,9 +36,9 @@ Course Contents:
         1.6.3 Feature of 4GL (Object Oriented Language)
     1.7 Machines Independent and Portability of programs
     1.8 Some Important types of High Level Language
-
+```
 ## 2. Software Development (Program Development) 10hours
-
+```
     2.1 Introduction to program development/software development
     2.2. Program Development Life Cycle.
         2.2.1. Problem identification
@@ -57,9 +57,9 @@ Course Contents:
     2.4 Comparison of them
     2.5 Advantages and Disadvantage of Them
     2.6 Symbols and some examples
-
+```
 ## 3. Programming Technique 8 hours
-
+```
     3.1 Introduction
     3.2 Type of Programming Technique (Approaches)
         3.2.1 Modular, Top down, bottom up, Structure and Object Oriented approach
@@ -74,9 +74,9 @@ Course Contents:
         3.5.1 Types of Logics (Sequential, Selection Iteration and Recursion)
         3.5.2 Differentiation
     3.6 Communication between modules
-
+```
 ## 4. Program Maintenance 8 hours
-
+```
     4.1 Introduction
     4.2 Types of Program maintenance (Corrective maintenance, Adoptive maintenance, Perfective maintenance, Emergency maintenance)
     4.3 Problem Areas in Program Maintenance
@@ -95,9 +95,9 @@ Course Contents:
         4.9.2 Leveling the data flow diagram
         4.9.3 Idea for Drawing DFD
         4.9.4 Examples
-
+```
 ## 5. Standalone and Client Server Programming Concept 8 hours
-
+```
     5.1. Introduction to standalone Programming concept
      5.1.5 Advantage and limitations of Standalone Programming
     5.2 Introduction to Client Server Programming (CSP)
@@ -110,7 +110,7 @@ Course Contents:
       5.5.2 Web-based System and Programming
     5.6 Introduction to a few web based languages and their capabilities
     5.7 Requirement of Platform-Independents system
-
+```
 ReferenceBooks:
 
 ### 1. V.K. Jain: Computer Fundamentals, BPB Publication
