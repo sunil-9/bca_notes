@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -16,7 +16,7 @@ const config = {
   url: "https://dds.com.np",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -30,13 +30,13 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
   // themes: ['@docusaurus/theme-search-algolia'],
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
@@ -44,8 +44,7 @@ const config = {
           sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            "https://github.com/sunil-9/bca_notes/tree/main/",
+          editUrl: "https://github.com/sunil-9/bca_notes/tree/main/",
         },
         blog: false,
         // blog: {
@@ -56,7 +55,7 @@ const config = {
         //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         // },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
@@ -90,49 +89,57 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               // {
               //   label: 'Tutorial',
               //   to: '/intro',
               // },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: "PLT",
+                to: "/plt/syllabus",
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: "MADT",
+                to: "/madt",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: "LINUX",
+                to: "/linux/syllabus",
               },
             ],
           },
           {
-            title: 'More',
+            title: "Connect",
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: "Stack Overflow",
+                href: "https://stackoverflow.com/users/8008979/sunil-sapkota",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/sunilsapkota09",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Portfolio",
+                href: "https://sapkotasunil.com.np/",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/sunil-9/",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} DDS Notes, for PU BCA students.`,
       },
       prism: {
         theme: prismThemes.github,
@@ -140,65 +147,65 @@ const config = {
       },
       algolia: {
         // The application ID provided by Algolia
-        appId: 'JGUJMU1YF1',
-  
+        appId: "JGUJMU1YF1",
+
         // Public API key: it is safe to commit it
-        apiKey: 'd3d151e6bdbba941e63af596eb2fbf32',
-  
-        indexName: 'dds',
-        placeholder: 'Ask me',
-  
+        apiKey: "d3d151e6bdbba941e63af596eb2fbf32",
+
+        indexName: "dds",
+        placeholder: "Ask me",
+
         // Optional: see doc section below
         contextualSearch: true,
-  
+
         // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        externalUrlRegex: 'external\\.com|domain\\.com',
-  
+        externalUrlRegex: "external\\.com|domain\\.com",
+
         // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
         replaceSearchResultPathname: {
-          from: '/docs/', // or as RegExp: /\/docs\//
-          to: '/',
+          from: "/docs/", // or as RegExp: /\/docs\//
+          to: "/",
         },
-  
+
         // Optional: Algolia search parameters
         searchParameters: {},
-  
+
         // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-  
+        searchPagePath: "search",
+
         //... other Algolia params
       },
     }),
-    plugins: [
-      [
-        '@docusaurus/plugin-pwa',
-        {
-          debug: true,
-          offlineModeActivationStrategies: [
-            'appInstalled',
-            'standalone',
-            'queryString',
-          ],
-          pwaHead: [
-            {
-              tagName: 'link',
-              rel: 'icon',
-              href: '/img/docusaurus.png',
-            },
-            {
-              tagName: 'link',
-              rel: 'manifest',
-              href: '/manifest.json', // your PWA manifest
-            },
-            {
-              tagName: 'meta',
-              name: 'theme-color',
-              content: 'rgb(37, 194, 160)',
-            },
-          ],
-        },
-      ],
+  plugins: [
+    [
+      "@docusaurus/plugin-pwa",
+      {
+        debug: true,
+        offlineModeActivationStrategies: [
+          "appInstalled",
+          "standalone",
+          "queryString",
+        ],
+        pwaHead: [
+          {
+            tagName: "link",
+            rel: "icon",
+            href: "/img/docusaurus.png",
+          },
+          {
+            tagName: "link",
+            rel: "manifest",
+            href: "/manifest.json", // your PWA manifest
+          },
+          {
+            tagName: "meta",
+            name: "theme-color",
+            content: "rgb(37, 194, 160)",
+          },
+        ],
+      },
     ],
+  ],
 };
 
 export default config;
