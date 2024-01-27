@@ -1574,6 +1574,8 @@ Cohesion refers to the degree to which the elements within a module or component
 
 There are several types of cohesion, ranging from low to high:
 
+![Cohesion and Coupling](./cohesion.png)
+
 #### Type of cohesion:
 
 1. **Co-incidental Cohesion:**
