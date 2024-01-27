@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" modified="2023-12-20T08:58:42.224Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="sxbl2TSNJAFVu9bYAOyF" version="22.1.11" type="github">
+  <diagram name="Page-1" id="e8fEZRBuyIHekZ3EfXQ0">
+    <mxGraphModel dx="1009" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-1" target="FHlypVXi7bRFN7xpeUnt-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-1" value="&lt;h1 style=&quot;line-height: 250%;&quot;&gt;start&lt;/h1&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="210" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-2" value="&lt;div style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 17px; line-height: 19px;&quot;&gt;&lt;font color=&quot;#121212&quot;&gt;Write an flowchart to add two numbers entered by the user.&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-3" target="FHlypVXi7bRFN7xpeUnt-37">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425.29999999999995" y="500.04607046070464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-3" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;input &lt;br&gt;num1 &amp;amp; num2&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="343" y="370" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-37" target="FHlypVXi7bRFN7xpeUnt-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425.29999999999995" y="669.9539295392954" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-13" target="FHlypVXi7bRFN7xpeUnt-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="425" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-13" value="Display num1 is greatest" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="284.63" y="680" width="284.75" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-18" value="End" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="367" y="850" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-23" target="FHlypVXi7bRFN7xpeUnt-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-23" value="&lt;h1 style=&quot;line-height: 250%;&quot;&gt;start&lt;/h1&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335" y="1160" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-24" value="&lt;div style=&quot;font-family: Consolas, &amp;quot;Courier New&amp;quot;, monospace; font-size: 17px; line-height: 19px;&quot;&gt;&lt;font color=&quot;#121212&quot;&gt;Write an flowchart to add two numbers entered by the user.&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1010" width="760" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-26" target="FHlypVXi7bRFN7xpeUnt-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-26" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;input &lt;br&gt;num1 &amp;amp; num2&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="313" y="1306.25" width="165" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-29" target="FHlypVXi7bRFN7xpeUnt-30">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="599.9906976744185" y="1542.5500000000002" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-29" target="FHlypVXi7bRFN7xpeUnt-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-29" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Is&amp;nbsp;&lt;br&gt;num1 &amp;gt; num2?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="303" y="1436.25" width="184.5" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-30" value="Display num2 is greatest" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="579.75" y="1467.5" width="210.25" height="107.5" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-32" target="FHlypVXi7bRFN7xpeUnt-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="395" y="1896.25" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-32" value="Display num1 is greatest" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="253" y="1726.25" width="284.75" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-33" value="End" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335.25" y="1986.25" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="FHlypVXi7bRFN7xpeUnt-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="669.875" y="1575" as="sourcePoint" />
+            <mxPoint x="399.9984374389601" y="1926" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="1579" />
+              <mxPoint x="680" y="1579" />
+              <mxPoint x="680" y="1926" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FHlypVXi7bRFN7xpeUnt-36" target="FHlypVXi7bRFN7xpeUnt-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-36" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="375" y="1906.25" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FHlypVXi7bRFN7xpeUnt-37" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;sum =num1 + num2&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="334" y="530" width="186" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
