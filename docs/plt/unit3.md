@@ -1276,8 +1276,6 @@ Key characteristics of the Evolutionary Model include:
 
    - Prototyping is often used in the Evolutionary Model to create early representations of the software. Prototypes are used to gather feedback, validate requirements, and guide the development process.
 
-7. **Phases of Evolution:**
-   - The Evolutionary Model typically consists of phases such as inception, elaboration, construction, and transition. Each phase represents a cycle of development, and the software evolves as it moves through these phases.
 
 **Advantages of the Evolutionary Model:**
 
@@ -1594,6 +1592,8 @@ Type of cohesion:
 ### Coupling:
 
 Coupling refers to the degree of dependence between different modules or components. It measures how much one module knows about the inner workings or implementation details of another. Low coupling is desirable as it leads to more modular, reusable, and maintainable code.
+
+![Cohesion and Coupling](./coupling.png)
 
 There are different levels of coupling:
 
