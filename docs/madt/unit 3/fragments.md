@@ -35,7 +35,7 @@ The fragment is no longer associated with its parent activity. Clean up any refe
 
 Here's an example that demonstrates the basic usage of fragment lifecycle methods in Android:
 
-```
+```java title="fragment.java"
 
 public class MyFragment extends Fragment {
   

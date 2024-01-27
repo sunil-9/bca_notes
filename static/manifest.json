@@ -8,13 +8,13 @@
       "sizes": "512x512"
     },
     {
-        "src": "/img/logo.svg",
-        "type": "image/svg+xml",
+      "src": "/img/logo.svg",
+      "type": "image/svg+xml",
       "sizes": "192x192"
     },
     {
-        "src": "/img/logo.svg",
-        "type": "image/svg+xml",
+      "src": "/img/logo.svg",
+      "type": "image/svg+xml",
       "sizes": "512x512"
     }
   ],
@@ -24,32 +24,22 @@
   "display": "standalone",
   "scope": "/",
   "theme_color": "#3367D6",
-  "shortcuts": [
-    {
-      "name": "How's weather today?",
-      "short_name": "Today",
-      "description": "View weather information for today",
-      "url": "/today?source=pwa",
-      "icons": [{ "src": "/images/today.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "How's weather tomorrow?",
-      "short_name": "Tomorrow",
-      "description": "View weather information for tomorrow",
-      "url": "/tomorrow?source=pwa",
-      "icons": [{ "src": "/images/tomorrow.png", "sizes": "192x192" }]
-    }
-  ],
   "description": "PU notes website",
   "screenshots": [
     {
-      "src": "/images/screenshot1.png",
+      "src": "/img/Screenshot-black-1.png",
       "type": "image/png",
       "sizes": "540x720",
       "form_factor": "narrow"
     },
     {
-      "src": "/images/screenshot2.jpg",
+      "src": "/img/Screenshot-white-1.png",
+      "type": "image/jpg",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/img/Screenshot-2.png",
       "type": "image/jpg",
       "sizes": "720x540",
       "form_factor": "wide"
