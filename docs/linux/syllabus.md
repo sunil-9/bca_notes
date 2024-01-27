@@ -111,9 +111,6 @@
 3. [User management using a terminal](Practicals/3.User%20management%20using%20a%20terminal.md)
 4. [Security level access control list](Practicals/4.Security%20level%20access%20control%20list.md)
 5. [Network setting](Practicals/5.Network%20setting.md)
-6. [Server configuration of DHCP, DNS, Database server](Practicals/6.Server%20configuration%20of%20DHCP,%20DNS,%20Database%20server.md)
-7. [Demonstration of the web, mail, file server](Practicals/7.Demonstration%20of%20the%20web,%20mail,%20file%20server.md)
-
 **Text Book:**
 
 1. Christopher Negus: Red Hat Linux 8.0, Bible, WILEY
