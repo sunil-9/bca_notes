@@ -1576,7 +1576,7 @@ There are several types of cohesion, ranging from low to high:
 
 #### Type of cohesion:
 
-1. **Coincidental Cohesion:**
+1. **Co-incidental Cohesion:**
 
    - **Definition:** Coincidental cohesion, also known as accidental cohesion, occurs when the elements within a module have no meaningful relationship. The module performs various unrelated tasks.
    - **Example:** A utility module that contains functions for unrelated operations like formatting text, generating random numbers, and calculating mathematical expressions.
