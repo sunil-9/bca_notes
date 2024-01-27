@@ -68,7 +68,6 @@ const config = {
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
-        title: "DDS",
         logo: {
           alt: "DDS Logo",
           src: "img/logo.svg",
@@ -78,7 +77,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "DDS Notes",
+            label: "ALL",
           },
           { to: "/plt/syllabus", label: "PLT", position: "left" },
           { to: "/madt", label: "MADT", position: "left" },
@@ -141,13 +140,13 @@ const config = {
       },
       algolia: {
         // The application ID provided by Algolia
-        appId: 'YOUR_APP_ID',
+        appId: 'JGUJMU1YF1',
   
         // Public API key: it is safe to commit it
-        apiKey: 'YOUR_SEARCH_API_KEY',
+        apiKey: 'd3d151e6bdbba941e63af596eb2fbf32',
   
-        indexName: 'YOUR_INDEX_NAME',
-        placeholder: 'Ask me something',
+        indexName: 'dds',
+        placeholder: 'Ask me',
   
         // Optional: see doc section below
         contextualSearch: true,
