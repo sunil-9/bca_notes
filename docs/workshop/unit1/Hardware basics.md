@@ -324,7 +324,7 @@ A motherboard is the main printed circuit board (PCB) in a computer that houses 
 
 #### Types of Motherboards:
 
-![Types of Motherboards](./img/motherboard-types.png.png)
+![Types of Motherboards](./img/motherboard-types.png)
 
 1. **Extended ATX (E-ATX):**
 
