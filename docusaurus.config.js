@@ -110,6 +110,7 @@ const config = {
           { to: "/plt/syllabus", label: "PLT", position: "left" },
           { to: "/madt", label: "MADT", position: "left" },
           { to: "/linux/syllabus", label: "LINUX", position: "left" },
+          { to: "/workshop/syllabus", label: "WORKSHOP", position: "left" },
           {
             href: "https://github.com/sunil-9/bca_notes/",
             label: "GitHub",
