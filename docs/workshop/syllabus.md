@@ -1,117 +1,102 @@
-| Evaluation: |        |           |       |
-| :---------- | :----- | :-------- | :---- |
-|             | Theory | Practical | Total |
-| Sessional   | 50     | -         | 50    |
-| Final       | 50     | .         | 50    |
-| Total       | 100    | -         | 100   |
+# Syllabus
 
-Course Objectives:
+# Pokhara University
 
-This course is designed to acquaint the student with the concept off fundamental problem analysis, modeling and coding techniques.
+## Bachelor of Computer Application (BCA)
 
-<!-- [![image](./images.jfif)]() -->
+| Course Code          | CMP 111                                    |
+| -------------------- | ------------------------------------------ |
+| Course Title         | Computer Application Workshop (1 credit)   |
+| Full Marks           | 100                                        |
+| Pass Mark            | 45                                         |
+| Teaching Hours       | 1 (Lecture) - 0 (Tutorial) - 3 (Practical) |
+| Nature of the Course | Practical                                  |
+| Total Lectures       | 30 hours                                   |
+| Level                | Bachelor                                   |
+| Year/semester        | I/I                                        |
 
-Course Contents:
+## 1. Course Description
 
-## 1. Programming Languages 14 hours
-```
-    1.1. Introduction
-    1.2 Analogy with Natural Language
-    1.3 Classification of Computer Language (Low Level Language and High Level Language)
-        1.3.1 Low Level Languages, (Machine and Assembly Language)
-        1.3.2 Advantages and Disadvantages of Machine Level Language
-        1.3.3 Advantages of Assembly Language over machine Level Language Disadvantages of Assembly Language
-        1.3.4  Disadvantages of Assembly Level Language
-    1.4 High Level Language
-        1.4.1 Advantages and Limitations of High Level Language
-        1.4.2. Difference between Low Level and High Level Language
-        1.4.3. Program Language Translator
-            1.4.3.1 Types of Translator (Compiler, Assembler and Interpreter)
-            1.4.3.2 Different among Translator
-    1.5 Linker and Loader
-        1.5.1 Types of Linder and Loader
-    1.6 Generation of Computer Languages
-        1.6.1 3GL and 4GL
-        1.6.2 Advantages of 4GL over 3GL
-        1.6.3 Feature of 4GL (Object Oriented Language)
-    1.7 Machines Independent and Portability of programs
-    1.8 Some Important types of High Level Language
-```
-## 2. Software Development (Program Development) 10hours
-```
-    2.1 Introduction to program development/software development
-    2.2. Program Development Life Cycle.
-        2.2.1. Problem identification
-        2.2.2 Problem Analysis/Requirement Analysis
-        2.2.3 Program Design Phases of program Design (Data design, Input, Output, Procedure, File design)
-        2.2.4 Program coding
-        2.2.5 Program Testing and Debugging
-        2.2.6. Program Delivery/Implementation and Evaluation
-        2.2.7. Program Maintenance
-        2.2.8. Documentation
-    2.3 Programming Tools
-        2.3.1. Algorithm
-        2.3.2 Flowchart
-        2.3.3 Decision Table
-        2.3.4 Pseudocode
-    2.4 Comparison of them
-    2.5 Advantages and Disadvantage of Them
-    2.6 Symbols and some examples
-```
-## 3. Programming Technique 8 hours
-```
-    3.1 Introduction
-    3.2 Type of Programming Technique (Approaches)
-        3.2.1 Modular, Top down, bottom up, Structure and Object Oriented approach
-        3.2.2 Advantages and Disadvantages
-    3.3 Program Development Methods (Models)
-        3.3.1. Types of Program Development Models (Water fall or Traditional model, Prototype or Transformation model, Spiral model, Iterative model, V-model, RAD model, Bog Bang model, Evolutionary models)
-        3.3.2. Advantage and Disadvantages of Waterfall, Prototype and Spiral Model (Simple Introduction to other Models)
-    3.4 Cohesion and coupling
-        3.4.1 Types of Cohesion and Coupling
-        3.4.2 Use of Cohesion and Coupling in Program Development
-    3.5 Logics of Program Development
-        3.5.1 Types of Logics (Sequential, Selection Iteration and Recursion)
-        3.5.2 Differentiation
-    3.6 Communication between modules
-```
-## 4. Program Maintenance 8 hours
-```
-    4.1 Introduction
-    4.2 Types of Program maintenance (Corrective maintenance, Adoptive maintenance, Perfective maintenance, Emergency maintenance)
-    4.3 Problem Areas in Program Maintenance
-    4.4 Cost issues in software maintenance
-    4.5 Impact of software Errors
-    4.6 Program documentation and its standards
-        4.6.1 Requirements of Documentation
-        4.6.2 Importance of Documentation
-        4.6.3 Types of Documentation
-    4.7. Program Specification
-    4.8. System Flow Chart
-        4.8.1 Elements of System Flowcharts
-        4.8.2 Examples
-    4.9 Data Flow Diagram
-        4.9.1 Element of DFD
-        4.9.2 Leveling the data flow diagram
-        4.9.3 Idea for Drawing DFD
-        4.9.4 Examples
-```
-## 5. Standalone and Client Server Programming Concept 8 hours
-```
-    5.1. Introduction to standalone Programming concept
-     5.1.5 Advantage and limitations of Standalone Programming
-    5.2 Introduction to Client Server Programming (CSP)
-        5.2.1 Advantages and Disadvantages of CSP
-        5.2.2 Distinguish between Standalone and Client Server Programming
-        5.2.3 Client Server Programming Architecture
-    5.4 Introduction to Web-based Programming
-    5.5 Advantages and Disadvantages of web-based programs
-     5.5.1 Architecture of web-based programming
-      5.5.2 Web-based System and Programming
-    5.6 Introduction to a few web based languages and their capabilities
-    5.7 Requirement of Platform-Independents system
-```
-ReferenceBooks:
+This course provides the knowledge and hands-on skills of computer hardware, software, computer networking, and enables students to identify and rectify onboard computer hardware, software, and network-related problems. Students will be able to understand the hardware specifications for the operating system and various application programs.
 
-### 1. V.K. Jain: Computer Fundamentals, BPB Publication
-### 2. Foundations of Computing, BPB Publication (Third Edition)
+## 2. General Objectives
+
+The general objectives of this course are:
+
+- To familiarize students with computer systems hardware, basic practical works, and computer networking concepts.
+- To make students competent to install/update the operating system and various application software, manage data backup and restore operations on a computer system.
+
+## 3. Methods of Instruction
+
+Specific instructional techniques: Lab works, Project works
+
+## 4. Contents in Detail
+
+### Unit 1: Introduction to Desktop/Workstation Assembly (2)
+
+- 1.1 Demonstration of computer hardware and peripheral devices: Processors, Motherboard, Memory, Storage devices, I/O Devices.
+- 1.2 Demonstration of Power Supply-SMPS, Internal cablings, and Ports.
+
+### Unit 2: Assembling Desktop and Laptop Computer (4)
+
+- 2.1 Assembling steps and precautions.
+- 2.2 Setting of motherboards, memory, hard disk, processors, CDROM, SMPS, and other devices.
+
+### Unit 3: Laptop/Desktop OS Installation (6)
+
+- 3.1 BIOS setting, firmware types, BOOT configuration.
+- 3.2 Hard disc partitioning.
+- 3.3 OS installation (Linux, Windows).
+- 3.4 User account management.
+- 3.5 Printer, Scanner installation.
+
+### Unit 4: Software Installation (5)
+
+- 4.1 Installation of application and utility software.
+- 4.2 Update of firmware patches.
+- 4.3 Anti-virus installation and scanning.
+
+### Unit 5: Networking and Internet Setup (5)
+
+- 5.1 Introduction to Computer Network, Network topologies, wired and wireless networking media.
+- 5.2 Network cabling, cable types and connectors.
+- 5.3 IP Address setting, Sharing of Printer/ Network Devices.
+- 5.4 Basic wireless AP configuration.
+
+### Unit 6: Server Installation and Backup (3)
+
+- 6.1 Introduction to server.
+- 6.2 Study of different servers (Email, Data, Domain, FTP).
+
+### Unit 7: Hardware and Software Troubleshooting (5)
+
+- 7.1 Basic Repair and Maintenance of Desktop/Laptop.
+- 7.2 Replacement of Passive Components.
+- 7.3 Uses of basic software troubleshooting commands.
+- 7.4 Uses of troubleshooting tools and utilities.
+
+## Evaluation system and Students’ Responsibilities
+
+### Evaluation System
+
+| External Evaluation Marks | Internal Evaluation Weight Marks |
+| ------------------------- | -------------------------------- |
+| Semester-End examination  | 0                                |
+| Assignments/Lab Report    | 10%                              |
+| Quizzes/MCQ               | 10%                              |
+| Project Work/Lab Test     | 10%                              |
+| Viva                      | 15%                              |
+| Internal Exam             | 50%                              |
+| **Total Internal**        | **100**                          |
+
+### Student Responsibilities
+
+Each student must secure at least 45% marks in internal evaluation with 80% attendance in the class to appear in the Semester End Examination. Failing to get such a score will be given NOT QUALIFIED (NQ), and the student will not be eligible to appear for the Semester-End Examinations. Students are advised to attend all classes, formal exams, tests, etc., and complete all assignments within the specified time period. Students are required to complete all the requirements defined for the completion of the course.
+
+## Prescribed Books and References
+
+### References
+
+1. Rosch, W. R. _The Winn L. Rosch Hardware Bible._ USA: Sams.
+2. Bose, A. K. _Hardware and Software of Personal Computers._ New Delhi: New Age International.
+3. Rajaraman, V. and Adabala, N. _Fundamentals of Computers._ New Delhi: PHI Learning.
