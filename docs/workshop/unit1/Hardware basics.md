@@ -158,7 +158,7 @@ Computer hardware consists of various physical components that work together to 
 
 ![Peripheral Devices](./img/PeripheralDevices.png)
 
-### SMPS (Switched-Mode Power Supply):
+# SMPS (Switched-Mode Power Supply):
 
 A Switched-Mode Power Supply (SMPS) is a type of power supply that efficiently converts electrical power from one form to another using switching devices. It is widely used in electronic devices, computers, and other applications where a stable and regulated power supply is essential. Here are the key aspects of an SMPS:
 
@@ -188,15 +188,17 @@ A Switched-Mode Power Supply (SMPS) is a type of power supply that efficiently c
    - SMPS is used in a wide range of electronic devices, including computers, laptops, TVs, audio amplifiers, and other consumer electronics.
    - It is commonly employed in situations where efficiency, compact size, and regulated power are crucial.
 
-5. **Types of SMPS:**
+## **Types of SMPS:**
 
 ![Types of SMPS](./img/Types-of-SMPS.png)
-
-- **Buck Converter:** Reduces voltage.
-- **Boost Converter:** Increases voltage.
-- **Buck-Boost Converter:** Can step up or step down voltage.
-
-### Processor (Central Processing Unit - CPU):
+   
+   - **Buck Converter:** Converts a higher DC voltage to a lower DC voltage.
+   - **Boost Converter:** Converts a lower DC voltage to a higher DC voltage.
+   - **Buck-Boost Converter:** Converts a higher DC voltage to a lower DC voltage or vice versa.
+   - **Flyback Converter:** Converts a DC voltage to a higher or lower DC voltage.
+   - **Forward Converter:** Converts a DC voltage to a higher or lower DC voltage.
+ 
+# Processor (Central Processing Unit - CPU):
 
 The processor, also known as the Central Processing Unit (CPU), is a vital component of a computer system responsible for executing instructions and performing calculations. It acts as the "brain" of the computer, carrying out tasks and managing data within the system. Here are detailed aspects of a processor:
 
@@ -223,21 +225,15 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
 
    - **ISA (Instruction Set Architecture):** The set of instructions that a CPU can execute. Different CPUs may have different instruction sets, and this influences software compatibility and performance.
 
-6. **Pipelines:**
-
-   - **Instruction Pipeline:** The CPU uses a pipeline architecture to efficiently process multiple instructions simultaneously. Instructions move through stages (fetch, decode, execute) in a pipeline fashion.
-
-7. **Multithreading and Parallel Processing:**
+6. **Multithreading and Parallel Processing:**
 
    - **Multithreading:** Some CPUs support simultaneous execution of multiple threads, allowing for better utilization of resources and improved performance in multitasking scenarios.
    - **Parallel Processing:** In systems with multiple CPUs or cores, parallel processing enables the simultaneous execution of multiple instructions or tasks.
 
-8. **Compatibility and Architecture:**
-   - **x86, x64, ARM, etc.:** Different processor architectures exist, each with its own set of instructions and design principles. Common architectures include x86 (used in many desktop and laptop CPUs) and ARM (common in mobile devices and embedded systems).
 
-#### Types of processors:
+## Types of processors:
 
-##### Based on the number of cores:
+### Based on the number of cores:
 
 1. **Single-Core Processor:**
 
@@ -250,7 +246,7 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
    - It is capable of executing multiple instructions simultaneously, improving performance in multitasking scenarios.
    - Multi-core processors are commonly used in modern computers, smartphones, and other devices.
 
-##### Based on the number of bits:
+### Based on the number of bits:
 
 1. **32-bit Processor:**
 
@@ -263,7 +259,7 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
    - It can address up to 16 exabytes of RAM and is commonly used in modern computers.
    - 64-bit processors are compatible with both 32-bit and 64-bit software.
 
-##### Based on the manufacturer:
+### Based on the manufacturer:
 
 1. **Intel Processor:**
 
@@ -281,7 +277,7 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
 
 ![Intel vs AMD](./img/arm.webp)
 
-##### Based on the Instruction Set Architecture (ISA):
+### Based on the Instruction Set Architecture (ISA):
 
 1.  **CISC (Complex Instruction Set Computer):**
     - A CISC processor is a CPU that supports a large set of instructions.
@@ -298,7 +294,7 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
     - It is capable of executing both simple and complex instructions efficiently.
     - Examples include the Intel x86-64 and ARMv8 architectures.
 
-### Motherboard:
+# Motherboard:
 
 **Motherboard:**
 
@@ -322,7 +318,7 @@ A motherboard is the main printed circuit board (PCB) in a computer that houses 
    - **Audio:** Integrated audio components or audio chipsets, along with audio jacks, provide sound capabilities.
    - **Cooling:** Motherboards may include heatsinks, fans, and other cooling components to prevent overheating.
 
-#### Types of Motherboards:
+## Types of Motherboards:
 
 ![Types of Motherboards](./img/motherboard-types.png)
 
@@ -351,7 +347,7 @@ A motherboard is the main printed circuit board (PCB) in a computer that houses 
    - Ultra-compact form factor, smaller than Mini-ITX.
    - Used in extremely compact systems or embedded applications.
 
-### Ports and Connectors:
+# Ports and Connectors:
 
 | **Type**                      | **Description**                                       | **Use**                                            | **Image**                                       |
 |-------------------------------|-------------------------------------------------------|----------------------------------------------------|-------------------------------------------------|
