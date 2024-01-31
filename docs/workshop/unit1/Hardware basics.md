@@ -67,7 +67,7 @@ A Printed Circuit Board (PCB) is a flat, rigid board made of non-conductive mate
 
 # Computer:
 
-A computer is a programmable electronic device that processes and stores data. It is designed to perform various tasks by executing a set of instructions called programs. Computers come in various forms, including personal computers, servers, mainframes, and embedded systems in devices like smartphones and appliances. The basic components of a computer system include hardware, software, data, and the user.
+an electronic device for storing and processing data, typically in binary form, according to instructions given to it in a variable program. It is designed to perform various tasks by executing a set of instructions called programs. Computers come in various forms, including personal computers, servers, mainframes, and embedded systems in devices like smartphones and appliances. The basic components of a computer system include hardware, software, data, and the user.
 
 ## Software:
 
