@@ -1,20 +1,70 @@
-**Computer:**
+
+# Hardware and accessories
+
+**Printed Circuit Board (PCB):**
+
+A Printed Circuit Board (PCB) is a flat, rigid board made of non-conductive material (typically fiberglass or epoxy) that serves as a platform for connecting and supporting electronic components. PCBs are a crucial part of electronic devices, providing a structured layout for the components and the interconnections necessary for the device to function.
+
+**Basics of PCBs:**
+
+1. **Substrate Material:**
+   - PCBs are typically made from a substrate material, often a type of fiberglass-reinforced epoxy. The substrate provides mechanical support and electrical insulation.
+
+![Substrate Material](./img/substrate.png)
+
+2. **Copper Layers:**
+   - Thin layers of copper foil are laminated onto the substrate. These copper layers serve as the conductive paths for electrical signals.
+
+3. **Circuit Design:**
+   - The circuit design is created using Computer-Aided Design (CAD) software. The design specifies the placement of components, the routing of traces, and the location of holes for mounting.
+
+4. **Components:**
+   - Electronic components such as resistors, capacitors, integrated circuits, and connectors are mounted onto the PCB. These components are soldered onto the copper traces.
+
+5. **Copper Traces:**
+   - Copper traces form the conductive pathways on the PCB, connecting the various components according to the circuit design. Traces can be on one or both sides of the PCB.
+
+6. **Through-Hole Technology (THT) and Surface Mount Technology (SMT):**
+   - THT involves mounting components by inserting their leads through holes in the PCB and soldering them on the opposite side.
+   - SMT involves placing components directly onto the surface of the PCB and soldering them in place.
+
+![THT vs SMT](./img/THTvsSMT.webp)
+
+7. **Vias:**
+   - Vias are plated holes that connect different layers of the PCB, allowing traces to pass through from one side to the other.
+
+8. **Silkscreen:**
+   - A silkscreen layer provides reference markings, labels, and component designators on the PCB to aid in assembly and troubleshooting.
+
+**How PCBs Work:**
+
+1. **Electrical Connections:**
+   - PCBs provide a platform for creating electrical connections between various components. The copper traces on the PCB act as conductive paths, allowing electricity to flow between different parts of the circuit.
+
+2. **Component Mounting:**
+   - Components are mounted on the PCB in specific locations according to the circuit design. The physical arrangement ensures that the electrical connections between components are established correctly.
+
+3. **Signal Routing:**
+   - Copper traces route signals between components, facilitating the flow of data and electrical signals within the circuit.
+
+4. **Electrical Isolation:**
+   - The non-conductive substrate material ensures that copper traces do not unintentionally connect with each other, providing electrical isolation between different parts of the circuit.
+
+5. **Compact Design:**
+   - PCBs enable a compact and organized layout of electronic components, reducing the overall size of electronic devices and enhancing their reliability.
+
+6. **Scalability:**
+   - PCBs can be designed for various levels of complexity, from simple single-layer boards to complex multi-layer boards, depending on the requirements of the electronic device.
+
+
+# Computer:
 A computer is a programmable electronic device that processes and stores data. It is designed to perform various tasks by executing a set of instructions called programs. Computers come in various forms, including personal computers, servers, mainframes, and embedded systems in devices like smartphones and appliances. The basic components of a computer system include hardware, software, data, and the user.
 
-**Software:**
+## Software:
 Software is a set of instructions, programs, or data that enables a computer to perform specific tasks or functions. It is a non-physical component of a computer system that provides the necessary instructions for the hardware to operate and execute various operations. Software can be broadly categorized into two main types:
 
-1. **System Software:**
-   - **Operating Systems (OS):** Software that manages computer hardware and provides services for computer programs. Examples include Windows, macOS, Linux.
-   - **Device Drivers:** Software that allows the operating system to communicate with hardware devices like printers, graphics cards, etc.
-   - **Utilities:** Programs that perform specific tasks related to system management, such as antivirus software, disk cleanup tools, etc.
 
-2. **Application Software:**
-   - **Applications:** Programs designed to perform specific tasks for end-users. Examples include word processors (Microsoft Word), spreadsheets (Microsoft Excel), web browsers (Google Chrome), and games.
-   - **Business Software:** Tools designed for business purposes, such as accounting software, customer relationship management (CRM) software, etc.
-   - **Creative Software:** Tools used for creative tasks, such as graphic design software (Adobe Photoshop), video editing software (Adobe Premiere), and music production software.
-
-**Hardware:**
+## Hardware:
 Hardware refers to the physical components of a computer system that you can touch and see. These components are essential for the computer to function and execute tasks. Hardware includes devices such as the central processing unit (CPU), memory (RAM), storage devices (hard drives, SSDs), input devices (keyboard, mouse), output devices (monitor, printer), and various other peripherals like graphics cards, network cards, and motherboards. In essence, hardware provides the tangible infrastructure necessary for the execution of software and the processing of data within a computer system.
 
 Computer hardware consists of various physical components that work together to enable the functioning of a computer system. Here are the main components of computer hardware:
@@ -165,4 +215,64 @@ The processor, also known as the Central Processing Unit (CPU), is a vital compo
 
 8. **Compatibility and Architecture:**
    - **x86, x64, ARM, etc.:** Different processor architectures exist, each with its own set of instructions and design principles. Common architectures include x86 (used in many desktop and laptop CPUs) and ARM (common in mobile devices and embedded systems).
+
+
+### Types of processors:
+
+
+#### Based on the number of cores:
+
+1. **Single-Core Processor:**
+   - A single-core processor is a CPU with a single processing unit (core) capable of executing instructions independently.
+   - It is the simplest form of a CPU and is generally used in low-end, basic computing devices.
+   - Single-core processors are not suitable for multitasking and resource-intensive applications.
+
+2. **Multi-Core Processor:**
+   - A multi-core processor is a CPU with multiple processing units (cores) on a single chip.
+   - It is capable of executing multiple instructions simultaneously, improving performance in multitasking scenarios.
+   - Multi-core processors are commonly used in modern computers, smartphones, and other devices.
+
+#### Based on the number of bits:
+
+1. **32-bit Processor:**
+   - A 32-bit processor is a CPU with a 32-bit register size, allowing it to process 32 bits of data at a time.
+   - It can address up to 4 GB of RAM and is commonly used in older computers.
+   - 32-bit processors are not compatible with 64-bit software.
+
+2. **64-bit Processor:**
+   - A 64-bit processor is a CPU with a 64-bit register size, allowing it to process 64 bits of data at a time.
+   - It can address up to 16 exabytes of RAM and is commonly used in modern computers.
+   - 64-bit processors are compatible with both 32-bit and 64-bit software.
+
+#### Based on the manufacturer:
+
+1. **Intel Processor:**
+   - Intel is a leading manufacturer of CPUs for desktop and laptop computers.
+   - Popular Intel processors include the Core i3, Core i5, and Core i7 series.
+
+2. **AMD Processor:**
+   - AMD is a leading manufacturer of CPUs for desktop and laptop computers.
+   - Popular AMD processors include the Ryzen 3, Ryzen 5, and Ryzen 7 series.
+
+3. **ARM Processor:**
+   - ARM is a leading manufacturer of CPUs for mobile devices and embedded systems.
+   - Popular ARM processors include the Exynos by samsung, M1,M2 from apple,Snapdragon by Qualcomm, and Kirin by Huawei.
+
+![Intel vs AMD](./img/arm.webp)
+
+#### Based on the Instruction Set Architecture (ISA):
+   1. **CISC (Complex Instruction Set Computer):**
+      - A CISC processor is a CPU that supports a large set of instructions.
+      - It is capable of executing complex instructions in a single clock cycle.
+      - CISC processors are generally more efficient in terms of code size but less efficient in terms of execution speed.
+      - Examples include the Intel x86 and AMD x86-64 architectures.
+   2. **RISC (Reduced Instruction Set Computer):**
+      - A RISC processor is a CPU that supports a small set of instructions.
+      - It is capable of executing simple instructions in a single clock cycle.
+      - RISC processors are generally more efficient in terms of execution speed but less efficient in terms of code size.
+      - Examples include the ARM and MIPS architectures.
+   3. **Hybrid:**
+      - A hybrid processor is a CPU that combines the features of both CISC and RISC architectures.
+      - It is capable of executing both simple and complex instructions efficiently.
+      - Examples include the Intel x86-64 and ARMv8 architectures.
 
