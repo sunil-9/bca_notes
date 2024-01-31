@@ -38,7 +38,7 @@ Here's an introduction to the key aspects of program maintenance:
 
 6. **Life Cycle of Maintenance:**
 
-![Life Cycle of Maintenance](./lifecycle_of_maintainance.png)
+![Life Cycle of Maintenance](./img/lifecycle_of_maintainance.png)
 
 - **Identification of Issues:** Detecting problems through user feedback, monitoring, or automated testing.
 - **Analysis:** Understanding the nature and scope of the issue.

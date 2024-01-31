@@ -58,7 +58,7 @@ Key components of software development include:
 
 ## Program Development Life Cycle
 
-![Program Development Life Cycle](SDLC-cycle.jpg)
+![Program Development Life Cycle](./img/SDLC-cycle.jpg)
 
 The Program Development Life Cycle (PDLC) is a set of processes or phases that guide the development of computer programs or software applications. It is a framework that outlines the stages through which a software project progresses, from conception to deployment and maintenance. The PDLC is also known as the Software Development Life Cycle (SDLC).
 
@@ -221,18 +221,18 @@ Problem analysis, also known as requirements analysis, is a critical phase in th
 
 Clear and well-documented requirements serve as the basis for subsequent phases, including design, development, and testing, contributing to the overall success of the software project.
 
-| Aspect                       | Functional Requirements                                                                     | Non-Functional Requirements                                                                                      |
-| ---------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| **Definition**               | Describes what the system is supposed to do.                                                | Describes how the system should perform its functions.                                                           |
-| **Focus**                    | Concentrates on the behavior and features of the system.                                    | Concentrates on system attributes and characteristics.                                                           |
-| **Examples**                 | User authentication, data validation, report generation, etc.                               | Performance, reliability, usability, security, etc.                                                              |
-| **What they address**        | Specific functionalities and features that users need.                                      | Quality attributes or characteristics of the system.                                                             |
-| **Measurability**            | Can often be measured objectively based on user interactions.                               | Often involves subjective assessments or quality metrics.                                                        |
-| **Change Frequency**         | Likely to change more frequently as user needs evolve.                                      | Tends to be more stable and less subject to frequent changes.                                                    |
-| **Dependencies**             | Tightly linked to user expectations and business processes.                                 | Influenced by technical, organizational, and environmental factors.                                              |
-| **Scope**                    | Directly impacts user interactions and system behavior.                                     | Affects overall system performance and user satisfaction.                                                        |
-| **Testing Emphasis**         | Tested through user acceptance testing and functional testing.                              | Requires specific types of testing (e.g., performance testing, security testing).                                |
-| **Documentation**            | Described through use cases, user stories, and functional specifications.                   | Documented through performance requirements, security policies, etc.                                             |
+| Aspect                       | Functional Requirements                                                                      | Non-Functional Requirements                                                                                       |
+| ---------------------------- | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Definition**               | Describes what the system is supposed to do.                                                 | Describes how the system should perform its functions.                                                            |
+| **Focus**                    | Concentrates on the behavior and features of the system.                                     | Concentrates on system attributes and characteristics.                                                            |
+| **Examples**                 | User authentication, data validation, report generation, etc.                                | Performance, reliability, usability, security, etc.                                                               |
+| **What they address**        | Specific functionalities and features that users need.                                       | Quality attributes or characteristics of the system.                                                              |
+| **Measurability**            | Can often be measured objectively based on user interactions.                                | Often involves subjective assessments or quality metrics.                                                         |
+| **Change Frequency**         | Likely to change more frequently as user needs evolve.                                       | Tends to be more stable and less subject to frequent changes.                                                     |
+| **Dependencies**             | Tightly linked to user expectations and business processes.                                  | Influenced by technical, organizational, and environmental factors.                                               |
+| **Scope**                    | Directly impacts user interactions and system behavior.                                      | Affects overall system performance and user satisfaction.                                                         |
+| **Testing Emphasis**         | Tested through user acceptance testing and functional testing.                               | Requires specific types of testing (e.g., performance testing, security testing).                                 |
+| **Documentation**            | Described through use cases, user stories, and functional specifications.                    | Documented through performance requirements, security policies, etc.                                              |
 | **Examples of Requirements** | - The system shall allow users to log in. <br/> - The system shall generate monthly reports. | - The system response time shall be less than 2 seconds. <br/> - The system shall be available 99.9% of the time. |
 
 ## Program Design
@@ -424,25 +424,25 @@ Testing is a critical phase in the software development life cycle (SDLC) that e
 
      - **Definition:** Testing individual units or modules of code in isolation to verify their correctness.
      - **Activities:** Developers write tests to ensure that each unit functions as intended.
-       ![Unit Testing](unit-testing.png)
+       ![Unit Testing](./img/unit-testing.png)
 
    - **Integration Testing:**
 
      - **Definition:** Verifying the interactions between integrated modules to ensure they work together seamlessly.
      - **Activities:** Testing the combined functionality of multiple units to detect integration issues.
-       ![Integration Testing](integration-testing.png)
+       ![Integration Testing](./img/integration-testing.png)
 
    - **System Testing:**
 
      - **Definition:** Evaluating the entire system's functionality to ensure it meets specified requirements.
      - **Activities:** Verifying that the software performs as expected in a complete, integrated environment.
-       ![System Testing](System-Testing.jpg)
+       ![System Testing](./img/System-Testing.jpg)
 
    - **User Acceptance Testing (UAT):**
 
      - **Definition:** Testing the software with end-users to validate that it meets their expectations.
      - **Activities:** Users assess whether the software aligns with their needs and requirements.
-       ![UAT](user-acceptance-testing.webp)
+       ![UAT](./img/user-acceptance-testing.webp)
 
    - **Performance Testing:**
 
@@ -453,7 +453,7 @@ Testing is a critical phase in the software development life cycle (SDLC) that e
 
      - **Definition:** Identifying vulnerabilities and weaknesses in the software's security measures.
      - **Activities:** Assessing the system for potential security risks and implementing measures to address them.
-       ![Security Testing](Security-Testing-1.png)
+       ![Security Testing](./img/Security-Testing-1.png)
 
    - **Regression Testing:**
 
@@ -464,7 +464,7 @@ Testing is a critical phase in the software development life cycle (SDLC) that e
 
      - **Definition:** Using automated scripts to execute tests and verify software functionality.
      - **Activities:** Writing and maintaining scripts that automatically perform tests, improving efficiency.
-       ![Automated Testing](automation-testingpng.png)
+       ![Automated Testing](./img/automation-testingpng.png)
 
    - **Load Testing:**
 
@@ -536,9 +536,9 @@ Testing is a critical phase in the software development life cycle (SDLC) that e
     - **Activities:** Assessing how easily users can interact with and navigate the software.
 
 14. **Alpha and Beta Testing:** - **Definition:** Conducting testing with a limited group of users (alpha) and a broader user audience (beta). - **Activities:** Gathering feedback from early adopters and a larger user base to identify issues.
-    ![alpha beta testing](alpha-beta-testing.webp)
+    ![alpha beta testing](./img/alpha-beta-testing.webp)
 15. **Post-Release Monitoring:** - **Definition:** Continuously monitoring the software's performance and user feedback after release. - **Activities:** Addressing issues, collecting user feedback, and planning future updates based on post-release data.
-    ![test process](test-process.jpg)
+    ![test process](./img/test-process.jpg)
     Effective testing is essential for delivering a high-quality software product that meets user expectations and performs reliably in various conditions. Testing is an iterative process that continues throughout the software development life cycle (SDLC), from the initial planning phase to post-release monitoring.
 
 ## Implementation
@@ -1145,7 +1145,7 @@ Step 7: Stop
 
 A flowchart is a graphical representation of a process, system, or algorithm. It uses different shapes and arrows to depict the steps or activities involved and the flow of control between them. Flowcharts are widely used in various fields, including software development, business process modeling, education, and problem-solving. Here are the key components and symbols used in flowcharts:
 
-![flow chart figure](flowchart-fig.png)
+![flow chart figure](./img/flowchart-fig.png)
 
 ### Basic Flowchart Symbols:
 
@@ -1170,7 +1170,7 @@ A flowchart is a graphical representation of a process, system, or algorithm. It
 
 ### Common Flowcharting Conventions:
 
-![Design elements](Design-elements-Flowcharts.png)
+![Design elements](./img/Design-elements-Flowcharts.png)
 
 - **Sequential Flow:**
 
@@ -1225,9 +1225,9 @@ A flowchart is a graphical representation of a process, system, or algorithm. It
 
 ### Example Flowchart:
 
-![flowchart example](flowchart-example.jpg)
-![flowchart example](flowchart1.png)
-![flowchart example](flowchart2.png)
+![flowchart example](./img/flowchart-example.jpg)
+![flowchart example](./img/flowchart1.png)
+![flowchart example](./img/flowchart2.png)
 
 ## Decision Table
 

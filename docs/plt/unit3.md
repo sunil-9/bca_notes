@@ -773,7 +773,7 @@ Here are some fundamental concepts and features of Object-Oriented Programming:
 
 The Waterfall Model is a linear and sequential approach to software development, where each phase of the development process must be completed before moving on to the next. The phases typically include requirements analysis, system design, implementation, testing, deployment, and maintenance. Here are the advantages and disadvantages of the Waterfall Model:
 
-![waterfall](./waterfall.jpg)
+![waterfall](./img/waterfall.jpg)
 
 **Advantages of the Waterfall Model:**
 
@@ -837,7 +837,7 @@ The Waterfall Model is a linear and sequential approach to software development,
 
 The Spiral Model is a software development model that combines the iterative nature of prototyping with the systematic aspects of the Waterfall Model. It emphasizes risk assessment and management throughout the development process. The model is represented as a spiral, and each loop of the spiral represents a phase in the software development life cycle. Here are the advantages and disadvantages of the Spiral Model:
 
-![spiral](./spiral.png)
+![spiral](./img/spiral.png)
 
 **Advantages of the Spiral Model:**
 
@@ -910,13 +910,13 @@ The Spiral Model is a software development model that combines the iterative nat
 
 ## Prototype or Transformation Model
 
-![Prototype](./prototype-model.png)
+![Prototype](./img/prototype-model.png)
 
 It seems there might be a slight confusion in the term "Transformation Model." However, I'll provide information about the Prototype Model and Transformational Leadership separately.
 
 ### Prototype Model:
 
-![Prototype](./Prototype.jpg)
+![Prototype](./img/Prototype.jpg)
 
 The Prototype Model is a software development model where a prototype (a partial implementation of the system) is developed early in the project to gather user feedback and refine requirements. It involves iterative development, with multiple versions of the prototype created and improved based on user feedback.
 
@@ -983,11 +983,11 @@ The Prototype Model is a software development model where a prototype (a partial
 
 ## Iterative Model
 
-![Iterative](./Iterative-Model.png)
+![Iterative](./img/Iterative-Model.png)
 
 The Iterative Model is an approach to software development where the development process is divided into smaller cycles or iterations. Each iteration goes through the entire software development life cycle, including planning, requirements, design, implementation, testing, and deployment. After each iteration, the software is improved and refined based on feedback received during the previous cycles. Here are the advantages and disadvantages of the Iterative Model:
 
-![Iterative](./Iterative-Waterfall-Model.png)
+![Iterative](./img/Iterative-Waterfall-Model.png)
 
 **Advantages of the Iterative Model:**
 
@@ -1059,7 +1059,7 @@ The Iterative Model is an approach to software development where the development
 
 The V-Model, also known as the Verification and Validation Model, is a software development and testing methodology that emphasizes the relationship between each development phase and its corresponding testing phase. It is an extension of the Waterfall Model and provides a structured approach to software development. The name "V-Model" is derived from the visual representation of the model, which resembles the letter 'V' due to the sequential progression of phases.
 
-![v-model](./v-model.png)
+![v-model](./img/v-model.png)
 
 Here are the key features and phases of the V-Model:
 
@@ -1102,7 +1102,7 @@ Here are the key features and phases of the V-Model:
 
 The Rapid Application Development (RAD) model is an iterative and incremental software development methodology that prioritizes rapid prototyping and quick feedback over extensive planning and testing. RAD is designed to accelerate the development process and quickly deliver functional software. This model is particularly suitable for projects with well-defined requirements and a focus on user interfaces.
 
-![Rapid Application Development](./RAD-Model.png)
+![Rapid Application Development](./img/RAD-Model.png)
 
 Key characteristics of the Rapid Application Development (RAD) model include:
 
@@ -1179,7 +1179,7 @@ Key characteristics of the Rapid Application Development (RAD) model include:
 
 The Big Bang Model is a software development model that is characterized by minimal planning and a focus on coding and building software without following a specific process or methodology. The name "Big Bang" is derived from the idea that development begins with a burst of activity, similar to the rapid expansion of the universe in the cosmological Big Bang theory.
 
-![Big Bang](./bigbang.png)
+![Big Bang](./img/bigbang.png)
 
 Key features of the Big Bang Model include:
 
@@ -1248,7 +1248,7 @@ Key features of the Big Bang Model include:
 
 The Evolutionary Model is a software development model that emphasizes the iterative and incremental development of software. It involves building and improving a system gradually, based on the continuous feedback received from users and stakeholders. The Evolutionary Model acknowledges that requirements may evolve and change over time, and it seeks to accommodate these changes through flexible and adaptive development cycles.
 
-![Evolutionary model](./evoluationary_model.png)
+![Evolutionary model](./img/evoluationary_model.png)
 
 Key characteristics of the Evolutionary Model include:
 
@@ -1318,7 +1318,7 @@ Key characteristics of the Evolutionary Model include:
 
 The Agile model is an iterative and incremental approach to software development that emphasizes flexibility, collaboration, and customer satisfaction. Agile methodologies prioritize delivering small, functional pieces of software in short development cycles, known as iterations or sprints. Agile development values responding to change over following a rigid plan and encourages close collaboration between cross-functional teams. The Agile model is not a single methodology but rather a set of principles and values that various specific methodologies, frameworks, and practices align with. One of the most well-known Agile frameworks is Scrum.
 
-![Agile Model](./agile_model.png)
+![Agile Model](./img/agile_model.png)
 
 Key principles and characteristics of the Agile model include:
 
@@ -1574,7 +1574,7 @@ Cohesion refers to the degree to which the elements within a module or component
 
 There are several types of cohesion, ranging from low to high:
 
-![Cohesion and Coupling](./cohesion.png)
+![Cohesion and Coupling](./img/cohesion.png)
 
 #### Type of cohesion:
 
@@ -1616,7 +1616,7 @@ There are several types of cohesion, ranging from low to high:
 
 Coupling refers to the degree of dependence between different modules or components. It measures how much one module knows about the inner workings or implementation details of another. Low coupling is desirable as it leads to more modular, reusable, and maintainable code.
 
-![Cohesion and Coupling](./coupling.png)
+![Cohesion and Coupling](./img/coupling.png)
 
 There are different levels of coupling:
 
