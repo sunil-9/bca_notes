@@ -39,7 +39,7 @@ A Printed Circuit Board (PCB) is a flat, rigid board made of non-conductive mate
 
 8. **Silkscreen:**
    - A silkscreen layer provides reference markings, labels, and component designators on the PCB to aid in assembly and troubleshooting.
-
+<!-- 
 **How PCBs Work:**
 
 1. **Electrical Connections:**
@@ -63,7 +63,7 @@ A Printed Circuit Board (PCB) is a flat, rigid board made of non-conductive mate
    - PCBs enable a compact and organized layout of electronic components, reducing the overall size of electronic devices and enhancing their reliability.
 
 6. **Scalability:**
-   - PCBs can be designed for various levels of complexity, from simple single-layer boards to complex multi-layer boards, depending on the requirements of the electronic device.
+   - PCBs can be designed for various levels of complexity, from simple single-layer boards to complex multi-layer boards, depending on the requirements of the electronic device. -->
 
 # Computer:
 
