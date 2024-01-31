@@ -64,6 +64,35 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [
+        {name: 'keywords', content: 'BCA, Bachelor of computer application, PU,Pokhara University, DDS Notes, DDS BCA Notes'},
+        {name: 'twitter:card', content: 'img/docusaurus-social-card.jpg'},
+      ],
+      headTags: [
+        // Declare a <link> preconnect tag
+        // {
+        //   tagName: 'link',
+        //   attributes: {
+        //     rel: 'preconnect',
+        //     href: 'https://example.com',
+        //   },
+        // },
+        // Declare some json-ld structured data
+        {
+          tagName: 'script',
+          attributes: {
+            type: 'application/ld+json',
+          },
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org/',
+            '@type': 'Organization',
+            name: 'DDS Notes',
+            url: 'https://dds.com.np/',
+            logo: 'https://dds.com.np/img/logo.svg',
+          }),
+        },
+      ],
+
       // Replace with your project's social card
       image: "img/docusaurus-social-card.jpg",
       navbar: {
