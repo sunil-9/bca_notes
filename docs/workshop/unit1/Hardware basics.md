@@ -39,31 +39,6 @@ A Printed Circuit Board (PCB) is a flat, rigid board made of non-conductive mate
 
 8. **Silkscreen:**
    - A silkscreen layer provides reference markings, labels, and component designators on the PCB to aid in assembly and troubleshooting.
-<!-- 
-**How PCBs Work:**
-
-1. **Electrical Connections:**
-
-   - PCBs provide a platform for creating electrical connections between various components. The copper traces on the PCB act as conductive paths, allowing electricity to flow between different parts of the circuit.
-
-2. **Component Mounting:**
-
-   - Components are mounted on the PCB in specific locations according to the circuit design. The physical arrangement ensures that the electrical connections between components are established correctly.
-
-3. **Signal Routing:**
-
-   - Copper traces route signals between components, facilitating the flow of data and electrical signals within the circuit.
-
-4. **Electrical Isolation:**
-
-   - The non-conductive substrate material ensures that copper traces do not unintentionally connect with each other, providing electrical isolation between different parts of the circuit.
-
-5. **Compact Design:**
-
-   - PCBs enable a compact and organized layout of electronic components, reducing the overall size of electronic devices and enhancing their reliability.
-
-6. **Scalability:**
-   - PCBs can be designed for various levels of complexity, from simple single-layer boards to complex multi-layer boards, depending on the requirements of the electronic device. -->
 
 # Computer:
 
