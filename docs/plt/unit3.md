@@ -1360,7 +1360,6 @@ Key principles and characteristics of the Agile model include:
 
 10. **Retrospectives:**
     - **Description:** At the end of each sprint, the team conducts a retrospective meeting to reflect on what went well, what could be improved, and how to enhance the development process in the future.
-      Certainly! Let's explore the advantages and disadvantages of the Agile model:
 
 ### Advantages of Agile:
 
