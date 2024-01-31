@@ -359,7 +359,7 @@ A motherboard is the main printed circuit board (PCB) in a computer that houses 
 | **HDMI (High Definition Multimedia Interface)** | Transmits high-definition video and audio.    | Connects computers to monitors/TVs, multimedia devices. | ![HDMI](./img/hdmi.jpg)    |
 | **Ethernet (RJ45)**           | Enables wired network connections.                    | Connects to a local network for internet access.   | ![Ethernet](./img/rj-45.webp) |
 | **Audio Jack (3.5mm)**        | Audio input/output for headphones and microphones.    | Connects speakers, headphones, microphones.         | ![Audio Jack](./img/AudioJack.jpg) |
-| **DisplayPort**               | Video and audio interface for high-quality displays.  | Similar to HDMI, connects monitors and graphics cards. | ![DisplayPort]() |
+| **DisplayPort**               | Video and audio interface for high-quality displays.  | Similar to HDMI, connects monitors and graphics cards. | ![DisplayPort](./img/T3.jpg) |
 | **Thunderbolt**               | High-speed data transfer and video connectivity.      | Connects external storage, displays, and peripherals.| ![Thunderbolt](./img/display-port.png)|
 | **VGA (Video Graphics Array)**| Analog video connection for older displays.           | Older monitors and projectors.                       | ![VGA](./img/vga.png)      |
 | **DVI (Digital Visual Interface)** | Transmits digital video signals.                 | Monitors, projectors, and some older graphics cards. | ![DVI](./img/dvi.webp)      |
