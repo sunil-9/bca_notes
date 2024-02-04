@@ -336,6 +336,8 @@ Achieving user need satisfaction within a specified time schedule is a critical 
 
    - Use prioritization techniques (e.g., MoSCoW method) to identify and focus on high-priority features. This ensures that essential functionalities are addressed first, contributing to user satisfaction even if there are time constraints.
 
+![MoSCoW Method](./img/moscow.png)
+
 5. **Time Estimation:**
 
    - Implement accurate time estimation techniques for each development phase. This includes breaking down tasks, considering dependencies, and involving the development team in estimating effort. Realistic timeframes prevent overcommitting and help manage user expectations.
