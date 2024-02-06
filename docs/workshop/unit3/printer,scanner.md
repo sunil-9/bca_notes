@@ -1,4 +1,6 @@
-# Printers:
+# Printers & Scanners
+
+## Printers:
 
 Printers are devices used to produce hard copies of digital documents or images on paper or other physical media. They come in various types, each suited to different needs:
 
@@ -46,7 +48,7 @@ Printers are devices used to produce hard copies of digital documents or images 
 
 ![3D Printer](./img/3d-printer.jpg)
 
-# Scanners:
+## Scanners:
 
 Scanners are devices used to convert physical documents, photos, or objects into digital images or files. They also come in different types:
 
