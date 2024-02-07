@@ -1057,7 +1057,7 @@ Here are the key elements and conventions typically found in a system flowchart:
    - **Purpose:** Shows the direction of flow between symbols, indicating the sequence of actions.
    - **Usage:** Used to connect symbols and illustrate the order of processes.
 
-## Data Flow Diagram
+# Data Flow Diagram
 
 A Data Flow Diagram (DFD) is a visual representation that depicts the flow of data within a system or process. It is a powerful tool used in system analysis and design to illustrate how data moves between different components of a system. DFDs are particularly useful for understanding, analyzing, and documenting complex systems and processes.
 
@@ -1133,7 +1133,7 @@ Data Flow Diagrams (DFDs) use several basic elements to visually represent the f
 
 Now, let's briefly describe each of these basic elements in the context of a simple Data Flow Diagram:
 
-![Basic Elements of a Data Flow Diagram](https://i.imgur.com/QHFtj4l.png)
+![Basic Elements of a Data Flow Diagram](./img/dfd-symbols.webp)
 
 **Example Scenario:**
 
@@ -1143,101 +1143,43 @@ Now, let's briefly describe each of these basic elements in the context of a sim
 4. **Data Store (Order Database):** Represents a data store where order information is stored persistently.
 5. **Annotation (Process Details):** Provides additional information about the order processing process.
 
-In this example, the DFD illustrates a simplified order processing system where a user interacts with the system by providing order information. The order processing process receives this information, stores it in a database, and may perform additional processing.
-
 DFDs serve as powerful tools for system analysis and design, providing a clear and structured way to represent the flow and transformation of data within a system. They aid in communication among stakeholders, system understanding, and documentation.
 
-### Example of Data Flow Diagram
+## Example of Data Flow Diagram
 
-Let's consider a simplified example of a Data Flow Diagram (DFD) for an online shopping system. This DFD will illustrate the basic components, including processes, data flows, external entities, and data stores.
+### DFD for Library Management System:
+
+Data Flow Diagram (DFD) depicts the flow of information and the transformation applied when data moves in and out of a system. The overall system is represented and described using input, processing, and output in the DFD. The inputs can be:
+
+- Book request when a student requests for a book.
+- Library card when the student has to show or submit his/her identity as proof.
+
+The overall processing unit will contain the following output that a system will produce or generate:
+
+- The book will be the output as the book demanded by the students will be given to them.
+- Information on the demanded book should be displayed by the library information system that can be used by the student while selecting the book which makes it easier for the student.
 
 ### Context Level (Level 0) DFD:
 
-![Context Level DFD](https://i.imgur.com/qLc6Lgh.png)
-
-**Description:**
-
-1. **External Entity (Customer):** Represents the external entity interacting with the system by placing orders.
-2. **Process (Order Processing):** Represents the main process within the system responsible for processing customer orders.
-3. **Data Flow (Order Information):** Represents the flow of order information from the customer to the order processing process.
-4. **External Entity (Inventory System):** Represents an external system providing information about product availability.
-5. **Data Flow (Product Availability):** Represents the flow of product availability information from the Inventory System to the Order Processing process.
-6. **Data Store (Order Database):** Represents a data store where order information is stored persistently.
+![Context Level DFD](./img/level0-dfd.png)
 
 ### Level 1 DFD (Detailed Order Processing):
 
-![Level 1 DFD](https://i.imgur.com/FKdMRKG.png)
+At this level, the system has to show or exposed with more details of processing. The processes that are important to be carried out are:
+Book delivery
+Search by topic
+List of authors, List of Titles, List of Topics, the bookshelves from which books can be located are some information that is required for these processes. Data store is used to represent this type of information.
 
-**Description:**
-
-1. **External Entity (Customer):** Represents the external entity interacting with the system by placing orders.
-2. **Process (Order Processing):** Represents the main process within the system responsible for processing customer orders.
-3. **Data Flow (Order Information):** Represents the flow of order information from the customer to the order processing process.
-4. **Process (Check Product Availability):** Represents a subprocess within the order processing process that checks product availability.
-5. **Data Flow (Product Availability):** Represents the flow of product availability information from the Inventory System to the Check Product Availability process.
-6. **Process (Update Order Database):** Represents a subprocess within the order processing process that updates the Order Database.
-7. **Data Flow (Updated Order Information):** Represents the flow of updated order information from the Update Order Database process to the customer.
+![Level 1 DFD](./img/level1-dfd.png)
 
 ### Level 2 DFD (Further Detail on Check Product Availability):
 
-![Level 2 DFD](https://i.imgur.com/KUB2Vqg.png)
+![Level 2 DFD](./img/level3-dfd.png)
 
-**Description:**
+### Out of scope:
 
-1. **External Entity (Customer):** Represents the external entity interacting with the system by placing orders.
-2. **Process (Order Processing):** Represents the main process within the system responsible for processing customer orders.
-3. **Data Flow (Order Information):** Represents the flow of order information from the customer to the order processing process.
-4. **Process (Check Product Availability):** Represents a subprocess within the order processing process that checks product availability.
-5. **Data Flow (Product Availability):** Represents the flow of product availability information from the Inventory System to the Check Product Availability process.
-6. **Data Store (Product Inventory):** Represents a data store where product inventory information is stored persistently.
-7. **Process (Update Product Inventory):** Represents a subprocess within the Check Product Availability process that updates the Product Inventory data store.
-
-This example provides a hierarchical representation of the online shopping system's data flow, illustrating how customer orders are processed, product availability is checked, and relevant data is updated in the system. Each level of the DFD adds more detail to the processes, providing a comprehensive understanding of the system's functionality.
+Other activities like purchasing of new books, replacement of old books or charging a fine are not considered in the above system.
 
 ### Leveling the Data Flow Diagram
 
 In Data Flow Diagrams (DFDs), leveling refers to the process of decomposing a high-level diagram into lower-level diagrams to provide more detail and granularity. DFDs are hierarchical, and they can have multiple levels, with each level providing a more detailed view of the system. The levels are typically labeled as Level 0, Level 1, Level 2, and so on.
-
-Let's illustrate the leveling process using a simple example of an online shopping system. We'll start with a Level 0 DFD and then create subsequent levels with more detailed information.
-
-### Level 0 DFD (Context Level):
-
-![Level 0 DFD](https://i.imgur.com/qLc6Lgh.png)
-
-In the Level 0 DFD:
-
-- External entities include "Customer" and "Inventory System."
-- The main process is "Order Processing."
-- Data flows represent the flow of information between the external entities, processes, and data stores.
-
-### Level 1 DFD (Detailed Order Processing):
-
-![Level 1 DFD](https://i.imgur.com/FKdMRKG.png)
-
-In the Level 1 DFD:
-
-- The "Order Processing" process is decomposed into two subprocesses: "Check Product Availability" and "Update Order Database."
-- More detail is provided on how the system checks product availability and updates the order database.
-- Data flows are labeled with more specific information.
-
-### Level 2 DFD (Further Detail on Check Product Availability):
-
-![Level 2 DFD](https://i.imgur.com/KUB2Vqg.png)
-
-In the Level 2 DFD:
-
-- The "Check Product Availability" subprocess is further decomposed into a subprocess called "Update Product Inventory."
-- The "Product Inventory" data store is introduced to represent the storage of product availability information.
-- More detail is provided on how the system updates the product inventory.
-
-### Leveling Process Summary:
-
-1. **Identify Subprocesses:** Identify processes within the Level 0 DFD that can be decomposed into more detailed subprocesses.
-
-2. **Create Level 1 DFD:** Decompose the main process into more detailed subprocesses in the Level 1 DFD. Each subprocess provides more detail on a specific aspect of the system.
-
-3. **Repeat for Further Levels:** If necessary, continue the leveling process by decomposing subprocesses into more detailed subprocesses in subsequent levels (Level 2, Level 3, and so on).
-
-4. **Labeling and Detailing:** Provide detailed labels for processes, data flows, and data stores at each level, adding more specific information to enhance clarity.
-
-The leveling process allows for a gradual breakdown of the system into manageable components, providing a clearer understanding of how the system functions. It also helps in organizing information and facilitates effective communication among stakeholders involved in the system analysis and design process.
