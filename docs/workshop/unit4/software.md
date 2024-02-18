@@ -134,6 +134,3 @@ Antivirus systems, also known as antivirus software or AV, play a crucial role i
    - **Firewall Integration:** Many antivirus programs include firewall features to monitor network traffic and block potentially malicious connections.
    - **Real-Time Scanning:** Antivirus systems often provide real-time protection by scanning files and processes as they are accessed or executed on the computer.
 
-6. **Regular Updates:**
-   - **Virus Definition Updates:** Antivirus databases need to be regularly updated to include new signatures for recently discovered malware. Users are encouraged to keep their antivirus software up-to-date to ensure effective protection against the latest threats.
-
