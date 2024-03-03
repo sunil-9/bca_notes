@@ -65,8 +65,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       metadata: [
-        {name: 'keywords', content: 'BCA, Bachelor of computer application, PU,Pokhara University, DDS Notes, DDS BCA Notes'},
-        {name: 'twitter:card', content: 'img/docusaurus-social-card.jpg'},
+        {
+          name: "keywords",
+          content:
+            "BCA, Bachelor of computer application, PU,Pokhara University, DDS Notes, DDS BCA Notes",
+        },
+        { name: "twitter:card", content: "img/social-card.jpg" },
       ],
       headTags: [
         // Declare a <link> preconnect tag
@@ -79,22 +83,22 @@ const config = {
         // },
         // Declare some json-ld structured data
         {
-          tagName: 'script',
+          tagName: "script",
           attributes: {
-            type: 'application/ld+json',
+            type: "application/ld+json",
           },
           innerHTML: JSON.stringify({
-            '@context': 'https://schema.org/',
-            '@type': 'Organization',
-            name: 'DDS Notes',
-            url: 'https://dds.com.np/',
-            logo: 'https://dds.com.np/img/logo.svg',
+            "@context": "https://schema.org/",
+            "@type": "Organization",
+            name: "DDS Notes",
+            url: "https://dds.com.np/",
+            logo: "https://dds.com.np/img/logo.svg",
           }),
         },
       ],
 
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/social-card.jpg",
       navbar: {
         logo: {
           alt: "DDS Logo",
@@ -220,7 +224,7 @@ const config = {
           {
             tagName: "link",
             rel: "icon",
-            href: "/img/docusaurus.png",
+            href: "/img/logo.png",
           },
           {
             tagName: "link",
@@ -244,7 +248,6 @@ const config = {
     //     filename: 'sitemap.xml',
     //   },
     // ],
-
   ],
 };
 
