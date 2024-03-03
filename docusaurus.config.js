@@ -184,10 +184,12 @@ const config = {
         appId: "1VUXQL0700",
 
         // Public API key: it is safe to commit it
-        apiKey: "7c12878cb34afc914d193bd47029254b",
+        apiKey: "7c12878cb34afc914d193bd47029254b", //from website
+        // apiKey: "5300d8545a649134bfd771cdff579db7", //from email
 
         indexName: "dds-com",
-        placeholder: "Ask me",
+        // placeholder: "Ask me",
+        debug: true, // Set debug to true if you want to inspect the dropdown
 
         // Optional: see doc section below
         // contextualSearch: true,
