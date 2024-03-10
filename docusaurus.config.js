@@ -190,7 +190,7 @@ const config = {
         // placeholder: "Ask me",
 
         // Optional: see doc section below
-         contextualSearch: false,
+        contextualSearch: false,
 
         // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
         // externalUrlRegex: "external\\.com|domain\\.com",
@@ -248,6 +248,13 @@ const config = {
     //     filename: 'sitemap.xml',
     //   },
     // ],
+  ],
+  scripts: [
+    {
+      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4987525106509640",
+      async: true,
+      crossorigin: "anonymous",
+    },
   ],
 };
 
