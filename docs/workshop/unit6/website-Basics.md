@@ -154,5 +154,61 @@ JavaScript is a versatile programming language that is primarily used to add int
    });
    ```
 
-
 **Learn more about Html,CSS and Javascript [here](https://www.w3schools.com/)**
+
+## Questions:
+
+### Write a basic HTML file to display the following layout (use external CSS only with the file ame “style.css”).
+
+Heading 1 color = red
+Heading 2 color=green
+Heading 3 Color = blue
+Paragraph background color= orange
+Link for anchor text =https://google.com
+Image source = “image.jpg”
+And alt text is=” Google”
+Assume anything else if needed.
+
+![Basic Question](./question.png)
+
+### Solution
+
+create a html file with file name "index.html".
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+<br>
+
+<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<p>My first paragraph.<br/> This is new line of same paragraph.</p>
+
+<a href="https://google.com">This is a link</a><br/>
+<img src="image.jpg" alt="Google" width="104" height="142">
+</body>
+</html>
+
+```
+
+Create a css file on the same folder with file name “style.css” and add the following code.
+
+```css  
+h1 {
+  color: red;
+}
+h2 {
+  color: green;
+}
+h3 {
+  color: blue;
+}
+p {
+  background-color: orange;
+}
+
+```
