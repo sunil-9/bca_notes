@@ -197,7 +197,7 @@ create a html file with file name "index.html".
 
 Create a css file on the same folder with file name “style.css” and add the following code.
 
-```css  
+```css
 h1 {
   color: red;
 }
@@ -210,5 +210,8 @@ h3 {
 p {
   background-color: orange;
 }
-
 ```
+
+output will be like this.
+
+![Basic Question](./question.png)
