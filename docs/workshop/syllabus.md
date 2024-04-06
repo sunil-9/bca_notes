@@ -1,5 +1,4 @@
-# Syllabus
-
+# Course Outline
 # Pokhara University
 
 ## Bachelor of Computer Application (BCA)
