@@ -25,16 +25,17 @@ An operating system (OS) is system software that manages computer hardware and s
 **Mobile Operating System:**
 Mobile operating systems are specifically designed for mobile devices such as smartphones and tablets. They facilitate user interaction through touch gestures and provide various services tailored to mobile usage.
 
+#### Java OS (J2ME):
+- **Description:** J2ME (Java 2 Platform, Micro Edition) is a set of technologies, specifications, and libraries developed by Sun Microsystems for small devices like mobile phones and pagers.
+- **Platforms:** It includes high-end and low-end platforms catering to different classes of devices.
+- **Licensing:** J2ME is licensed under GNU General Public License.
+
 #### Android:
 - **Description:** Android is a mobile OS developed by Google, based on the Linux kernel. It is primarily designed for touchscreen devices.
 - **User Interface:** Android's user interface relies on touch gestures for direct manipulation of on-screen objects.
 - **Variants:** Apart from smartphones and tablets, Android is used in devices like Android TV, Android Auto, and Android Wear.
 - **History:** Initially developed by Android, Inc., Google acquired it in 2005. It was unveiled in 2007 with the founding of the Open Handset Alliance.
 
-#### Java OS (J2ME):
-- **Description:** J2ME (Java 2 Platform, Micro Edition) is a set of technologies, specifications, and libraries developed by Sun Microsystems for small devices like mobile phones and pagers.
-- **Platforms:** It includes high-end and low-end platforms catering to different classes of devices.
-- **Licensing:** J2ME is licensed under GNU General Public License.
 
 #### iOS:
 - **Description:** iOS, originally known as iPhone OS, is a mobile OS developed by Apple Inc. exclusively for Apple hardware, including the iPhone, iPad, and iPod touch.
