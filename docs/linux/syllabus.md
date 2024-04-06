@@ -1,9 +1,9 @@
-# Linux
 
+# Course Outline
 
 ![Syllabus Image](./syllabus/linux.png)
 
-## Syllabus
+
 **CMP 337 Linux**
 
 
