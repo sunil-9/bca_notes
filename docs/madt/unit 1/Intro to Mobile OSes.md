@@ -54,7 +54,7 @@ Mobile operating systems are specifically designed for mobile devices such as sm
 - **Description:** Ubuntu Touch, developed by Canonical UK Ltd and the Ubuntu Community, is a mobile version of the Ubuntu operating system. It targets touchscreen mobile devices such as smartphones and tablets.
 - **Release:** Announced by Mark Shuttleworth in 2011, Ubuntu Touch was released to manufacturers in September 2014. The first Ubuntu-based smartphone, Bq Aquaris E4.5, was launched in Europe in February 2015.
 
-![ubuntu touch](/img/android/ubuntu-touch.jpg)
+![ubuntu touch](/img/android/Ubuntu-Touch.jpg)
 
 #### Tizen:
 - **Description:** Tizen is an open-source operating system based on the Linux kernel and API. It caters to a wide range of devices including smartphones, tablets, smart TVs, and more.
