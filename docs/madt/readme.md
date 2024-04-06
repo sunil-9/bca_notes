@@ -6,7 +6,7 @@
 ## important download links
 [Download Course](/madt.zip)
 
-[Download Course](/android.pdf)
+[Download Course](/Android.pdf)
 
 ## Unit I: Introduction to Mobile OSes (7 hours)
 - Introduction to Mobile OSes:
