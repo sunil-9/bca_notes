@@ -1,3 +1,61 @@
+# Fragments
+
+A fragment represents a behavior or a portion of user interface in an activity. Multiple fragments can be combined in a single activity to build a multi-pane UI and reuse a fragment in multiple activities. A fragment must always be embedded in an activity, and the fragment's lifecycle is directly affected by the host activity's lifecycle.
+
+## Life Cycle of Fragment
+
+To create a fragment, you must create a subclass of Fragment. The Fragment class has callback methods similar to an Activity, such as `onCreate()`, `onStart()`, `onPause()`, and `onStop()`.
+
+Usually, you should implement at least the following lifecycle methods:
+
+- `onCreate()`: Called when creating the fragment.
+- `onCreateView()`: Called when it's time to draw the fragment's user interface.
+- `onPause()`: Called when the user is leaving the fragment.
+
+Additional callback methods to handle various stages of the fragment lifecycle include:
+
+- `onAttach()`: Called when the fragment has been associated with the activity.
+- `onActivityCreated()`: Called when the activity's `onCreate()` method has returned.
+- `onDestroyView()`: Called when the view hierarchy associated with the fragment is being removed.
+- `onDetach()`: Called when the fragment is being disassociated from the activity.
+
+## Activity vs Fragment
+
+| Activity         | Fragment                                              |
+|------------------|-------------------------------------------------------|
+| A window with which the user interacts with.                        | A part of an activity, which contributes its own UI to that Activity.                         |
+| May contain zero or multiple number of fragments.         | Can be reused in multiple activities, acting like a reusable component in activities.        |
+| Can exist without any fragment in it.                                    | Must live inside the activity and be a part of it.                          |
+| Needs to be declared in "AndroidManifest.xml".               | Not needed to be declared in "AndroidManifest.xml".                |
+| Cannot have nested activities.                                               | Can have nested fragments.                                                         |
+
+## Multiple Screen Sizes and Orientation Interfaces
+
+For supporting multiple screen sizes and orientation, the following terms must be considered:
+
+### Screen size
+
+Actual physical size, measured as the screen's diagonal. Android groups all actual screen sizes into four generalized sizes: small, normal, large, and extra-large.
+
+### Screen density
+
+The quantity of pixels within a physical area of the screen, usually referred to as dpi (dots per inch). Android groups all actual screen densities into six generalized densities: low, medium, high, extra-high, extra-extra-high, and extra-extra-extra-high.
+
+### Orientation
+
+The orientation of the screen from the user's point of view, either landscape or portrait.
+
+### Resolution
+
+The total number of physical pixels on a screen. Applications should be concerned only with screen size and density, as specified by the generalized size and density groups.
+
+### Density-independent pixel (dp)
+
+A virtual pixel unit used when defining UI layout, to express layout dimensions or position in a density-independent way. The conversion of dp units to screen pixels is based on the actual density of the screen in use.
+
+
+
+
 In Android development using Java, fragments are a fundamental component of the user interface. Fragments have their own lifecycle, which consists of a series of callback methods that are invoked by the Android system at different stages of the fragment's existence. Here's an overview of the basic fragment lifecycle in Android:
 
 ### onAttach():
