@@ -1,3 +1,5 @@
+# Course Outline
+
 | Evaluation: |        |           |       |
 | :---------- | :----- | :-------- | :---- |
 |             | Theory | Practical | Total |
