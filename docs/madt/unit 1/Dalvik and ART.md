@@ -52,4 +52,4 @@ adb uninstall com.example.package_name
 
 Replace `com.example.package_name` with the root package name of the app you want to uninstall.
 
-It's important to note that you need to have the Android SDK installed and an Android emulator or physical device running to use these `adb` commands effectively. Additionally, ensure that you have the appropriate permissions and access levels to interact with the device or emulator.
+
