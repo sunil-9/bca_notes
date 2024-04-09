@@ -3,12 +3,15 @@
 # Course Outline
 
 <!-- add a notes to download resource in zip format which is /madt.zip -->
+
 ## important download links
-[Download Course](/madt.zip)
+
+[Download Course zip](/madt.zip)
 
 [Download Course](/Android.pdf)
 
 ## Unit I: Introduction to Mobile OSes (7 hours)
+
 - Introduction to Mobile OSes:
   - Android
   - iOS
@@ -31,12 +34,14 @@
 - Using ADB command line interface
 
 ## Unit II: Java Architecture and OOPS (7 hours)
+
 - Java Classes and Objects
 - Class Methods and Instances
 - Inheritance and Polymorphism in Java
 - Interface and Abstract Class
 
 ## Unit III: Android Classes and Basics (9 hours)
+
 - Android Fundamentals
 - Creating an Android App
 - Android Manifests File
@@ -53,6 +58,7 @@
 - The Fragment Class and Its usage
 
 ## Unit IV: Android User Interface (8 hours)
+
 - Introduction to Multiple Screen Size and Orientation Interfaces
 - User Interface Classes
 - Android XML Layouts
@@ -60,6 +66,7 @@
 - Android 3rd party UI/UX Libraries
 
 ## Unit V: Advanced Topics (6 Hours)
+
 - User Notifications
 - The Broadcast Receiver class
 - Threads
@@ -68,19 +75,16 @@
 - Networking
 
 ## Unit VI: Graphics and Multimedia (6 hours)
+
 - Graphics and Animations
 - Multi-touch and Gestures
 - Multimedia
 
 ## Unit VII: Packaging and Monetizing (8 hours)
+
 - Data Management (using sqlite database, local storage)
 - The Content Provider Class
 - The Service Class
 - Google Mobile Ads SDK
 - Signing and Exporting an APP
 - Publishing your app to the Play Store
-
-
-
-
-
