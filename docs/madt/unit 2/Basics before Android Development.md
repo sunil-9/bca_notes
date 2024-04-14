@@ -1,12 +1,4 @@
-**Basics before Android Development**
-
-**Introduction:** Welcome to the workshop on the Basics before Android
-Development. This workshop aims to provide you with the foundational
-knowledge required for Android app development. Before diving into
-Android development, it's essential to understand the fundamentals of
-programming using Java and version control using Git and GitHub.
-
-**Section 1: Basics of Programming using Java**
+**Basics of Programming using Java**
 
 _1.1 Variables, Data Types, Operators:_ In Java, variables are used to
 store data. Data types specify the kind of value a variable can hold,
