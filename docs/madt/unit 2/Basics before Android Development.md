@@ -7,7 +7,7 @@ used to perform operations on variables.
 
 Example Code:
 
-```js {7} title="VariablesExample.java"
+```java {7} title="VariablesExample.java"
     public class VariablesExample {
         public static void main(String[] args) {
             int num1 = 10;
@@ -32,7 +32,8 @@ like "if" and "else" help make decisions, while loops allow you to
 repeat a block of code.
 
 Example Code:
-```js  {5-9,11-13,16,18} title="ControlStructuresExample.java
+
+```java {5-9,11-13,16,18} title="ControlStructuresExample.java
     public class ControlStructuresExample {
         public static void main(String[] args) {
             int age = 18;
@@ -95,7 +96,7 @@ your code.
 
 Example Code:
 
-```js {4-6,14} title="OOPExample.java"
+```java {4-6,14} title="OOPExample.java"
     class Circle {
         double radius;
 
@@ -126,7 +127,7 @@ another class.
 
 Example Code:
 
-```js {2-16} title="PolymorphismExample.java"
+```java {2-16} title="PolymorphismExample.java"
     class Shape {
         void draw() {
             System.out.println("Drawing a shape");
@@ -166,7 +167,7 @@ interact with it.
 
 Example Code:
 
-```js {2-21} title="EncapsulationExample.java"
+```java {2-21} title="EncapsulationExample.java"
     class Student {
         private String name;
         private int age;
@@ -213,7 +214,7 @@ accessed without creating an instance of the class.
 
 Example Code:
 
-```js {2-4} title="StaticExample.java"
+```java {2-4} title="StaticExample.java"
     class MathUtils {
         static int add(int a, int b) {
             return a + b;
