@@ -233,7 +233,38 @@ Output:
 
 > Sum: 8
 
-**Section 2: Introduction to Version Control: Git and GitHub**
+**Pattern**
+We can use nested loop to print patterns in Java. Here is an example to print a pattern of numbers:
+
+```java {2-10} title="PatternExample.java"
+    public class PatternExample {
+        public static void main(String[] args) {
+            int rows = 5;
+
+            for (int i = 1; i <= rows; i++) {
+                for (int j = 1; j <= i; j++) {
+                    System.out.print(j + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+```
+
+Output:
+
+> 1
+> 1 2
+> 1 2 3
+> 1 2 3 4
+> 1 2 3 4 5
+
+**Practice Exercise:**
+
+solve the following pattern using Java programming language:
+![Pattern](/img/android/pattern.jpg)
+
+## Section 2: Introduction to Version Control: Git and GitHub
 
 2.1 Introduction to Git and GitHub:\_ Version control helps track
 changes to your code over time. Git is a widely used version control
@@ -315,8 +346,3 @@ _2.2 Basic Git Commands:_
 - `git status`: View the status of your repository.
 
 - `git log`: View commit history.
-
-**Conclusion:** This workshop has provided you with a solid foundation
-in Java programming and introduced you to version control using Git and
-GitHub. These skills are essential as you embark on your journey into
-Android app development.
