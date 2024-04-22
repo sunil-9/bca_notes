@@ -105,6 +105,6 @@ Java Native Interface works as a mediator between Java method calls and native l
 
 ## Java Runtime Environment
 
-![Java Architecture](/img/android/java-architecture2.png)
+![Java Architecture](/img/android/java-jre.png)
 
 Java Run-time Environment (JRE) is the part of the Java Development Kit (JDK). It is a freely available software distribution which has Java Class Library, specific tools, and a stand-alone JVM. It is the most common environment available on devices to run java programs. The source Java code gets compiled and converted to Java bytecode. If you wish to run this bytecode on any platform, you require JRE. The JRE loads classes, verify access to memory, and retrieves the system resources. JRE acts as a layer on the top of the operating system.
