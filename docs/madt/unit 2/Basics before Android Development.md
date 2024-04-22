@@ -262,7 +262,7 @@ Output:
 **Practice Exercise:**
 
 solve the following pattern using Java programming language:
-![Pattern](/img/android/pattern.jpg)
+![Pattern](/img/android/patterns.jpg)
 
 ## Section 2: Introduction to Version Control: Git and GitHub
 
