@@ -242,6 +242,22 @@ public class CustomButton extends AppCompatButton {
 }
 ```
 
+If you want to add custom drawing like changing corner radius, background color, etc. to the button, you can create a custom button class by extending the `AppCompatButton` class and overriding the `onDraw` method.
+for example to change corner radius of the  button you can ulter the `onDraw` method like this:
+
+```java
+   @Override
+    protected void onDraw(Canvas canvas) {
+        // Create a rounded rectangle shape
+        RectF rect = new RectF(0, 0, getWidth(), getHeight());
+        canvas.drawRoundRect(rect, cornerRadius, cornerRadius, paint);
+
+        // Let the superclass handle the default button drawing
+        super.onDraw(canvas);
+    }
+```
+
+
 In this example, we create a custom `Button` class called `CustomButton` by extending the `AppCompatButton` class. We override the `onDraw` method to perform custom drawing operations on the canvas.
 
 Inside the `init` method, we initialize a `Paint` object and customize it as needed. In this example, we set the color to red.
