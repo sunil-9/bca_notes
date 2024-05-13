@@ -156,6 +156,13 @@ public class MyDialogFragment extends DialogFragment {
 }
 ```
 
+To use ths dialog fragment you can call it from an activity or another fragment like this:
+
+```java
+MyDialogFragment dialogFragment = new MyDialogFragment();
+dialogFragment.show(getSupportFragmentManager(), "dialog");
+```
+
 ### 4. View
 
 <a id="View"></a>
