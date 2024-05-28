@@ -27,7 +27,59 @@ Here are a few examples of implicit :
 4. **Open a Map Location**
 5. **Share Text**
 
-Let's write the complete Java code snippets for each example.
+first lets design the layout for the activity_main.xml file with 5 basics buttons for each of the above intents in a linear layout.
+
+```xml
+<!-- File: activity_main.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/button_open_webpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+
+        android:text="web content"/>
+    <Button
+        android:id="@+id/button_dial_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+
+        android:text="dial phone"/>
+    <Button
+        android:id="@+id/button_send_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+
+        android:text="send email"/>
+    <Button
+        android:id="@+id/button_open_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+
+        android:text="open map"/>
+    <Button
+        android:id="@+id/button_share_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_200"
+
+        android:text="share text"/>
+
+
+</LinearLayout>
+```
 
 ```java
 // File: MainActivity.java
