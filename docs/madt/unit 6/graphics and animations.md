@@ -21,10 +21,44 @@ The following sections will provide examples of some of these animations in Andr
 1. **Property Animation - Alpha Animation**:
    This example demonstrates a fade-in animation by gradually increasing the alpha (transparency) of a view.
 
+**i. Using ObjectAnimator**
+You can animate properties like x, y, translationX, translationY, scaleX, scaleY, rotation, etc., using ObjectAnimator.
+
 ```java
 ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f);
 animator.setDuration(1000);
 animator.start();
+```
+
+**ii. Using ValueAnimator**
+You can animate properties like x, y, translationX, translationY, scaleX, scaleY, rotation, etc., using ObjectAnimator.
+
+```java
+//fade in animation
+ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
+animator.setDuration(1000);
+animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+        float alpha = (float) animation.getAnimatedValue();
+        view.setAlpha(alpha);
+    }
+});
+animator.start();
+
+//change the height of a view
+ValueAnimator animator = ValueAnimator.ofInt(view.getHeight(), 500);
+animator.setDuration(300);
+animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+    @Override
+    public void onAnimationUpdate(ValueAnimator animation) {
+        int animatedValue = (int) animation.getAnimatedValue();
+        view.getLayoutParams().height = animatedValue;
+        view.requestLayout();
+    }
+});
+animator.start();
+
 ```
 
 2. **View Animation - Translate Animation**:
