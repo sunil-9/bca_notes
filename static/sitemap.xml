@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://dds.com.np/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Course Sections -->
+  <url>
+    <loc>https://dds.com.np/docs/plt/syllabus</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/madt</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/syllabus</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/workshop/syllabus</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- MADT Course Units -->
+  <url>
+    <loc>https://dds.com.np/docs/madt/unit-1/mobile-OS-stucture</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/madt/unit-7/content-provider-class</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/madt/unit-7/publishing-your-app-to-the-play-store</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/madt/impQuestion/unit1</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Workshop Course Units -->
+  <url>
+    <loc>https://dds.com.np/docs/workshop/unit6/website-Basics</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/workshop/unit6/server</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/workshop/workshop-course-plan</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- PLT Course Units -->
+  <url>
+    <loc>https://dds.com.np/docs/plt/unit1</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/plt/unit2</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/plt/unit5</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Linux Course Units -->
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-7-Setting-up-a-Web-Server</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-7-Setting-up-a-Web-Server/1.Introduction-to-a-web-server</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-9-Setting-up-a-Database-Server</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-10-Setting-up-DNS</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-10-Setting-up-DNS/1.Introduction-to-DNS</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-10-Setting-up-DNS/2.Setting-up-DNS-and-configuration</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-10-Setting-up-DNS/3.Querying-DNS</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-11-ISP-Simulation</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-11-ISP-Simulation/1.Integration-of-servers</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/linux/unit-11-ISP-Simulation/2.DNS-Web-Email-etc</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Web Tech II Important Questions -->
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit1</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit2</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit3</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit4</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit5</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/impQuestion/unit6</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dds.com.np/docs/webii/short-note</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Policy Pages -->
+  <url>
+    <loc>https://dds.com.np/policy</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- External Links (referenced but not part of sitemap) -->
+  <!-- https://github.com/sunil-9/bca_notes/ -->
+  <!-- https://sapkotasunil.com.np -->
+</urlset> 

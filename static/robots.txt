@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dds.com.np/sitemap.xml 
