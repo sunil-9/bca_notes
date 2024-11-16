@@ -77,7 +77,7 @@ function Feature({title, Svg, description}: Feature) {
   );
 }
 
-function HomepageFeatures(): JSX.Element {
+function HomepageFeature(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
@@ -137,7 +137,7 @@ export default function Home(): JSX.Element {
     <Layout>
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        <HomepageFeature />
       </main>
       {/* <HomepageFooter /> */}
     </Layout>
