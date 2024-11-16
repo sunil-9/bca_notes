@@ -119,7 +119,7 @@ const config = {
           { to: "/madt", label: "MADT", position: "left" },
           { to: "/linux/syllabus", label: "LINUX", position: "left" },
           { to: "/workshop/syllabus", label: "WORKSHOP", position: "left" },
-          { to: "/web2", label: "WEB2", position: "left" },
+          { to: "/web2", label: "WEB TECH 2", position: "left" },
           {
             href: "https://github.com/sunil-9/bca_notes/",
             label: "GitHub",
