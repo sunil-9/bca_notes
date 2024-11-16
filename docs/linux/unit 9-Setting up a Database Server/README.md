@@ -1,2 +1,4 @@
-# unit 9-Setting up a Database Server
+# Setting up a Database Server
+
+Understand database server setup, configuration, and management in Linux environments.
 

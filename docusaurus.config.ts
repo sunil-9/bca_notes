@@ -60,7 +60,26 @@ const config: Config = {
           "BCA, Bachelor of computer application, PU,Pokhara University, DDS Notes, DDS BCA Notes",
       },
 
-      { name: "twitter:card", content: "img/social-card.jpg" },
+      { name: "twitter:card", content: "@site/static/img/social-card.png" },
+      { name: "og:type", content: "website" },
+      { name: "og:title", content: "DDS Notes - PU BCA Study Materials" },
+      {
+        name: "og:description",
+        content:
+          "Comprehensive study materials and notes for BCA students at Pokhara University",
+      },
+      { name: "og:image", content: "@site/static/img/social-card.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:image",
+        content: "@site/static/img/social-card.png",
+      },
+      { name: "twitter:title", content: "DDS Notes - PU BCA Study Materials" },
+      {
+        name: "twitter:description",
+        content:
+          "Comprehensive study materials and notes for BCA students at Pokhara University",
+      },
     ],
 
     headTags: [

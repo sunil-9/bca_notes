@@ -1,12 +1,6 @@
----
-sidebar_position: 1
-slug: "/"
-title: DDS Notes
-description: BCA Notes for Pokhara University students
-hide_table_of_contents: true
----
 
-# Welcome to DDS Notes
+
+# Web tech II
 
 Your comprehensive resource for BCA studies at Pokhara University.
 

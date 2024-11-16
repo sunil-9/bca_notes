@@ -41,7 +41,7 @@
   align-items: center;
   padding: 4rem 0;
   width: 100%;
-  background: #f8f9fa;
+  background: var(--ifm-background-color);
 }
 
 .featureSvg {
@@ -49,6 +49,27 @@
   width: 120px;
   margin-bottom: 1.5rem;
   color: var(--ifm-color-primary);
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect */
+.featureSvg:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Adjust dark mode styles for the box */
+[data-theme='dark'] .featureSvg {
+  background: var(--ifm-color-emphasis-100);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .featureSvg:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .features h3 {
@@ -59,6 +80,12 @@
 .features p {
   font-size: 1.1rem;
   opacity: 0.8;
+}
+
+/* Add dark mode specific styles */
+[data-theme='dark'] .features {
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-content);
 }
 
 /* Footer Styles */
