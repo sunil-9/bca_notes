@@ -125,6 +125,59 @@ const config: Config = {
       ],
     },
 
+    footer: {
+      style: "dark",
+      links: [
+        {
+          title: "Docs",
+          items: [
+            // {
+            //   label: 'Tutorial',
+            //   to: '/intro',
+            // },
+            {
+              label: "PLT",
+              to: "/docs/plt/syllabus",
+            },
+            {
+              label: "MADT",
+              to: "/docs/madt",
+            },
+            {
+              label: "LINUX",
+              to: "/docs/linux/syllabus",
+            },
+          ],
+        },
+        {
+          title: "Connect",
+          items: [
+            {
+              label: "Stack Overflow",
+              href: "https://stackoverflow.com/users/8008979/sunil-sapkota",
+            },
+            {
+              label: "Twitter",
+              href: "https://twitter.com/sunilsapkota09",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "Portfolio",
+              href: "https://sapkotasunil.com.np/",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/sunil-9/",
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} DDS Notes, for PU BCA students.`,
+    },
     prism: {
       theme: prismThemes.github,
 

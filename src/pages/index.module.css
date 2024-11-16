@@ -8,11 +8,24 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(45deg, #471AA0, #A437DB);
+  color: white;
+}
+
+.hero__description {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
+  }
+  .hero__description {
+    font-size: 1rem;
   }
 }
 
@@ -20,4 +33,102 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+  background: #f8f9fa;
+}
+
+.featureSvg {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.features h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.features p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 4rem 0 2rem;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.footerLinks {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 2rem;
+}
+
+.footerLinks li {
+  margin-bottom: 0.8rem;
+}
+
+.footerLinks a {
+  color: var(--ifm-color-emphasis-700);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.footerLinks a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.footer h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.footerBottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.footerBottom p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 996px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footerLinks {
+    margin-bottom: 1rem;
+  }
+  
+  .footerBottom {
+    margin-top: 2rem;
+  }
+  
+  .features {
+    padding: 2rem 0;
+  }
+  
+  .featureSvg {
+    height: 80px;
+    width: 80px;
+  }
 }

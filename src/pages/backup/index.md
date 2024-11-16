@@ -20,4 +20,4 @@ Your comprehensive resource for BCA studies at Pokhara University.
 
 DDS Notes provides detailed study materials, notes, and resources for Bachelor of Computer Application (BCA) students at Pokhara University. Our goal is to make learning easier and more accessible for all students.
 
-[Get Started with Notes →](/docs/) 
+[Know about developer →](https://sapkotasunil.com.np)
