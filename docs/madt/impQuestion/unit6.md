@@ -18,7 +18,6 @@ Here are some of the events generated during multi-touch in Android:
 
 6. ACTION_CANCEL: This event is generated when the touch gesture is interrupted or cancelled. For example, if the user touches the screen and then slides their finger outside the touch-sensitive area.
 
-7. ACTION_OUTSIDE: This event is generated when the finger moves outside the bounds of the view or the touch-sensitive area.
 
 These events are accompanied by additional data, such as the coordinates of touch points, their IDs, and pressure information, which can be used to track and interpret multi-touch gestures. By analyzing the sequence and combination of these events, developers can implement various multi-touch gestures like pinch-to-zoom, rotate, swipe, and more in their Android applications.
 
@@ -32,13 +31,11 @@ In Android, there are several types of animations that can be implemented to enh
 
 3. **Drawable Animations:** Drawable animations involve animating the properties of a drawable resource, such as an image or a shape. Drawable animations are defined using XML files and can be applied to ImageViews or other drawable resources.
 
-4. **Transition Animations:** Transition animations are used to animate the transition between two scenes or layouts. They are often used during activity transitions, fragment transitions, or shared element transitions. Transition animations allow you to animate changes in properties, such as visibility, position, size, and more.
+4. **Transition Animation(opt):** Transition animations are used to animate the transition between two scenes or layouts. They are often used during activity transitions, fragment transitions, or shared element transitions. Transition animations allow you to animate changes in properties, such as visibility, position, size, and more.
 
-5. **Frame-by-Frame Animations:** Frame-by-frame animations, also known as sprite animations, involve displaying a sequence of images in a rapid succession to create the illusion of motion. Each image is considered a frame, and these frames are displayed in a specified order to produce the animation effect.
+5. **Layout Animation(opt):** It allows you to animate the apperances or disapperances of child  views within a ViewGroup.
 
-6. **Animated Vector Drawables:** Animated Vector Drawables (AVDs) allow you to animate vector graphics in Android. AVDs are defined using XML files and can animate properties like path morphing, rotation, and alpha. They provide a scalable and resolution-independent way to create smooth and fluid animations.
 
-7. **Physics-based Animations:** Android also provides support for physics-based animations through the Physics-based Animation API. These animations simulate real-world physics effects like gravity, friction, springs, and more. They can create natural and realistic animations based on physical principles.
 
 These are some of the main types of animations available in Android. Each type has its own use cases and advantages, allowing developers to create engaging and visually appealing animations in their applications.
 
