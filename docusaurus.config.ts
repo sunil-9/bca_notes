@@ -107,38 +107,57 @@ const config: Config = {
     image: "img/social-card.jpg",
 
     navbar: {
+      title: "DDS Notes",
       logo: {
-        alt: "DDS Logo",
-
+        alt: "DDS Notes Logo",
         src: "img/logo.svg",
       },
-
       items: [
         {
           type: "docSidebar",
-
           sidebarId: "tutorialSidebar",
-
           position: "left",
-
-          label: "ALL",
+          label: "Tutorial",
         },
-
-        { to: "/docs/plt/syllabus", label: "PLT", position: "left" },
-
-        { to: "/docs/madt", label: "MADT", position: "left" },
-
-        { to: "/docs/linux/syllabus", label: "LINUX", position: "left" },
-
-        { to: "/docs/workshop/syllabus", label: "WORKSHOP", position: "left" },
-
-        { to: "/docs/webii", label: "WEB TECH II", position: "left" },
-
+        {
+          type: "docSidebar",
+          sidebarId: "pltSidebar",
+          position: "left",
+          label: "PLT",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "linuxSidebar",
+          position: "left",
+          label: "Linux",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "madtSideBar",
+          position: "left",
+          label: "MADT",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "workshopSidebar",
+          position: "left",
+          label: "Workshop",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "webii",
+          position: "left",
+          label: "Web II",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "bssSidebar",
+          position: "left",
+          label: "Business Support System",
+        },
         {
           href: "https://github.com/sunil-9/bca_notes/",
-
           label: "GitHub",
-
           position: "right",
         },
       ],
@@ -150,10 +169,6 @@ const config: Config = {
         {
           title: "Docs",
           items: [
-            // {
-            //   label: 'Tutorial',
-            //   to: '/intro',
-            // },
             {
               label: "PLT",
               to: "/docs/plt/syllabus",
@@ -195,7 +210,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} DDS Notes, for PU BCA students.`,
+      copyright: `Copyright ${new Date().getFullYear()} DDS Notes, for PU BCA students.`,
     },
     prism: {
       theme: prismThemes.github,
