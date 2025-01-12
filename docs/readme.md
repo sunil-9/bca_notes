@@ -1,6 +1,13 @@
 
+--- 
+id: my-page
+title: My Page 
+sidebar_label: My Page 
+customProps: 
+hideSidebar: true 
+---
 
-# Web tech II
+# Notes for IT students
 
 Your comprehensive resource for BCA studies at Pokhara University.
 

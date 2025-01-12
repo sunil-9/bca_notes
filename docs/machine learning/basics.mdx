@@ -1,0 +1,126 @@
+---
+sidebar_position: 1
+id: basics
+title: Machine Learning Basics
+description: Introduction to Machine Learning Concepts
+---
+
+# Machine Learning Basics
+
+In machine learning, **features** and **labels** are fundamental concepts, especially in supervised learning.
+
+**Features** are the input variables that provide information to the model. They are measurable characteristics or attributes of the data used to make predictions. Features can be numeric, categorical, or even text-based, depending on the data and the machine learning algorithm being used. 
+
+**Labels** are the output variables that the model aims to predict. They represent the desired outcomes or predictions we want to make. In supervised learning, labels are provided as part of the training data. 
+
+Here's a table illustrating the concept of **features** and **labels** in the context of a supervised learning problem:
+
+| **Feature 1: Age** | **Feature 2: Gender** | **Feature 3: Salary** | **Label: Loan Approval** |
+|---------------------|-----------------------|------------------------|---------------------------|
+| 25                 | Male                 | $50,000               | Approved                 |
+| 40                 | Female               | $30,000               | Denied                   |
+| 35                 | Male                 | $70,000               | Approved                 |
+| 28                 | Female               | $45,000               | Denied                   |
+
+### Explanation:
+- **Features:**  
+  - **Age, Gender, and Salary** are the input variables (or predictors) that the model uses to make predictions.
+  - These features describe each applicant and provide information relevant to predicting whether their loan will be approved or denied.  
+
+- **Label:**  
+  - **Loan Approval** is the output variable or target. It indicates the outcome the model is trying to predict (e.g., whether the loan application is "Approved" or "Denied").
+  - Labels are only available in the training dataset for supervised learning tasks.  
+
+### Types of Machine Learning Models
+
+#### 1. **Supervised Models**  
+Supervised models are trained using labeled datasets, where input-output pairs are explicitly provided.
+
+##### 1.1 **Classification**
+- **Definition:** The task of assigning inputs into discrete categories.  
+- **Example:**  
+  Predicting whether an email is spam or not.  
+  | **Feature 1: Email Content**  | **Feature 2: Sender Address** | **Label: Spam/Not Spam** |
+  |-------------------------------|-------------------------------|--------------------------|
+  | Contains "Win a Prize"       | unknown@spam.com             | Spam                     |
+  | Contains "Meeting Update"    | colleague@work.com           | Not Spam                 |
+
+##### 1.2 **Regression**
+- **Definition:** Predicting continuous numerical outputs.  
+- **Example:**  
+  Predicting house prices.  
+  | **Feature 1: Size (sq ft)** | **Feature 2: Bedrooms** | **Feature 3: Location** | **Label: Price ($)** |
+  |-----------------------------|-------------------------|--------------------------|-----------------------|
+  | 1500                        | 3                      | Suburban                 | 300,000               |
+  | 2000                        | 4                      | Urban                    | 450,000               |
+
+---
+
+#### 2. **Unsupervised Models**  
+Unsupervised models work with unlabeled data to find patterns or structures.
+
+##### 2.1 **Clustering**
+- **Definition:** Grouping similar data points into clusters.  
+- **Example:**  
+  Customer segmentation in marketing.  
+  | **Feature 1: Age** | **Feature 2: Spending Score** | **Cluster: Group** |
+  |--------------------|-------------------------------|---------------------|
+  | 25                | 80                            | High-Spender        |
+  | 45                | 20                            | Low-Spender         |
+
+##### 2.2 **Dimensionality Reduction**
+- **Definition:** Reducing the number of features while preserving essential data patterns.  
+- **Example:**  
+  Simplifying a dataset with hundreds of variables into 2-3 principal components for visualization.
+
+##### 2.3 **Anomaly Detection**
+- **Definition:** Identifying outliers or unusual patterns in the data.  
+- **Example:**  
+  Detecting fraudulent transactions.  
+  | **Feature 1: Amount ($)** | **Feature 2: Time (hrs)** | **Anomaly Detected** |
+  |---------------------------|---------------------------|-----------------------|
+  | 10,000                   | 2                         | Yes                   |
+  | 50                       | 14                        | No                    |
+
+---
+
+#### 3. **Semi-Supervised Models**  
+Semi-supervised models use a mix of labeled and unlabeled data to improve learning.
+
+##### 3.1 **Generative Semi-Supervised Learning**
+- **Definition:** Models generate data from limited labeled examples and use it to train.  
+- **Example:**  
+  Creating synthetic images from labeled samples for classification.
+
+##### 3.2 **Graph-based Semi-Supervised Learning**
+- **Definition:** Models use graph structures to propagate labels among unlabeled nodes.  
+- **Example:**  
+  Labeling articles in a citation network using relationships between documents.
+
+---
+
+#### 4. **Reinforcement Learning Models**  
+Reinforcement learning models learn by interacting with an environment to maximize cumulative rewards.
+
+##### 4.1 **Value-based Learning**
+- **Definition:** The agent learns the value of each state-action pair.  
+- **Example:**  
+  A chess-playing agent evaluates the best future moves to maximize its winning chances.
+
+##### 4.2 **Policy-based Learning**
+- **Definition:** The agent directly learns the best policy (sequence of actions).  
+- **Example:**  
+  Training a robot to walk using actions like "move forward" or "turn."
+
+---
+
+#### 5. **Deep Learning Models**  
+Deep learning is a subset of machine learning using artificial neural networks to model complex patterns.
+
+- **Example:**  
+  - **Convolutional Neural Networks (CNNs):** Used for image recognition tasks like identifying cats in pictures.  
+  - **Recurrent Neural Networks (RNNs):** Used for sequential data like predicting the next word in a sentence.  
+  - **Generative Adversarial Networks (GANs):** Used for generating realistic images.  
+  - **Autoencoders:** Used for dimensionality reduction and feature learning.
+  - **Transformer Models:** Used for sequence-to-sequence tasks like machine translation.
+  - **Artificial Neural Networks (ANNs):** Used for classification and regression tasks.

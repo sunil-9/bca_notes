@@ -33,11 +33,13 @@ const config: Config = {
 
       {
         docs: {
+          path: "docs",
+          routeBasePath: "docs",
           sidebarPath: "./sidebars.ts",
-
           editUrl: "https://github.com/sunil-9/bca_notes/tree/main/",
+          sidebarCollapsed: false,
+          sidebarCollapsible: true,
         },
-
         theme: {
           customCss: "./src/css/custom.css",
         },
@@ -109,16 +111,10 @@ const config: Config = {
     navbar: {
       title: "DDS Notes",
       logo: {
-        alt: "DDS Notes Logo",
+        alt: "DDS Notes",
         src: "img/logo.svg",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Tutorial",
-        },
         {
           type: "docSidebar",
           sidebarId: "pltSidebar",
@@ -154,6 +150,12 @@ const config: Config = {
           sidebarId: "bssSidebar",
           position: "left",
           label: "Business Support System",
+        },
+        {
+          type: "docSidebar",
+          sidebarId: "mlSidebar",
+          position: "left",
+          label: "Machine Learning",
         },
         {
           href: "https://github.com/sunil-9/bca_notes/",

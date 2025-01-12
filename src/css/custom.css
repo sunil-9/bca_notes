@@ -28,3 +28,5 @@
   --ifm-color-primary-lightest: #aaaaaa;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.hideSidebar .docPageContent__sidebar { display: none; }
