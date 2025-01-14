@@ -1,0 +1,126 @@
+# Multiple Linear Regression
+
+**Multiple Linear Regression** is an extension of linear regression where we predict the value of a dependent variable (\(Y\)) based on multiple independent variables (\(X_1, X_2, X_3, \ldots\)). It models the relationship between the dependent variable and multiple predictors using the equation:
+
+\[
+Y = b_0 + b_1X_1 + b_2X_2 + \ldots + b_nX_n + \epsilon
+\]
+
+Where:
+- \(Y\): Dependent variable
+- \(X_1, X_2, \ldots, X_n\): Independent variables
+- \(b_0\): Intercept (value of \(Y\) when all \(X_i = 0\))
+- \(b_1, b_2, \ldots, b_n\): Coefficients representing the effect of each \(X_i\) on \(Y\)
+- \(\epsilon\): Error term (difference between actual and predicted \(Y\))
+
+---
+
+### Example: Predicting House Prices
+
+Suppose we want to predict house prices based on three features: size of the house (\(X_1\)), number of bedrooms (\(X_2\)), and distance to the city center (\(X_3\)).
+
+#### Data
+| House Size (sq ft) (\(X_1\)) | Bedrooms (\(X_2\)) | Distance to City (miles) (\(X_3\)) | Price (\(Y\)) |
+|-----------------------------|--------------------|------------------------------------|---------------|
+| 1500                        | 3                  | 5                                  | 400,000       |
+| 2000                        | 4                  | 3                                  | 500,000       |
+| 2500                        | 4                  | 2                                  | 600,000       |
+| 3000                        | 5                  | 1                                  | 700,000       |
+
+#### Regression Equation
+Using multiple linear regression, we fit the following equation:
+
+\[
+Y = b_0 + b_1X_1 + b_2X_2 + b_3X_3
+\]
+
+Assuming the computed coefficients are:
+- \(b_0 = 50,000\) (intercept)
+- \(b_1 = 100\) (per square foot)
+- \(b_2 = 10,000\) (per bedroom)
+- \(b_3 = -20,000\) (per mile from city)
+
+The equation becomes:
+\[
+Y = 50,000 + 100X_1 + 10,000X_2 - 20,000X_3
+\]
+
+#### Prediction
+For a house of size 2200 sq ft, 3 bedrooms, and 4 miles from the city:
+\[
+Y = 50,000 + 100(2200) + 10,000(3) - 20,000(4)
+\]
+\[
+Y = 50,000 + 220,000 + 30,000 - 80,000 = 220,000
+\]
+
+The predicted price is **$220,000**.
+
+---
+
+### Advantages of Multiple Linear Regression
+1. **Captures Relationships**: It identifies the influence of multiple factors on a dependent variable.
+2. **Predictive Power**: It enhances prediction accuracy by incorporating multiple variables.
+3. **Quantifies Impact**: Provides insight into the effect of each independent variable.
+
+---
+
+### Limitations
+1. **Multicollinearity**: When predictors are highly correlated, it can distort coefficient estimates.
+2. **Overfitting**: Too many predictors relative to the data size can reduce model generalizability.
+3. **Linearity Assumption**: Assumes a linear relationship between predictors and the outcome.
+
+---
+
+Multiple linear regression is a cornerstone of statistical modeling and machine learning, widely used in fields like economics, healthcare, and marketing for predictive analysis.
+
+code to predict house prices
+```python
+# Importing necessary libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# Creating the dataset
+data = {
+    "House Size (sq ft)": [1500, 2000, 2500, 3000],
+    "Bedrooms": [3, 4, 4, 5],
+    "Distance to City (miles)": [5, 3, 2, 1],
+    "Price": [400000, 500000, 600000, 700000]
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+# Features (X) and Target (Y)
+X = df[["House Size (sq ft)", "Bedrooms", "Distance to City (miles)"]]
+Y = df["Price"]
+
+# Linear regression model
+model = LinearRegression()
+model.fit(X, Y)
+
+# Coefficients and Intercept
+b0 = model.intercept_
+coefficients = model.coef_
+
+# Predict prices based on the model
+df["Predicted Price"] = model.predict(X)
+
+# Plot actual vs predicted prices
+plt.figure(figsize=(8, 6))
+plt.scatter(df["Price"], df["Predicted Price"], color='blue', label='Data points')
+plt.plot(df["Price"], df["Price"], color='red', linestyle='--', label='Perfect Prediction Line')
+plt.title("Actual vs Predicted Prices")
+plt.xlabel("Actual Price")
+plt.ylabel("Predicted Price")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Display coefficients and intercept
+b0, coefficients
+```
+
+![multiple-linear-regression](/img/business-support-system/multiple-linear-regression.jpg)
