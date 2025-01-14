@@ -39,12 +39,20 @@ const config: Config = {
           editUrl: "https://github.com/sunil-9/bca_notes/tree/main/",
           sidebarCollapsed: false,
           sidebarCollapsible: true,
+          remarkPlugins: [require('remark-math')],
+          rehypePlugins: [require('rehype-katex')],
         },
         theme: {
           customCss: "./src/css/custom.css",
         },
       } as any,
     ],
+  ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
+      type: 'text/css',
+    },
   ],
 
   themeConfig: {
