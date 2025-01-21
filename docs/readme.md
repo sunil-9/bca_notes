@@ -1,10 +1,9 @@
-
---- 
+---
 id: my-page
-title: My Page 
-sidebar_label: My Page 
-customProps: 
-hideSidebar: true 
+title: My Page
+sidebar_label: My Page
+customProps:
+hideSidebar: true
 ---
 
 # Notes for IT students
