@@ -1,19 +1,10 @@
-A user interface (UI) class represents the visual elements and layout of an app's user interface. It defines how different views and components are organized and interact with each other. The most commonly used UI class in Android is the `Activity` class, which represents a single screen with a user interface.
+# user interface classes
 
-1. [Activity](#activity)
-2. [Fragment](#fragment)
-3. [DialogFragment](#DialogFragment)
-4. [ViewGroup](#ViewGroup)
-5. [View](#View)
-6. [Custom](#Custom)
+A user interface (UI) class represents the visual elements and layout of an app's user interface. It defines how different views and components are organized and interact with each other. The most commonly used UI class in Android is the `Activity` class, which represents a single screen with a user interface.
 
 Example of a basic `Activity` class in Android:
 
-<!--  id activity  so thate when user click on #activity user should move here -->
-
-<a id="activity"></a>
-
-### 1. Activity
+## 1. Activity
 
 _Mainactivity.java_
 
@@ -84,12 +75,11 @@ This is just a basic example, and there are many other UI classes and concepts i
 
 ### 2. Fragment
 
-<a id="fragment"></a>
-
 Fragments represent reusable portions of a user interface within an `Activity`. They allow you to create flexible and modular UI components that can be combined and reused across different screens. Fragments have their lifecycle and can be added, removed, and replaced dynamically within an `Activity`.
 for example:
 
-*MyFragment.java*
+_MyFragment.java_
+
 ```java
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -109,7 +99,9 @@ public class MyFragment extends Fragment {
     }
 }
 ```
-*fragment_layout.xml*
+
+\*fragment*layout.xml*
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -126,8 +118,6 @@ public class MyFragment extends Fragment {
 ```
 
 ### 3. DialogFragment
-
-<a id="DialogFragment"></a>
 
 DialogFragments are specialized fragments that can be used to display dialog windows on top of an `Activity`. They provide a convenient way to present dialogs with custom layouts and behavior. for example:
 
@@ -165,8 +155,6 @@ dialogFragment.show(getSupportFragmentManager(), "dialog");
 
 ### 4. View
 
-<a id="View"></a>
-
 - `Button`: Represents a clickable button.
 - `TextView`: Displays text on the screen.
 - `EditText`: Provides an interactive text input field.
@@ -182,8 +170,6 @@ Views are the basic building blocks of the UI, representing individual UI compon
 
 ### 5. ViewGroup
 
-<a id="ViewGroup"></a>
-
 - `LinearLayout`: Arranges child views linearly either horizontally or vertically.
 - `RelativeLayout`: Arranges child views relative to one another or to the parent.
 - `FrameLayout`: Places child views on top of each other, with the last one added being the topmost.
@@ -197,8 +183,6 @@ Views are the basic building blocks of the UI, representing individual UI compon
 ViewGroup classes can contain and manage multiple child views and determine their position, size, and interaction behavior within the layout.
 
 ### 6. Custom
-
-<a id="Custom"></a>
 
 You can create custom UI classes in Android by extending existing classes or implementing custom views. Example of creating a custom `Button` class:
 
@@ -243,7 +227,7 @@ public class CustomButton extends AppCompatButton {
 ```
 
 If you want to add custom drawing like changing corner radius, background color, etc. to the button, you can create a custom button class by extending the `AppCompatButton` class and overriding the `onDraw` method.
-for example to change corner radius of the  button you can ulter the `onDraw` method like this:
+for example to change corner radius of the button you can ulter the `onDraw` method like this:
 
 ```java
    @Override
@@ -256,7 +240,6 @@ for example to change corner radius of the  button you can ulter the `onDraw` me
         super.onDraw(canvas);
     }
 ```
-
 
 In this example, we create a custom `Button` class called `CustomButton` by extending the `AppCompatButton` class. We override the `onDraw` method to perform custom drawing operations on the canvas.
 
