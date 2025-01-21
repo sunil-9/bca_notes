@@ -4,16 +4,20 @@
 
 The general form of the polynomial regression equation is:
 
-[
-Y = b_0 + b_1X + b_2X^2 + b_3X^3 + ... + b_nX^n + ϵ(epsilon)
-]
+### Formula:
 
-Where:
+```markdown
+Y = b₀ + b₁·X + b₂·X² + b₃·X³ + ... + bₙ·Xⁿ + ϵ
+```
 
-- (Y): Dependent variable
-- (X, X^2, X^3, ..., X^n): Independent variables and their polynomial terms
-- (b_0, b_1, b_2, ..., b_n): Coefficients
-- ϵ(epsilon): Error term
+### Explanation:
+
+- **Y**: Dependent variable
+- **X**: Independent variable
+- **b₀**: Intercept (value of Y when all Xᵢ = 0)
+- **b₁, b₂, b₃, ..., bₙ**: Coefficients representing the effect of each term of X on Y
+- **X², X³, ..., Xⁿ**: Polynomial terms of the independent variable X
+- **ϵ**: Error term (the difference between the actual and predicted Y)
 
 ---
 
@@ -81,8 +85,8 @@ plt.legend()
 plt.grid(True)
 plt.show()
 ```
-![Polynomial Regression Example](/img/machine-learning/polynomial-regression.png "Polynomial Regression Example")
----
+
+## ![Polynomial Regression Example](/img/machine-learning/polynomial-regression.png "Polynomial Regression Example")
 
 ### Advantages
 
