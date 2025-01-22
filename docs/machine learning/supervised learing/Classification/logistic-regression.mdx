@@ -57,10 +57,11 @@ Suppose we have a dataset with features indicating email characteristics and whe
 Here’s a simple implementation using Python:
 
 ```python
+# Re-importing necessary libraries and initializing the setup
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
 
 # Dataset
 data = {
@@ -83,13 +84,29 @@ model.fit(X, y)
 new_email = np.array([[250, 1]])  # Word Count = 250, Has Link = 1
 spam_probability = model.predict_proba(new_email)[0][1]
 
-# Display results
-print(f"Probability of the email being spam: {spam_probability:.2f}")
+# Define the range for Word Count and Has Link
+word_count_range = np.linspace(50, 400, 100)
+has_link = 1  # Considering emails with links
 
-# output
-# Probability of the email being spam: 0.50
+# Calculate spam probabilities for different word counts
+probabilities = [
+    model.predict_proba([[wc, has_link]])[0][1] for wc in word_count_range
+]
+
+# Plot
+plt.figure(figsize=(8, 5))
+plt.plot(word_count_range, probabilities, label="Spam Probability", color="blue")
+plt.scatter(new_email[0][0], spam_probability, color="red", label="New Email", zorder=5)
+plt.title("Spam Probability vs Word Count (Has Link = 1)")
+plt.xlabel("Word Count")
+plt.ylabel("Spam Probability")
+plt.axhline(0.5, color='gray', linestyle='--', linewidth=0.7, label="Threshold (0.5)")
+plt.legend()
+plt.grid(True)
+plt.show()
 ```
 
+![logistic-regression](/img/machine-learning/logistic-regression.png "logistic-regression")
 ---
 
 ### Advantages
@@ -104,4 +121,3 @@ print(f"Probability of the email being spam: {spam_probability:.2f}")
 2. Sensitive to multicollinearity among predictors.
 3. Limited to binary classification (though extensions like multinomial logistic regression exist for multiple classes).
 
-Would you like to explore a specific example or a related topic?
