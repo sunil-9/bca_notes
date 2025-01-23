@@ -1,0 +1,29 @@
+# Boosting
+
+Boosting is a popular ensemble learning technique in machine learning where multiple weak learners (models that are slightly better than random guessing) are combined to create a strong learner. The idea is to sequentially train models, each focusing on correcting the errors made by its predecessors. Here's an overview of the two main types of boosting algorithms:
+
+1. **Types of Boosting:**
+
+   - **AdaBoost (Adaptive Boosting):** AdaBoost assigns weights to each instance in the dataset. It starts by training a weak learner on the original dataset and then adjusts the weights on incorrectly classified instances. The subsequent weak learners focus more on these misclassified instances. The final prediction is made by combining the weak learners, weighted by their accuracy.
+
+   - **Gradient Boosting:** Gradient Boosting, on the other hand, builds trees sequentially, with each new tree learning and correcting the errors made by the previous ones. It uses gradients (derivatives) of the loss function (typically a regression or classification loss) to minimize the loss when adding new models. Gradient Boosting works by optimizing a loss function in a greedy manner, hence the "gradient" in its name.
+
+2. **Gradient Boosting:**
+
+   - **Introduction:** Gradient Boosting is particularly effective for regression and classification tasks. It builds trees one at a time, where each new tree helps to correct errors made by previously trained models.
+
+   - **Key Components:**
+     - **Loss Function:** Typically a measure of error like squared error for regression or log-loss for classification.
+     - **Base Learners:** Often decision trees are used as base learners, though other types can also be employed.
+     - **Gradient Descent:** Utilizes gradient descent optimization to minimize the loss function when adding new models.
+
+   - **Advantages:**
+     - Handles different types of data (numeric, categorical).
+     - Often provides better accuracy compared to AdaBoost in many scenarios.
+     - Can handle missing data and outliers effectively.
+
+   - **Applications:**
+     - Widely used in Kaggle competitions and various machine learning challenges.
+     - Popular in industry applications where accuracy and interpretability are both important.
+
+Gradient Boosting algorithms like XGBoost, LightGBM, and CatBoost have become go-to tools for data scientists due to their effectiveness and versatility in handling various types of data and tasks.
