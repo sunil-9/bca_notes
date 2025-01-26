@@ -1,0 +1,112 @@
+# Gradient Boosting Example
+
+Gradient Boosting is a powerful ensemble machine learning technique that builds predictive models by combining multiple weak learners, typically decision trees.
+
+---
+
+## **Core Algorithm Steps**
+
+1. **Initialization**
+   - Start with a constant value \( F_0(x) \)
+   - Usually the mean of target values
+
+2. **Iterative Improvement**
+   For each iteration \( m = 1, 2, ..., M \):
+   - Compute residuals between actual and predicted values
+   - Fit a weak learner to the residuals
+   - Update the model by adding the new learner's predictions
+
+---
+
+### **Mathematical Representation**
+
+Let \( y \) be the target, \( x \) the features, \( F(x) \) the model.
+
+#### Model Initialization
+$$
+F_0(x) = \text{mean}(y)
+$$
+
+#### Iterative Model Update
+For \( m = 1 \) to \( M \):
+
+1. **Compute Residuals**:
+   $$
+   r_i^{(m)} = y_i - F_{m-1}(x_i)
+   $$
+
+2. **Model Update**:
+   $$
+   F_m(x) = F_{m-1}(x) + \eta h_m(x)
+   $$
+   Where \( \eta \) is the learning rate, \( h_m(x) \) is the weak learner
+
+---
+
+### **Manual Calculation Example**
+
+#### Initialization
+$$
+F_0(x) = \text{mean}(y) = (50k + 70k + 80k + 100k) / 4 = 75k
+$$
+
+#### First Model Iteration
+Residuals:
+$$
+r = [50k - 75k, 70k - 75k, 80k - 75k, 100k - 75k] = [-25k, -5k, 5k, 25k]
+$$
+
+- Fit a tree to predict residuals
+- Update model with learning rate \( \eta = 0.1 \)
+
+---
+
+### **Key Characteristics**
+
+- Builds models incrementally
+- Each new model corrects previous model's errors
+- Learning rate controls weak learner contribution
+- Creates robust, accurate predictive models
+
+---
+
+### **Python Implementation**
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.model_selection import train_test_split
+
+# Define dataset
+data = {
+    "experience": [2, 3, 5, 6],
+    "education": ["bachelor", "masters", "masters", "PHD"],
+    "salary": [50000, 70000, 80000, 100000],
+}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+# Preprocess categorical data
+encoder = OneHotEncoder()
+education_encoded = encoder.fit_transform(df[['education']]).toarray()
+X = np.hstack((np.array(df['experience']).reshape(-1, 1), education_encoded))
+y = np.array(df['salary'])
+
+# Split into train and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+# Train Gradient Boosting Regressor
+model = GradientBoostingRegressor(n_estimators=3, learning_rate=0.1, random_state=42)
+model.fit(X_train, y_train)
+
+# Predictions
+predictions = model.predict(X_test)
+
+# Print results
+print("Predictions:", predictions)
+print("True values:", y_test)
+```
+
