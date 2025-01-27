@@ -1,4 +1,6 @@
 import type { Config } from "@docusaurus/types";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
 
 import { themes as prismThemes } from "prism-react-renderer";
 
@@ -39,8 +41,8 @@ const config: Config = {
           editUrl: "https://github.com/sunil-9/bca_notes/tree/main/",
           sidebarCollapsed: false,
           sidebarCollapsible: true,
-          remarkPlugins: [require('remark-math')],
-          rehypePlugins: [require('rehype-katex')],
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -50,8 +52,8 @@ const config: Config = {
   ],
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css",
+      type: "text/css",
     },
   ],
 
@@ -223,7 +225,7 @@ const config: Config = {
       copyright: `Copyright ${new Date().getFullYear()} DDS Notes, for PU BCA students.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.nightOwlLight,
 
       darkTheme: prismThemes.dracula,
     },

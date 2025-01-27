@@ -40,6 +40,55 @@ A higher k value will increase the accuracy of predictions because there are mor
 
 Ideally, you want to find a k value that is between high variance and high bias. It is also recommended to choose an odd number for k to avoid ties in classification analysis.
 
+
+### Some commonly used approaches to choose \( k \):
+
+---
+
+#### 1. **Cross-Validation**
+
+- Perform **k-fold cross-validation** on your dataset.
+- Test your KNN model with different \( k \) values and measure the performance (e.g., accuracy, F1-score).
+- Choose the \( k \) value that provides the best performance on validation data.
+
+---
+
+#### 2. **Rule of Thumb**
+
+- A commonly suggested starting point is to set \( k \) as:  
+  $$
+  k = \sqrt{n}
+  $$
+  where \( n \) is the total number of data points in your training dataset.
+- This value is just a heuristic and should be fine-tuned.
+
+---
+
+#### 3. **Odd \( k \) for Binary Classification**
+
+- Use an **odd \( k \)** value to avoid ties when there are two classes (binary classification).
+
+---
+
+#### 4. **Avoid Overfitting and Underfitting**
+
+- **Small \( k \)** (e.g., \( k = 1 \)) can lead to overfitting because the model becomes too sensitive to noise.
+- **Large \( k \)** can lead to underfitting because it overly smoothens the decision boundary.
+- Experiment with different \( k \) values to strike a balance.
+
+---
+
+#### 5. **Elbow Method for KNN**
+
+- Plot the **error rate** or **validation accuracy** as a function of \( k \).
+- Look for the "elbow point" where the error stops decreasing significantly or accuracy stabilizes.
+
+---
+
+#### 6. **Domain Knowledge**
+
+- Consider the problem you're solving and the structure of your dataset. In some cases, domain-specific knowledge might suggest a reasonable range for \( k \).
+
 The right k value is also relative to your data set. To choose that value, you might try to find the square root of N, where N is the number of data points in the training dataset. Cross-validation tactics can also help you choose the k value best suited to your dataset.
 
 ## Advantages of the kNN algorithm
@@ -47,7 +96,7 @@ The right k value is also relative to your data set. To choose that value, you m
 The kNN algorithm is often described as the “simplest” supervised learning algorithm, which leads to its several advantages:
 
 **Simple**: kNN is easy to implement because of how simple and accurate it is. As such, it is often one of the first classifiers that a data scientist will learn.
-    Adaptable: As soon as new training samples are added to its dataset, the kNN algorithm adjusts its predictions to include the new training data.
+Adaptable: As soon as new training samples are added to its dataset, the kNN algorithm adjusts its predictions to include the new training data.
 
 **Easily programmable**: kNN requires only a few hyperparameters — a k value and a distance metric. This makes it a fairly uncomplicated algorithm.
 
@@ -60,3 +109,4 @@ While the kNN algorithm is simple, it also has a set of challenges and limitatio
 **Curse of dimensionality**: This refers to a phenomenon that occurs in computer science, wherein a fixed set of training examples is challenged by an increasing number of dimensions and the inherent increase of feature values in these dimensions. In other words, the model’s training data can’t keep up with the evolving dimensionality of the hyperspace. This means that predictions become less accurate because the distance between the query point and similar points grows wider — on other dimensions.
 
 **Overfitting**: The value of k, as shown earlier, will impact the algorithm’s behavior. This can happen especially when the value of k is too low. Lower values of k can overfit the data, while higher values of k will ‘smooth’ the prediction values because the algorithm averages values over a greater area.
+
