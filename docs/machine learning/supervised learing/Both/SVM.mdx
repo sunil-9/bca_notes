@@ -1,0 +1,126 @@
+# Support Vector Machine
+
+SVM (Support Vector Machine) is a supervised learning algorithm used for classification and regression tasks. It is particularly effective for high-dimensional datasets and works well for both linear and non-linear classification.
+
+### **How SVM Works:**
+
+1. **Hyperplane**: SVM tries to find the best possible decision boundary (hyperplane) that separates different classes.
+2. **Support Vectors**: The data points that are closest to the hyperplane and influence its position.
+3. **Margin**: The distance between the hyperplane and the nearest support vectors. SVM aims to maximize this margin for better generalization.
+4. **Kernel Trick**: If the data is not linearly separable, SVM can use kernel functions (like polynomial or RBF) to map the data into a higher-dimensional space where it becomes linearly separable.
+
+### **Types of SVM:**
+
+- **Linear SVM**: Used when data is linearly separable.
+- **Non-Linear SVM**: Uses kernel functions to transform data into a higher-dimensional space.
+
+### **Applications of SVM:**
+
+- Text classification (e.g., spam detection)
+- Image recognition
+- Bioinformatics (e.g., protein classification)
+- Fraud detection
+
+Here's a simple example of using **SVM in Python** with `scikit-learn` for a classification task using the famous **Iris dataset**.  
+
+### **Steps:**
+1. Load the dataset.
+2. Split it into training and testing sets.
+3. Train an SVM model.
+4. Make predictions and evaluate accuracy.
+
+---
+
+### **Python Code:**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# Load the Iris dataset
+iris = datasets.load_iris()
+X = iris.data  # Features
+y = iris.target  # Labels
+
+# Split data into training and testing sets (80% train, 20% test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Create and train an SVM model (using RBF kernel)
+svm_model = SVC(kernel='rbf', C=1.0, gamma='scale')
+svm_model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = svm_model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
+print("\nConfusion Matrix:\n", confusion_matrix(y_test, y_pred))
+```
+
+---
+
+### **Explanation:**
+- We use **`SVC(kernel='rbf')`**, which applies the **Radial Basis Function (RBF) kernel** for non-linear classification.
+- **`C=1.0`** controls the regularization; higher values make the model more sensitive to errors.
+- **`gamma='scale'`** automatically adjusts the kernel coefficient based on feature variance.
+- We evaluate performance using **accuracy, confusion matrix, and classification report**.
+
+Since the **Iris dataset** has four features (dimensions), we can visualize the decision boundaries by selecting only two features. Here’s how you can plot the **decision boundaries of an SVM classifier**:  
+
+---
+
+### **Python Code for Visualization:**
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+
+# Load the Iris dataset
+iris = datasets.load_iris()
+X = iris.data[:, :2]  # Selecting only the first two features for 2D visualization
+y = iris.target
+
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train an SVM model with RBF kernel
+svm_model = SVC(kernel='rbf', C=1.0, gamma='scale')
+svm_model.fit(X_train, y_train)
+
+# Create a mesh grid for plotting decision boundaries
+x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200), np.linspace(y_min, y_max, 200))
+
+# Predict the class for each point in the mesh grid
+Z = svm_model.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+# Plot the decision boundary
+plt.contourf(xx, yy, Z, alpha=0.3, cmap=plt.cm.coolwarm)
+plt.scatter(X[:, 0], X[:, 1], c=y, edgecolors='k', cmap=plt.cm.coolwarm)
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.title('SVM Decision Boundary (Iris Dataset)')
+plt.show()
+```
+
+---
+
+### **Explanation:**
+- We **select only two features** from the Iris dataset to make a **2D plot**.
+- A **mesh grid** is created to evaluate the model predictions for every point in space.
+- The **decision boundary** is visualized using `plt.contourf()`, with different colors for different classes.
+- The **scatter plot** overlays the real data points.
+
+---
+
+### **Output Example:**  
+![SVM Decision Boundary](/img/machine-learning/svm.png "SVM Decision Boundary")
