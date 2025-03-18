@@ -1,0 +1,84 @@
+# Model Evaluation: Understanding Performance Metrics in Machine Learning
+
+Evaluating a machine learning model is crucial to determine its effectiveness in making accurate predictions. In this article, we will explore key evaluation metrics—**Accuracy, Precision, Recall, and F1-Score**—using a Decision Tree Classifier trained on sample data.
+
+## **Understanding the Model and Dataset**
+
+The model is a **Decision Tree Classifier** trained to predict whether a person will buy a product based on their **Age** and **Income**. The dataset includes:
+
+| Age | Income  | Will_Buy |
+|-----|---------|----------|
+| 25  | 40000  | No       |
+| 45  | 80000  | Yes      |
+| 35  | 60000  | Yes      |
+| 50  | 120000 | Yes      |
+| 23  | 35000  | No       |
+
+After training the model and evaluating it using **cross-validation**, we obtained the following results:
+
+- **Accuracy**: 83.33%
+- **Precision**: 66.67%
+- **Recall**: 66.67%
+- **F1-Score**: 66.67%
+
+Let’s break down these metrics to understand their significance.
+
+## **1. Accuracy (83.33%)**
+
+Accuracy measures how many predictions the model got correct out of the total predictions.
+
+### **Formula:**
+\[
+Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+\]
+
+Where:
+- **TP (True Positives):** Correctly predicted "Yes"
+- **TN (True Negatives):** Correctly predicted "No"
+- **FP (False Positives):** Incorrectly predicted "Yes"
+- **FN (False Negatives):** Incorrectly predicted "No"
+
+A score of **83.33%** means that the model correctly predicted 83.33% of the test cases.
+
+## **2. Precision (66.67%)**
+
+Precision focuses on how many of the predicted "Yes" cases were actually correct.
+
+### **Formula:**
+\[
+Precision = \frac{TP}{TP + FP}
+\]
+
+A precision score of **66.67%** means that when the model predicted a person would buy the product, it was correct **66.67% of the time**. A lower precision indicates that the model is making some **false positive errors**.
+
+## **3. Recall (66.67%)**
+
+Recall measures how many of the actual "Yes" cases were correctly identified by the model.
+
+### **Formula:**
+\[
+Recall = \frac{TP}{TP + FN}
+\]
+
+A recall score of **66.67%** means that the model correctly identified **66.67% of all actual buyers**. A lower recall indicates that the model is **missing some positive cases (false negatives)**.
+
+## **4. F1-Score (66.67%)**
+
+F1-score is the **harmonic mean** of Precision and Recall, balancing both metrics.
+
+### **Formula:**
+$$
+F1 = 2 \times \frac{Precision * Recall}{Precision + Recall}
+$$
+
+Since both Precision and Recall are 66.67%, the F1-score also equals **66.67%**, showing a moderate balance between avoiding false positives and false negatives.
+
+## **Interpreting the Results**
+
+| Metric     | Score  | Meaning |
+|------------|--------|---------|
+| Accuracy   | 83.33% | The model is correct in 83.33% of cases |
+| Precision  | 66.67% | When predicting "Yes," 66.67% were correct |
+| Recall     | 66.67% | The model correctly identified 66.67% of actual buyers |
+| F1-Score   | 66.67% | A balance between precision and recall |
+
