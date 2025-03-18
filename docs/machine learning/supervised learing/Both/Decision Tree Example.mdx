@@ -87,6 +87,14 @@ The **Gini Index** measures how often a randomly chosen element would be incorre
 
 ---
 
+### Key Points to Remember
+
+- The **Gini Index** helps decide the best split by minimizing impurity.
+- A split with a Gini Index of 0 indicates perfect separation of classes.
+- The process repeats recursively, assigning class labels or values to the leaf nodes.
+
+---
+
 ### **Code Implementation**
 
 Here’s the Python code to demonstrate this using `sklearn`:
@@ -121,8 +129,101 @@ plt.show()
 
 ---
 
-### Key Points to Remember
+To test your Decision Tree model, you need to provide new data (test samples) and use the `.predict()` method to see the model's predictions. Here's how you can do it:
 
-- The **Gini Index** helps decide the best split by minimizing impurity.
-- A split with a Gini Index of 0 indicates perfect separation of classes.
-- The process repeats recursively, assigning class labels or values to the leaf nodes.
+### 1. **Create Test Data**
+Provide new Age and Income values to test the model.
+
+```python
+# New test samples
+X_test = pd.DataFrame({
+    "Age": [30, 40, 28],  
+    "Income": [50000, 90000, 45000]  
+})
+
+# Predict using the trained model
+predictions = clf.predict(X_test)
+
+# Display predictions
+print(predictions)  # Output will be an array of "Yes" or "No"
+```
+
+### 2. **Evaluate Model Performance**
+If you have actual labels for test data, you can measure accuracy:
+
+```python
+from sklearn.metrics import accuracy_score
+
+# Example: Assuming these are actual labels for test data
+y_test = ["Yes", "Yes", "No"]
+
+# Get predictions
+predictions = clf.predict(X_test)
+
+# Calculate accuracy
+accuracy = accuracy_score(y_test, predictions)
+print(f"Accuracy: {accuracy * 100:.2f}%")
+```
+---
+
+You can split your dataset into training and testing sets using `train_test_split` from `sklearn.model_selection`. Here’s how:
+
+### **1. Split the Data**
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# Splitting the data (80% training, 20% testing)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model on the training data
+clf.fit(X_train, y_train)
+
+# Predict on the test data
+y_pred = clf.predict(X_test)
+
+# Evaluate model performance
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model Accuracy: {accuracy * 100:.2f}%")
+```
+---
+
+## cross-validation for better evaluation
+
+You can use **cross-validation** to evaluate the model more reliably by splitting the data into multiple training and testing sets. Here’s how you can do it using `cross_val_score` from `sklearn.model_selection`:
+
+### **Cross-Validation Implementation**
+```python
+from sklearn.model_selection import cross_val_score
+
+# Perform 5-fold cross-validation
+cv_scores = cross_val_score(clf, X, y, cv=5, scoring='accuracy')
+
+# Print average accuracy and individual fold scores
+print(f"Cross-validation scores: {cv_scores}")
+print(f"Average accuracy: {cv_scores.mean() * 100:.2f}%")
+```
+You can evaluate **Precision, Recall, F1-score, and Accuracy** using `cross_val_score` and `cross_validate`. Here’s a single code snippet that computes all these metrics using **5-fold cross-validation**:  
+
+### **Full Model Evaluation Code**
+```python
+from sklearn.model_selection import cross_validate
+from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
+
+# Define scoring metrics
+scoring = {
+    'accuracy': make_scorer(accuracy_score),
+    'precision': make_scorer(precision_score, pos_label="Yes"),
+    'recall': make_scorer(recall_score, pos_label="Yes"),
+    'f1': make_scorer(f1_score, pos_label="Yes")
+}
+
+# Perform cross-validation
+cv_results = cross_validate(clf, X, y, cv=5, scoring=scoring)
+
+# Print averaged scores
+print(f"Accuracy: {cv_results['test_accuracy'].mean() * 100:.2f}%")
+print(f"Precision: {cv_results['test_precision'].mean() * 100:.2f}%")
+print(f"Recall: {cv_results['test_recall'].mean() * 100:.2f}%")
+print(f"F1-score: {cv_results['test_f1'].mean() * 100:.2f}%")
+```
