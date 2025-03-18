@@ -132,13 +132,14 @@ plt.show()
 To test your Decision Tree model, you need to provide new data (test samples) and use the `.predict()` method to see the model's predictions. Here's how you can do it:
 
 ### 1. **Create Test Data**
+
 Provide new Age and Income values to test the model.
 
 ```python
 # New test samples
 X_test = pd.DataFrame({
-    "Age": [30, 40, 28],  
-    "Income": [50000, 90000, 45000]  
+    "Age": [30, 40, 28],
+    "Income": [50000, 90000, 45000]
 })
 
 # Predict using the trained model
@@ -149,6 +150,7 @@ print(predictions)  # Output will be an array of "Yes" or "No"
 ```
 
 ### 2. **Evaluate Model Performance**
+
 If you have actual labels for test data, you can measure accuracy:
 
 ```python
@@ -164,11 +166,13 @@ predictions = clf.predict(X_test)
 accuracy = accuracy_score(y_test, predictions)
 print(f"Accuracy: {accuracy * 100:.2f}%")
 ```
+
 ---
 
 You can split your dataset into training and testing sets using `train_test_split` from `sklearn.model_selection`. Here’s how:
 
 ### **1. Split the Data**
+
 ```python
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -186,6 +190,7 @@ y_pred = clf.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy * 100:.2f}%")
 ```
+
 ---
 
 ## cross-validation for better evaluation
@@ -193,6 +198,7 @@ print(f"Model Accuracy: {accuracy * 100:.2f}%")
 You can use **cross-validation** to evaluate the model more reliably by splitting the data into multiple training and testing sets. Here’s how you can do it using `cross_val_score` from `sklearn.model_selection`:
 
 ### **Cross-Validation Implementation**
+
 ```python
 from sklearn.model_selection import cross_val_score
 
@@ -203,9 +209,11 @@ cv_scores = cross_val_score(clf, X, y, cv=5, scoring='accuracy')
 print(f"Cross-validation scores: {cv_scores}")
 print(f"Average accuracy: {cv_scores.mean() * 100:.2f}%")
 ```
-You can evaluate **Precision, Recall, F1-score, and Accuracy** using `cross_val_score` and `cross_validate`. Here’s a single code snippet that computes all these metrics using **5-fold cross-validation**:  
+
+You can evaluate **Precision, Recall, F1-score, and Accuracy** using `cross_val_score` and `cross_validate`. Here’s a single code snippet that computes all these metrics using **5-fold cross-validation**:
 
 ### **Full Model Evaluation Code**
+
 ```python
 from sklearn.model_selection import cross_validate
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score
@@ -226,4 +234,38 @@ print(f"Accuracy: {cv_results['test_accuracy'].mean() * 100:.2f}%")
 print(f"Precision: {cv_results['test_precision'].mean() * 100:.2f}%")
 print(f"Recall: {cv_results['test_recall'].mean() * 100:.2f}%")
 print(f"F1-score: {cv_results['test_f1'].mean() * 100:.2f}%")
+```
+
+---
+
+To make it more easier you can use confusion matrix To evaluate the model further, we can compute the confusion matrix and classification report using Python.here is the code snippet to do that:
+
+```python
+from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+
+# Sample data
+data = {'Age': [25, 45, 35, 50, 23], 'Income': [40000, 80000, 60000, 120000, 35000], 'Will_Buy': ['No', 'Yes', 'Yes', 'Yes', 'No']}
+X = [[25, 40000], [45, 80000], [35, 60000], [50, 120000], [23, 35000]]
+y = ['No', 'Yes', 'Yes', 'Yes', 'No']
+
+# Splitting data into training and testing
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train the model
+model = DecisionTreeClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions
+y_pred = model.predict(X_test)
+
+# Confusion Matrix
+conf_matrix = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(conf_matrix)
+
+# Classification Report
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
 ```
