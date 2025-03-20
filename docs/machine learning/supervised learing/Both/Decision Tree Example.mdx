@@ -277,13 +277,14 @@ we can also use classification_report to get the precision, recall, f1-score, an
 ```
 from sklearn.metrics import classification_report
 
-# Example: Assuming these are actual labels for test data
-y_test = ["Yes", "Yes", "No"]
+X_test = pd.DataFrame({
+    "Age": [30, 40, 28,40,50 ],  
+    "Income": [50000, 90000, 45000,80000,59000]  
+})
 
-# Get predictions
-predictions = clf.predict(X)
-
-# Calculate accuracy
+# Predict using the trained model
+predictions = clf.predict(X_test)
 report = classification_report(y, predictions)
 print(report)
+print(predictions) 
 ```
