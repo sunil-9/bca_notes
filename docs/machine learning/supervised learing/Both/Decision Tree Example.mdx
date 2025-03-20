@@ -269,3 +269,21 @@ print(conf_matrix)
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 ```
+
+---
+
+we can also use classification_report to get the precision, recall, f1-score, and support for each class. Here is how we can achieve that:
+
+```
+from sklearn.metrics import classification_report
+
+# Example: Assuming these are actual labels for test data
+y_test = ["Yes", "Yes", "No"]
+
+# Get predictions
+predictions = clf.predict(X)
+
+# Calculate accuracy
+report = classification_report(y, predictions)
+print(report)
+```
