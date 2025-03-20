@@ -276,7 +276,7 @@ we can also use classification_report to get the precision, recall, f1-score, an
 
 ```
 from sklearn.metrics import classification_report
-
+# New test samples
 X_test = pd.DataFrame({
     "Age": [30, 40, 28,40,50 ],  
     "Income": [50000, 90000, 45000,80000,59000]  
@@ -285,6 +285,8 @@ X_test = pd.DataFrame({
 # Predict using the trained model
 predictions = clf.predict(X_test)
 report = classification_report(y, predictions)
+print(predictions,"this is preds")
+print(y,"this is your real class")
 print(report)
 print(predictions) 
 ```
