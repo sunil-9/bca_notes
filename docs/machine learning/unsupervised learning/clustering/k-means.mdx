@@ -1,0 +1,95 @@
+---
+sidebar_position: 1
+id: k-means
+title: K-means Clustering
+description: Understanding K-means Clustering Algorithm
+---
+
+# K-means Clustering
+
+K-means clustering is one of the most popular and widely used unsupervised machine learning algorithms for partitioning a dataset into K distinct, non-overlapping clusters.
+
+## How K-means Works
+
+The K-means algorithm works by:
+
+1. **Initialization**: Randomly select K points as initial cluster centroids
+2. **Assignment**: Assign each data point to the nearest centroid
+3. **Update**: Recalculate the centroids as the mean of all points in the cluster
+4. **Repeat**: Iterate assignment and update steps until convergence (centroids no longer move significantly)
+
+## Mathematical Formulation
+
+K-means aims to minimize the within-cluster sum of squares (WCSS), also known as inertia:
+
+$$ \text{WCSS} = \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2 $$
+
+Where:
+- $C_i$ is the set of points in cluster $i$
+- $\mu_i$ is the centroid of cluster $i$
+- $||x - \mu_i||^2$ is the squared Euclidean distance between point $x$ and centroid $\mu_i$
+
+## Example with Sample Data
+
+Consider this simple 2D dataset for customer segmentation:
+
+| **Annual Income ($)** | **Spending Score (1-100)** |
+|-----------------------|----------------------------|
+| 15,000               | 39                         |
+| 35,000               | 40                         |
+| 15,000               | 75                         |
+| 75,000               | 90                         |
+| 85,000               | 90                         |
+| 65,000               | 15                         |
+| 75,000               | 10                         |
+| 55,000               | 50                         |
+
+When we apply K-means with K=3, we might get these clusters:
+- **Cluster 1**: Low income, moderate spending (budget shoppers)
+- **Cluster 2**: High income, high spending (premium customers) 
+- **Cluster 3**: High income, low spending (careful spenders)
+
+## Choosing the Optimal K Value
+
+The number of clusters K is a hyperparameter that must be selected before running the algorithm. Common methods to determine K include:
+
+### Elbow Method
+
+Plot the WCSS versus K and look for an "elbow" point where the rate of decrease sharply changes:
+
+```
+K values: 1, 2, 3, 4, 5, 6, 7, 8
+WCSS values: 25000, 10000, 4500, 3000, 2600, 2400, 2200, 2100
+```
+
+In this example, K=3 might be the elbow point as the WCSS decrease rate significantly changes afterward.
+
+### Silhouette Analysis
+
+The silhouette coefficient measures how similar a point is to its own cluster compared to other clusters. Values range from -1 to 1, where:
+- Values near 1 indicate good clustering
+- Values near 0 indicate overlapping clusters
+- Values near -1 indicate misclassification
+
+## Advantages of K-means
+
+- Simple to understand and implement
+- Scales well to large datasets
+- Guarantees convergence
+- Works well when clusters are spherical and similarly sized
+
+## Limitations of K-means
+
+- Sensitive to initial centroid selection
+- Requires predefined K value
+- Struggles with clusters of varying sizes and densities
+- Cannot handle non-spherical cluster shapes
+- Sensitive to outliers
+
+## Common Applications
+
+- Customer segmentation
+- Document clustering
+- Image compression
+- Anomaly detection
+- Feature engineering
