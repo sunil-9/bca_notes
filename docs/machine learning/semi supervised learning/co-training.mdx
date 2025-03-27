@@ -1,0 +1,129 @@
+---
+sidebar_position: 3
+id: co-training
+title: Co-Training
+description: Understanding Co-Training in Semi-Supervised Learning
+---
+
+# Co-Training
+
+Co-training is a powerful semi-supervised learning algorithm that leverages multiple views or feature sets of the data. It works by training separate models on different feature subsets and allowing each model to teach the other, bootstrapping learning from limited labeled data.
+
+## Core Concept
+
+The fundamental idea behind co-training is that:
+1. Different feature views provide complementary information about the data
+2. A classifier that is confident on one view can provide useful labels for the other view
+3. Through iterative mutual teaching, both classifiers can improve beyond what either could learn alone
+
+## Requirements for Effective Co-Training
+
+1. **Feature Split Compatibility**: The feature space can be naturally or artificially divided into "views"
+2. **View Sufficiency**: Each view should be sufficient to learn the target concept if given enough labeled data
+3. **View Independence**: The views should be conditionally independent given the class
+4. **Initial Accuracy**: Base classifiers should achieve better than random performance on the labeled data
+
+## Algorithm Steps
+
+1. **Split features** into two (or more) separate views X₁ and X₂
+2. **Train initial models** M₁ and M₂ on labeled data using their respective views
+3. **Predict on unlabeled data** using both models independently
+4. **Select confident predictions** from each model (those with highest confidence)
+5. **Teach the other model**:
+   - Add M₁'s confident predictions to M₂'s training set
+   - Add M₂'s confident predictions to M₁'s training set
+6. **Retrain both models** on their expanded training sets
+7. **Iterate** until convergence or a stopping criterion is met
+
+## Mathematical Formulation
+
+Let:
+- $L = \{(x_i, y_i)\}_{i=1}^{l}$ be the labeled dataset
+- $U = \{x_j\}_{j=1}^{u}$ be the unlabeled dataset
+- $x^{(1)}$ and $x^{(2)}$ be the two views of data point $x$
+- $f_1$ and $f_2$ be classifiers for views 1 and 2
+
+The co-training process:
+
+1. Train $f_1$ on $\{(x_i^{(1)}, y_i)\}_{i=1}^{l}$
+2. Train $f_2$ on $\{(x_i^{(2)}, y_i)\}_{i=1}^{l}$
+3. For each iteration:
+   - Let $P_1 = \{(x_j, f_1(x_j^{(1)})) | x_j \in U, \text{confidence of } f_1(x_j^{(1)}) > \tau_1\}$
+   - Let $P_2 = \{(x_j, f_2(x_j^{(2)})) | x_j \in U, \text{confidence of } f_2(x_j^{(2)}) > \tau_2\}$
+   - Update $f_1$ using $\{(x_i^{(1)}, y_i)\}_{i=1}^{l} \cup \{(x_j^{(1)}, f_2(x_j^{(2)})) | (x_j, f_2(x_j^{(2)})) \in P_2\}$
+   - Update $f_2$ using $\{(x_i^{(2)}, y_i)\}_{i=1}^{l} \cup \{(x_j^{(2)}, f_1(x_j^{(1)})) | (x_j, f_1(x_j^{(1)})) \in P_1\}$
+
+## Example: Document Classification
+
+Consider classifying web pages as "course" or "non-course" pages:
+
+### Natural Views:
+- **View 1**: Text content of the page
+- **View 2**: Text of links pointing to the page
+
+### Algorithm Application:
+1. Train a text classifier on page content from labeled pages
+2. Train a link text classifier on anchor text from labeled pages
+3. Both classifiers predict on unlabeled pages
+4. Text classifier confidently labels some pages based on content
+5. Link classifier learns from these newly labeled examples
+6. Link classifier confidently labels other pages based on anchor text
+7. Text classifier learns from these newly labeled examples
+8. Iterate, expanding labeled dataset for both classifiers
+
+## Variations of Co-Training
+
+### Multi-View Co-Training
+- Extends beyond two views to multiple complementary views
+- Each view contributes to teaching other views
+
+### Co-EM (Co-Expectation Maximization)
+- Combines co-training with Expectation-Maximization
+- Uses probabilistic models for each view
+- Soft assignment of labels based on probabilities
+
+### Tri-Training
+- Uses three classifiers instead of two
+- A prediction becomes a label when two classifiers agree
+- Eliminates need for confidence estimation
+
+### Democratic Co-Learning
+- Ensemble of multiple classifiers
+- Majority voting determines which examples to add to training set
+- Helps mitigate individual classifier biases
+
+## Advantages of Co-Training
+
+- **Leverages view-specific information**: Utilizes complementary aspects of the data
+- **Robustness**: Less prone to error propagation than single-model self-training
+- **Theoretical guarantees**: Under certain conditions, can learn effectively with few labeled examples
+- **Sample complexity**: Can reduce the number of labeled examples needed exponentially
+- **Ensemble effect**: Final combined classifier often outperforms individual view classifiers
+
+## Limitations
+
+- **View requirement**: Requires multiple naturally occurring or created views
+- **View independence**: Performance degrades if views are highly correlated
+- **Error propagation**: Can still reinforce errors if both views make similar mistakes
+- **Implementation complexity**: More complex to implement than self-training
+- **Hyperparameter sensitivity**: Performance depends on confidence thresholds and other parameters
+
+## Creating Artificial Views
+
+When natural views aren't available:
+
+1. **Random Feature Splitting**: Randomly divide features into two sets
+2. **Clustering-Based**: Use clustering to create feature groupings
+3. **PCA-Based**: Split features based on principal components
+4. **Data Augmentation**: Create additional views through different transformations
+5. **Different Classifiers**: Use the same features but different learning algorithms
+
+## Applications
+
+- **Web Page Classification**: Using page content and link structure
+- **Email Categorization**: Using email body and headers as different views
+- **Image Recognition**: Using different aspects like color and texture
+- **Multimodal Learning**: Using text and images as complementary views
+- **Bioinformatics**: Using different types of biological data
+
+Co-training remains one of the foundational algorithms in semi-supervised learning, particularly valuable when data naturally comes with multiple views or when feature splits can be engineered to provide complementary information.

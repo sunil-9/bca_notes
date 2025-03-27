@@ -1,0 +1,112 @@
+---
+sidebar_position: 2
+id: fp-growth
+title: FP-Growth Algorithm
+description: Understanding the FP-Growth Algorithm for Efficient Association Rule Mining
+---
+
+# FP-Growth Algorithm
+
+FP-Growth (Frequent Pattern Growth) is an efficient and scalable method for mining the complete set of frequent patterns in a database. It improves upon the Apriori algorithm by eliminating the need to generate candidate itemsets, resulting in significantly better performance.
+
+## Core Components
+
+### 1. FP-Tree (Frequent Pattern Tree)
+- A compact data structure that stores quantitative information about frequent patterns
+- Each path represents a set of transactions that share the same frequent items
+- Each node contains:
+  - Item name
+  - Count (frequency of the item)
+  - Node-link (pointer to the next node with the same item)
+
+### 2. Header Table
+- Contains each frequent item
+- Count of occurrences
+- Pointer to the first occurrence of the item in the FP-tree
+
+## Algorithm Steps
+
+### Phase 1: FP-Tree Construction
+
+1. **Scan the database once** to identify frequent items and their support counts
+2. **Sort frequent items** in each transaction by descending support count
+3. **Construct the FP-tree**:
+   - Create the root node labeled "null"
+   - For each transaction, insert its sorted frequent items into the tree
+   - If a path already exists, increment the count of nodes along the path
+   - Otherwise, create new nodes with count 1
+
+### Phase 2: Frequent Pattern Extraction
+
+1. **Mine patterns** from the FP-tree using a recursive divide-and-conquer approach
+2. For each item in the header table (from bottom up):
+   - Generate a frequent pattern with this item
+   - Construct its conditional pattern base (sub-paths leading to this item)
+   - Construct its conditional FP-tree
+   - Recursively mine the conditional FP-tree
+   - Terminate when the conditional FP-tree is empty
+
+## Example
+
+Consider this transaction dataset:
+
+| Transaction ID | Items Purchased                |
+|----------------|--------------------------------|
+| 1              | f, a, c, d, g, i, m, p         |
+| 2              | a, b, c, f, l, m, o            |
+| 3              | b, f, h, j, o                  |
+| 4              | b, c, k, s, p                  |
+| 5              | a, f, c, e, l, p, m, n         |
+
+With minimum support = 3 (items must appear in at least 3 transactions):
+
+### Step 1: Find frequent 1-itemsets
+- Frequent items: a:3, b:3, c:4, f:4, m:3, p:3 (sorted by frequency: c, f, a, b, m, p)
+
+### Step 2: Order items by frequency in each transaction
+1. f, c, a, m, p
+2. f, c, a, b, m
+3. f, b
+4. c, b, p
+5. f, c, a, m, p
+
+### Step 3: Build FP-Tree
+- Create paths for each transaction
+- Merge overlapping paths and increment counters
+
+### Step 4: Mine frequent patterns
+- Start from the least frequent item (p) in the header table
+- Follow node-links to find all paths containing p
+- Extract conditional pattern bases
+- Build conditional FP-tree for p
+- Recursively mine patterns
+
+## Advantages over Apriori
+
+- **No candidate generation**: Eliminates the costly process of candidate generation and testing
+- **Compressed representation**: FP-tree provides a compact representation of the transaction database
+- **No repeated database scans**: Scans the database only twice (vs. multiple scans in Apriori)
+- **"Divide and conquer"**: Breaks down the problem into smaller subproblems
+- **Much faster**: Typically 3-4 times faster than Apriori, especially for large datasets
+
+## Limitations of FP-Growth
+
+- **Memory intensive**: The entire FP-tree needs to fit in memory
+- **Complex implementation**: More difficult to implement than Apriori
+- **Less intuitive**: Harder to understand conceptually than Apriori
+
+## Variations and Improvements
+
+- **Parallel FP-Growth**: Distributed versions for handling very large datasets
+- **CT-PRO** (Compressed FP-tree): More memory-efficient variant
+- **COFI-tree**: An optimized approach for mining specific items
+- **CanTree**: A canonical tree structure that doesn't require pre-sorting
+
+## Applications
+
+- E-commerce recommendation systems
+- Web usage mining
+- Bioinformatics (finding patterns in biological sequences)
+- Intrusion detection in cybersecurity
+- Cross-selling strategies in retail
+- Document clustering and classification

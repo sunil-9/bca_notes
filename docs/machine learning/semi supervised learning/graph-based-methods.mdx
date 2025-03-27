@@ -1,0 +1,197 @@
+---
+sidebar_position: 4
+id: graph-based-methods
+title: Graph-Based Semi-Supervised Learning
+description: Understanding Graph-Based Methods for Semi-Supervised Learning
+---
+
+# Graph-Based Semi-Supervised Learning
+
+Graph-based methods are a powerful family of semi-supervised learning algorithms that represent data as a graph where nodes are data points and edges represent similarities between points. These methods leverage the graph structure to propagate labels from labeled nodes to unlabeled nodes.
+
+## Core Concept
+
+The fundamental idea behind graph-based semi-supervised learning is:
+1. Data points that are connected in the graph are likely to have the same label
+2. Labels can "flow" through the graph from labeled to unlabeled points
+3. The overall structure of the data can be inferred from both labeled and unlabeled points
+
+## Graph Construction
+
+The first step in graph-based methods is creating a similarity graph:
+
+### Common Graph Construction Methods
+
+1. **ε-neighborhood Graph**
+   - Connect points if their distance is less than threshold ε
+   - Results in an unweighted graph
+
+2. **k-Nearest Neighbors (k-NN) Graph**
+   - Connect each point to its k nearest neighbors
+   - Can be directed (not symmetric) or undirected (symmetrized)
+
+3. **Fully Connected Graph with Weighted Edges**
+   - Connect all points with weighted edges
+   - Weight typically defined by a kernel function:
+     - Gaussian kernel: $W_{ij} = \exp(-\frac{||x_i - x_j||^2}{2\sigma^2})$
+     - Polynomial kernel: $W_{ij} = (x_i^T x_j + 1)^d$
+
+## Label Propagation Algorithms
+
+### 1. Standard Label Propagation
+
+The basic algorithm:
+1. Assign label probabilities to all nodes (1 for labeled nodes, 0/uniform for unlabeled)
+2. Propagate labels through the graph iteratively
+3. At each step, nodes receive contributions from their neighbors
+4. Labeled nodes maintain their original labels (clamping)
+5. Iterate until convergence
+
+Mathematically:
+- Let $Y_L$ be the labels of labeled points
+- Let $Y_U$ be the labels of unlabeled points (to be determined)
+- Let $W$ be the weight/similarity matrix
+- Let $D$ be the diagonal degree matrix where $D_{ii} = \sum_j W_{ij}$
+
+The update rule:
+$Y_U \leftarrow D_{UU}^{-1} W_{UL} Y_L + D_{UU}^{-1} W_{UU} Y_U$
+
+### 2. Label Spreading
+
+A variation of label propagation that introduces a regularization parameter α:
+- Balances between initial label assignment and propagated values
+- Typically uses normalized graph Laplacian
+
+The update rule:
+$Y \leftarrow \alpha S Y + (1-\alpha) Y^0$
+
+Where:
+- $S = D^{-1/2} W D^{-1/2}$ is the normalized similarity matrix
+- $Y^0$ is the initial label assignment
+- $\alpha \in (0,1)$ is the propagation weight
+
+### 3. Consistency Method (Harmonic Function)
+
+Finds a classification function that is:
+- Consistent with the labeled data
+- Smooth across the entire graph
+
+Minimizes:
+$E(f) = \frac{1}{2} \sum_{i,j} W_{ij} (f_i - f_j)^2$
+
+Subject to $f_i = y_i$ for labeled points.
+
+## Graph Laplacian
+
+The graph Laplacian matrix is central to many graph-based methods:
+
+- Unnormalized Laplacian: $L = D - W$
+- Normalized Laplacian: $L_{sym} = D^{-1/2} L D^{-1/2} = I - D^{-1/2} W D^{-1/2}$
+
+The quadratic form $f^T L f = \frac{1}{2} \sum_{i,j} W_{ij} (f_i - f_j)^2$ measures the smoothness of $f$ over the graph.
+
+## Example Algorithm: Label Propagation
+
+```python
+def label_propagation(X, labeled_idx, labels, max_iter=1000, tol=1e-3):
+    """
+    X: feature matrix of shape (n_samples, n_features)
+    labeled_idx: indices of labeled samples
+    labels: labels for labeled samples
+    """
+    # Construct the graph
+    affinity_matrix = rbf_kernel(X)
+    
+    # Initialize label matrix Y
+    n_samples = X.shape[0]
+    n_classes = len(np.unique(labels))
+    Y = np.zeros((n_samples, n_classes))
+    
+    # Set labels for labeled samples (one-hot encoding)
+    for i, idx in enumerate(labeled_idx):
+        Y[idx, labels[i]] = 1
+    
+    # Remember initial labels
+    Y_initial = Y.copy()
+    
+    # Compute diagonal degree matrix
+    D = np.diag(np.sum(affinity_matrix, axis=1))
+    
+    # Normalized transition matrix
+    T = np.linalg.inv(D) @ affinity_matrix
+    
+    # Label propagation
+    for i in range(max_iter):
+        Y_prev = Y.copy()
+        
+        # Propagate labels
+        Y = T @ Y
+        
+        # Clamp labeled data
+        Y[labeled_idx] = Y_initial[labeled_idx]
+        
+        # Check convergence
+        if np.abs(Y - Y_prev).sum() < tol:
+            break
+    
+    # Return predicted labels
+    return np.argmax(Y, axis=1)
+```
+
+## Advantages of Graph-Based Methods
+
+- **Transductive learning**: Directly label the unlabeled data without training an explicit model
+- **Non-parametric**: No assumption about the form of the decision boundary
+- **Global structure**: Consider the global structure of the data
+- **Manifold assumption**: Naturally incorporate the manifold assumption
+- **Theoretical guarantees**: Have strong theoretical foundations
+- **Interpretability**: Graph structure can provide insights into data relationships
+
+## Limitations
+
+- **Scalability**: Graph construction and operations can be computationally expensive for large datasets
+- **Graph construction sensitivity**: Performance depends heavily on graph construction parameters
+- **Out-of-sample extension**: Standard methods don't naturally handle new data points
+- **Imbalanced data**: Can be biased toward the majority class
+- **Disconnected components**: May not propagate labels between disconnected subgraphs
+
+## Advanced Techniques
+
+### 1. Spectral Graph Transducer
+- Uses eigenvectors of the graph Laplacian
+- Cuts the graph to minimize the normalized cut criterion
+- Often computationally efficient
+
+### 2. Manifold Regularization
+- Combines supervised loss with a graph-based regularization term
+- Example: Laplacian SVM, Laplacian Regularized Least Squares
+
+### 3. Graph Convolutional Networks (GCNs)
+- Apply neural network operations to graph-structured data
+- Learn node representations that encode both feature and graph structure
+- Can be used for semi-supervised node classification
+
+### 4. Graph Attention Networks (GATs)
+- Introduce attention mechanisms to graph neural networks
+- Assign different weights to different neighbors
+- Better handle heterogeneous graph structures
+
+## Applications
+
+- **Social Network Analysis**: Identifying communities, predicting user attributes
+- **Bioinformatics**: Protein function prediction, gene regulatory network analysis
+- **Natural Language Processing**: Document classification, sentiment analysis
+- **Computer Vision**: Image segmentation, object recognition
+- **Recommendation Systems**: Item categorization based on user interaction graphs
+- **Web Page Classification**: Using hyperlink structure
+
+## Implementation Tips
+
+1. **Proper graph construction**: Test different similarity measures and k values
+2. **Normalization**: Normalize feature vectors before graph construction
+3. **Sparsification**: Use sparse matrices for large graphs
+4. **Kernel bandwidth**: The σ parameter in Gaussian kernel greatly affects performance
+5. **Ensemble methods**: Combine multiple graph-based methods with different parameters
+6. **Class balancing**: Ensure proper weighting for imbalanced classes
+
+Graph-based methods remain one of the most theoretically well-founded approaches to semi-supervised learning, particularly effective when the manifold assumption holds for the data.

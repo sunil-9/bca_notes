@@ -1,0 +1,98 @@
+---
+sidebar_position: 3
+id: dbscan
+title: DBSCAN Clustering
+description: Density-Based Spatial Clustering of Applications with Noise
+---
+
+# DBSCAN Clustering
+
+DBSCAN (Density-Based Spatial Clustering of Applications with Noise) is a popular density-based clustering algorithm that groups together points that are closely packed in space, marking points in low-density regions as outliers.
+
+## Core Concepts
+
+DBSCAN defines clusters as dense regions separated by regions of lower density. It uses three key concepts:
+
+1. **Core points**: Points that have at least `MinPts` points within distance `ε` (epsilon)
+2. **Border points**: Points that are within distance `ε` of a core point but have fewer than `MinPts` points within distance `ε`
+3. **Noise points**: Points that are neither core points nor border points
+
+## Algorithm Steps
+
+1. For each point in the dataset:
+   - Find all points within distance `ε`
+   - If there are at least `MinPts` points, mark the point as a core point
+
+2. Form clusters:
+   - Connect all core points that are within distance `ε` of each other
+   - Assign border points to their respective core point's cluster
+
+3. Identify noise:
+   - Any point that is not a core point or a border point is considered noise
+
+## Parameters
+
+DBSCAN has two main parameters:
+
+- **ε (Epsilon)**: The radius of the neighborhood around a point
+- **MinPts**: The minimum number of points required within the ε-neighborhood to form a dense region
+
+## Selecting Parameters
+
+### Choosing Epsilon (ε)
+- Plot k-distance graph: Sort the distances of each point to its kth nearest neighbor
+- Look for the "elbow" in the graph, which indicates a good value for ε
+
+### Choosing MinPts
+- General rule: MinPts ≥ D + 1, where D is the number of dimensions in the dataset
+- Common values:
+  - For 2D data: MinPts = 4
+  - For higher dimensions: MinPts = 2 × dimensions
+
+## Example
+
+Consider points representing customer locations on a map:
+
+| Customer ID | Latitude | Longitude |
+|-------------|----------|-----------|
+| 1           | 40.7128  | -74.0060  |
+| 2           | 40.7129  | -74.0063  |
+| 3           | 40.7130  | -74.0065  |
+| 4           | 40.7500  | -73.9800  |
+| 5           | 40.7505  | -73.9790  |
+| 6           | 41.8781  | -87.6298  |
+
+With DBSCAN (ε = 0.01, MinPts = 2):
+- Cluster 1: Customers 1, 2, and 3 (downtown area)
+- Cluster 2: Customers 4 and 5 (midtown area)
+- Noise: Customer 6 (isolated customer)
+
+## Advantages of DBSCAN
+
+- Does not require specifying the number of clusters beforehand
+- Can find arbitrarily shaped clusters
+- Robust to outliers (identifies them as noise)
+- Only needs two parameters
+- Can handle clusters of different sizes and shapes
+
+## Limitations of DBSCAN
+
+- Struggles with varying density clusters
+- Sensitive to parameter selection
+- Difficulty with high-dimensional data due to "curse of dimensionality"
+- Not as effective when clusters have very different densities
+- Can have trouble with clusters that are close to each other
+
+## Variations and Improvements
+
+- **OPTICS**: An extension that addresses the variable density problem
+- **HDBSCAN**: Hierarchical DBSCAN that eliminates the need for selecting ε
+- **ST-DBSCAN**: Includes spatial-temporal aspects for time-series data
+
+## Applications
+
+- Anomaly detection in security systems
+- Spatial data analysis in GIS applications
+- Image segmentation
+- Network clustering
+- Traffic pattern analysis

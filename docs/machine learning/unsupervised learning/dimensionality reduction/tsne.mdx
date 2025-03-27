@@ -1,0 +1,117 @@
+---
+sidebar_position: 2
+id: tsne
+title: t-SNE (t-Distributed Stochastic Neighbor Embedding)
+description: Understanding t-SNE for Non-linear Dimensionality Reduction and Visualization
+---
+
+# t-SNE (t-Distributed Stochastic Neighbor Embedding)
+
+t-SNE is a powerful non-linear dimensionality reduction technique particularly well-suited for visualizing high-dimensional data in 2D or 3D space. Unlike PCA, which focuses on preserving global structure, t-SNE excels at preserving local structure, making it ideal for revealing clusters and patterns in complex datasets.
+
+## Core Concept
+
+t-SNE converts similarities between data points to joint probabilities and minimizes the Kullback-Leibler divergence between the probability distributions in the original high-dimensional space and the lower-dimensional embedding.
+
+The key insight of t-SNE is to model similar data points with high probability of being neighbors, while dissimilar data points have low probability of being neighbors.
+
+## Algorithm Steps
+
+1. **Compute pairwise similarities in high-dimensional space**
+   - For each point, compute conditional probabilities that represent similarities to other points
+   - These probabilities are based on Gaussian distributions centered at each point
+   - The variance of the Gaussian (perplexity) is adjusted to maintain a consistent effective number of neighbors
+
+2. **Define a similar probability distribution in low-dimensional space**
+   - Use a Student t-distribution with one degree of freedom (Cauchy distribution)
+   - The heavier tails of the t-distribution help prevent crowding of points in the low-dimensional map
+
+3. **Minimize the Kullback-Leibler divergence**
+   - Use gradient descent to minimize the difference between the two probability distributions
+   - This pulls similar points together and pushes dissimilar points apart in the embedding
+
+## Mathematical Details
+
+### High-dimensional similarities (p)
+For data points x_i and x_j, the conditional probability p_j|i that x_i would pick x_j as its neighbor:
+
+$$ p_{j|i} = \frac{\exp(-||x_i - x_j||^2 / 2\sigma_i^2)}{\sum_{k \neq i} \exp(-||x_i - x_k||^2 / 2\sigma_i^2)} $$
+
+The joint probability p_ij is symmetrized:
+
+$$ p_{ij} = \frac{p_{j|i} + p_{i|j}}{2n} $$
+
+### Low-dimensional similarities (q)
+For the points y_i and y_j in the embedding:
+
+$$ q_{ij} = \frac{(1 + ||y_i - y_j||^2)^{-1}}{\sum_{k \neq l} (1 + ||y_k - y_l||^2)^{-1}} $$
+
+### Cost function
+The Kullback-Leibler divergence:
+
+$$ C = \sum_i \sum_j p_{ij} \log \frac{p_{ij}}{q_{ij}} $$
+
+## Hyperparameters
+
+### Perplexity
+- Controls the balance between preserving local and global structure
+- Interpreted as a smooth measure of the effective number of neighbors
+- Typical values: 5-50
+- Higher values preserve more global structure
+- Lower values focus on local structure
+
+### Learning Rate
+- Controls the step size during gradient descent
+- Typical values: 10-1000
+- If too high: unstable optimization
+- If too low: slow convergence, may get stuck in poor minima
+
+### Number of Iterations
+- Typically 1000+ iterations are needed for convergence
+- Early exaggeration: During initial iterations, p_ij values are artificially increased to form well-separated clusters
+
+## Advantages of t-SNE
+
+- Excellent at visualizing clusters or groups in data
+- Preserves local structure better than linear methods like PCA
+- Reveals patterns that other dimensionality reduction methods might miss
+- Works well even with highly non-linear manifolds
+- Particularly effective for visualization in 2D or 3D
+
+## Limitations of t-SNE
+
+- Computationally intensive (O(n²) complexity)
+- Non-deterministic results (multiple runs may yield different embeddings)
+- Cannot meaningfully preserve distances between clusters
+- No straightforward way to map new data points into an existing embedding
+- Not ideal for dimensionality reduction as preprocessing for other algorithms
+- Sensitive to hyperparameter settings, especially perplexity
+
+## Applications
+
+- Visualizing high-dimensional datasets in 2D/3D
+- Exploring clusters in genomic and biomedical data
+- Image and document clustering visualization
+- Feature visualization in deep neural networks
+- Analyzing single-cell RNA sequencing data
+- Market research and customer segmentation
+
+## Implementation Tips
+
+1. **Scale your features** before applying t-SNE
+2. **Use PCA as preprocessing** for very high-dimensional data (e.g., reduce to 50 dimensions first)
+3. **Try multiple perplexity values** to find the most informative visualization
+4. **Run multiple times** with different random initializations
+5. **Be cautious about interpretation** of distances between clusters
+6. **Consider using faster approximations** like Barnes-Hut t-SNE for large datasets
+
+## Comparison with Other Methods
+
+| Aspect | t-SNE | PCA | UMAP |
+|--------|-------|-----|------|
+| Algorithm nature | Non-linear | Linear | Non-linear |
+| Preserves | Local structure | Global variance | Both local and global |
+| Computational cost | High (O(n²)) | Low (O(n)) | Medium |
+| Scalability | Poor | Excellent | Good |
+| Deterministic | No | Yes | No |
+| Out-of-sample extension | Difficult | Easy | Possible |

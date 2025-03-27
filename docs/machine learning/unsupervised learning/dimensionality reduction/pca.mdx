@@ -1,0 +1,126 @@
+---
+sidebar_position: 1
+id: pca
+title: Principal Component Analysis (PCA)
+description: Understanding Principal Component Analysis for Dimensionality Reduction
+---
+
+# Principal Component Analysis (PCA)
+
+Principal Component Analysis (PCA) is one of the most widely used dimensionality reduction techniques in machine learning and data science. It transforms the original features into a new set of uncorrelated features called principal components.
+
+## Core Concept
+
+PCA finds directions (principal components) of maximum variance in the high-dimensional data and projects the data onto these directions. These principal components are:
+
+1. Orthogonal to each other (uncorrelated)
+2. Ordered by the amount of variance they capture
+3. Linear combinations of the original features
+
+## Mathematical Foundation
+
+PCA is based on the eigenvectors and eigenvalues of the data's covariance matrix:
+
+1. Calculate the covariance matrix of the standardized data
+2. Calculate the eigenvectors and eigenvalues of the covariance matrix
+3. Sort the eigenvectors by their eigenvalues in descending order
+4. Choose the top k eigenvectors to form the projection matrix
+5. Transform the original data using the projection matrix
+
+## Algorithm Steps
+
+1. **Standardize the data** (zero mean, unit variance)
+   - For each feature, subtract mean and divide by standard deviation
+
+2. **Compute the covariance matrix**
+   - Calculate how each feature varies with respect to other features
+
+3. **Calculate eigenvectors and eigenvalues**
+   - Eigenvectors determine the directions of the new feature space
+   - Eigenvalues determine the magnitude of variance in each direction
+
+4. **Sort eigenvectors by eigenvalues**
+   - Higher eigenvalues indicate directions with greater variance
+
+5. **Select top k eigenvectors**
+   - Choose number of dimensions to keep based on explained variance
+
+6. **Project data onto new subspace**
+   - Transform original data into the reduced-dimensional space
+
+## Example
+
+Consider a dataset with 3 features (height, weight, age) for various individuals. After applying PCA:
+
+| Original Features | Principal Components |
+|-------------------|----------------------|
+| Height            | PC1 (0.7H + 0.65W + 0.3A)  |
+| Weight            | PC2 (0.2H - 0.3W + 0.93A)  |
+| Age               | PC3 (0.68H - 0.7W - 0.2A)  |
+
+If PC1 captures 75% of the variance and PC2 captures 20%, we might keep just these two components, reducing our data from 3D to 2D while retaining 95% of the information.
+
+## Selecting the Number of Components
+
+Several approaches can be used to determine how many principal components to retain:
+
+### 1. Explained Variance Ratio
+- Plot the cumulative explained variance vs. number of components
+- Choose k where the curve begins to flatten (elbow method)
+- Alternatively, select k to reach a threshold (e.g., 95% variance explained)
+
+### 2. Kaiser's Rule
+- Keep only components with eigenvalues greater than 1
+- These components explain more variance than a single original variable
+
+### 3. Scree Plot
+- Plot eigenvalues in descending order
+- Look for an "elbow" in the plot where eigenvalues drop off
+
+## Advantages of PCA
+
+- Reduces overfitting by decreasing model complexity
+- Improves algorithm performance by removing multicollinearity
+- Decreases computational requirements for subsequent processing
+- Allows visualization of high-dimensional data in 2D or 3D
+- Removes noise from data if lower dimensions capture the signal
+
+## Limitations of PCA
+
+- Linear transformation only (can't capture non-linear relationships)
+- Difficult to interpret the principal components
+- Sensitive to feature scaling (requires standardization)
+- May lose important information if choosing too few components
+- Assumes orthogonality of components, which may not reflect reality
+
+## Applications
+
+- Image compression and facial recognition
+- Gene expression analysis in bioinformatics
+- Noise reduction in signals
+- Feature extraction for machine learning models
+- Exploratory data analysis and visualization
+- Anomaly detection in high-dimensional data
+
+## Code Example Pseudocode
+
+```python
+# Standardize the data
+X_std = (X - mean(X)) / std(X)
+
+# Calculate covariance matrix
+cov_matrix = (1 / n) * (X_std.T @ X_std)
+
+# Calculate eigenvectors and eigenvalues
+eigenvalues, eigenvectors = eig(cov_matrix)
+
+# Sort eigenvectors by decreasing eigenvalues
+sorted_indices = argsort(eigenvalues)[::-1]
+sorted_eigenvectors = eigenvectors[:, sorted_indices]
+
+# Select top k eigenvectors
+W = sorted_eigenvectors[:, :k]
+
+# Transform the data
+X_reduced = X_std @ W
+```

@@ -1,0 +1,106 @@
+---
+sidebar_position: 2
+id: hierarchical-clustering
+title: Hierarchical Clustering
+description: Understanding Hierarchical Clustering Methods
+---
+
+# Hierarchical Clustering
+
+Hierarchical clustering is a method of cluster analysis that builds a hierarchy of clusters, showing relationships between data points at different levels of granularity.
+
+## Types of Hierarchical Clustering
+
+### 1. Agglomerative (Bottom-up)
+- **Start**: Each data point is a separate cluster
+- **Process**: Repeatedly merge the closest pair of clusters until only one cluster remains
+- **Result**: A tree-like structure called a dendrogram
+
+### 2. Divisive (Top-down)
+- **Start**: All data points belong to a single cluster
+- **Process**: Recursively split clusters until each data point is its own cluster
+- **Result**: Same dendrogram structure as agglomerative but built in reverse
+
+## Distance Metrics
+
+The choice of distance metric influences the shape of clusters:
+
+- **Euclidean Distance**: Straight-line distance between two points (most common)
+- **Manhattan Distance**: Sum of absolute differences of coordinates
+- **Maximum Distance**: Maximum difference between any dimension
+- **Mahalanobis Distance**: Accounts for covariance in the dataset
+
+## Linkage Methods
+
+Linkage determines how the distance between clusters is measured:
+
+### 1. Single Linkage (Nearest Neighbor)
+- Distance between clusters is the minimum distance between any two points in different clusters
+- Often creates long, thin clusters due to chaining effect
+
+### 2. Complete Linkage (Furthest Neighbor)
+- Distance between clusters is the maximum distance between any two points in different clusters
+- Tends to create compact, equally sized clusters
+
+### 3. Average Linkage
+- Distance between clusters is the average distance between all pairs of points in different clusters
+- Balances the extremes of single and complete linkage
+
+### 4. Ward's Method
+- Minimizes the increase in the sum of squares after merging
+- Tends to create clusters of similar sizes
+
+## Dendrogram Interpretation
+
+A dendrogram is a tree diagram showing the hierarchical relationship between clusters:
+
+- **Vertical axis**: Represents the distance or dissimilarity between clusters
+- **Horizontal axis**: Individual data points and clusters
+- **Cutting the dendrogram**: Horizontal cut at a specific height determines the number of clusters
+
+## Example
+
+Consider this small dataset of city distances (in km):
+
+| City   | New York | Chicago | Los Angeles | Houston |
+|--------|----------|---------|-------------|---------|
+| New York | 0        | 1300    | 4500       | 2300    |
+| Chicago  | 1300     | 0       | 3000       | 1500    |
+| Los Angeles | 4500  | 3000    | 0          | 2200    |
+| Houston | 2300     | 1500    | 2200       | 0       |
+
+Using hierarchical clustering:
+1. Initially, each city is its own cluster
+2. First merge: Chicago and Houston (distance: 1500 km)
+3. Second merge: The Chicago-Houston cluster with New York
+4. Final merge: All cities with Los Angeles
+
+## Determining the Optimal Number of Clusters
+
+Several methods can be used:
+
+1. **Visual inspection** of the dendrogram: Look for the longest vertical distance without horizontal lines crossing it
+2. **Inconsistency coefficient**: Identifying where large changes in the distance occur
+3. **Cophenetic correlation coefficient**: Measures how well the dendrogram preserves the original pairwise distances
+
+## Advantages of Hierarchical Clustering
+
+- No need to specify the number of clusters in advance
+- Produces an intuitive visual representation (dendrogram)
+- Can uncover hierarchical relationships in the data
+- Works well with arbitrary distance metrics
+
+## Limitations of Hierarchical Clustering
+
+- Computationally intensive for large datasets (O(n²) space complexity, O(n³) time complexity)
+- Sensitive to noise and outliers
+- Cannot correct erroneous merges or splits once they're made
+- Difficulty handling different sized clusters and non-spherical shapes
+
+## Applications
+
+- Taxonomy creation in biology
+- Document hierarchies in information retrieval
+- Customer segmentation in marketing
+- Identifying hierarchical structures in social networks
+- Gene expression data analysis

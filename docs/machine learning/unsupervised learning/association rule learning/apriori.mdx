@@ -1,0 +1,116 @@
+---
+sidebar_position: 1
+id: apriori
+title: Apriori Algorithm
+description: Understanding the Apriori Algorithm for Market Basket Analysis
+---
+
+# Apriori Algorithm
+
+The Apriori algorithm is one of the most popular algorithms for discovering association rules in datasets, particularly for market basket analysis. It helps identify relationships between items in large transactional databases.
+
+## Core Concepts
+
+### 1. Itemsets and Support
+- **Itemset**: A collection of one or more items
+- **Support**: The frequency of an itemset in the dataset
+  - Support(X) = (Number of transactions containing X) / (Total number of transactions)
+
+### 2. Association Rules
+- **Rule**: An implication expression of the form X → Y, where X and Y are itemsets
+- **Confidence**: The likelihood that Y is purchased when X is purchased
+  - Confidence(X → Y) = Support(X ∪ Y) / Support(X)
+- **Lift**: How likely Y is purchased when X is purchased, while controlling for popularity
+  - Lift(X → Y) = Confidence(X → Y) / Support(Y)
+
+## The Apriori Principle
+
+The key insight of the Apriori algorithm is:
+> **"All subsets of a frequent itemset must also be frequent"**
+
+Conversely, if an itemset is infrequent, all its supersets must also be infrequent.
+
+## Algorithm Steps
+
+1. **Set minimum support and confidence thresholds**
+   - Minimum support prevents consideration of rare items
+   - Minimum confidence ensures strong rules
+
+2. **Generate frequent itemsets**
+   - Start with frequent 1-itemsets (items that meet minimum support)
+   - Iteratively create candidate (k+1)-itemsets from frequent k-itemsets
+   - Prune candidates using the Apriori principle
+   - Count support for remaining candidates
+   - Keep only frequent itemsets that meet minimum support
+
+3. **Generate association rules**
+   - For each frequent itemset L, generate all non-empty subsets
+   - For each subset S, output the rule S → (L-S) if confidence ≥ minimum confidence
+
+## Example
+
+Consider this small transaction dataset:
+
+| Transaction ID | Items Purchased                  |
+|----------------|----------------------------------|
+| 1              | Bread, Milk                      |
+| 2              | Bread, Diapers, Beer, Eggs       |
+| 3              | Milk, Diapers, Beer, Cola        |
+| 4              | Bread, Milk, Diapers, Beer       |
+| 5              | Bread, Milk, Diapers, Cola       |
+
+With minimum support = 0.4 (40%) and minimum confidence = 0.7 (70%):
+
+### Step 1: Find frequent 1-itemsets
+- Support(Bread) = 4/5 = 0.8
+- Support(Milk) = 4/5 = 0.8
+- Support(Diapers) = 4/5 = 0.8
+- Support(Beer) = 3/5 = 0.6
+- Support(Cola) = 2/5 = 0.4
+- Support(Eggs) = 1/5 = 0.2 (below minimum support, discard)
+
+### Step 2: Find frequent 2-itemsets
+Generate candidates and check support:
+- Support(Bread, Milk) = 3/5 = 0.6
+- Support(Bread, Diapers) = 3/5 = 0.6
+- Support(Milk, Diapers) = 3/5 = 0.6
+- etc.
+
+### Step 3: Find frequent 3-itemsets
+Continue the process...
+
+### Step 4: Generate rules
+For example, from the frequent itemset {Bread, Milk, Diapers}:
+- Bread → {Milk, Diapers}: Confidence = 0.75
+- Milk → {Bread, Diapers}: Confidence = 0.75
+- etc.
+
+## Advantages of Apriori
+
+- Easy to understand and implement
+- Uses large itemset property for efficient pruning
+- Widely used for market basket analysis
+- Can be parallelized for better performance
+
+## Limitations of Apriori
+
+- Computationally expensive for large datasets
+- Multiple database scans required (one per iteration)
+- Struggles with very low minimum support values
+- Can generate an extremely large number of candidate itemsets
+
+## Optimizations
+
+- **Hash-based technique**: Using hash tables to reduce the size of candidate itemsets
+- **Transaction reduction**: Removing items or transactions that are not useful
+- **Partitioning**: Divide-and-conquer approach to handle large databases
+- **Sampling**: Using a subset of the database to find frequent itemsets
+
+## Applications
+
+- Market basket analysis in retail
+- Product recommendation systems
+- Website navigation pattern analysis
+- Inventory management
+- Cross-marketing strategies
+- Medical diagnosis and treatment associations

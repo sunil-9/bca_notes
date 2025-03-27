@@ -1,0 +1,170 @@
+---
+sidebar_position: 2
+id: q-learning
+title: Q-Learning
+description: Understanding Q-Learning, a value-based reinforcement learning algorithm
+---
+
+# Q-Learning
+
+Q-Learning is a foundational value-based reinforcement learning algorithm that learns the optimal action-value function (Q-function) directly from experience, without requiring a model of the environment. It is an off-policy algorithm, meaning it can learn from actions that were not selected by its current policy.
+
+## Core Concept
+
+Q-Learning aims to learn the Q-function, which maps state-action pairs to their expected cumulative rewards. The Q-function represents the "quality" of an action in a given state.
+
+Formally, the Q-function Q(s,a) represents the expected discounted future reward when taking action a in state s and then following the optimal policy thereafter.
+
+## Markov Decision Process Framework
+
+Q-Learning operates within the Markov Decision Process (MDP) framework, defined by:
+- A set of states S
+- A set of actions A
+- Transition probabilities P(s'|s,a) for moving from state s to state s' by taking action a
+- Reward function R(s,a,s') for the reward received when transitioning from s to s' via action a
+- Discount factor γ ∈ [0,1] that determines the present value of future rewards
+
+## The Q-Learning Algorithm
+
+### Algorithm Steps
+
+1. **Initialize Q-table**: Create a table with all state-action pairs, typically initialized to zeros or random values
+2. **Observe current state**: The agent observes its current state s
+3. **Choose action**: Select an action a using an exploration strategy (e.g., ε-greedy)
+4. **Take action and observe outcome**: Execute action a, observe reward r and new state s'
+5. **Update Q-value**: Using the Q-learning update rule
+6. **Repeat**: Set s = s' and continue from step 3 until the episode ends
+7. **Start new episode**: After episode termination, reset and start a new episode
+
+### The Q-Learning Update Rule
+
+The core of Q-learning is the Bellman update equation:
+
+$$Q(s,a) \leftarrow Q(s,a) + \alpha \left[ r + \gamma \max_{a'} Q(s',a') - Q(s,a) \right]$$
+
+Where:
+- Q(s,a) is the current estimated Q-value
+- α is the learning rate (0 < α ≤ 1)
+- r is the reward received
+- γ is the discount factor (0 ≤ γ ≤ 1)
+- max<sub>a'</sub> Q(s',a') is the maximum Q-value for the next state s'
+- [r + γ max<sub>a'</sub> Q(s',a') - Q(s,a)] is the temporal difference (TD) error
+
+## Exploration vs. Exploitation
+
+Q-learning requires a balance between exploration (trying new actions) and exploitation (using known good actions). Common strategies include:
+
+### ε-Greedy Strategy
+- With probability ε, choose a random action (exploration)
+- With probability 1-ε, choose the action with highest Q-value (exploitation)
+- Typically, ε is decreased over time as the agent learns
+
+### Softmax (Boltzmann) Exploration
+- Choose actions probabilistically based on their estimated values
+- Higher temperature parameter leads to more exploration
+- Lower temperature focuses more on high-value actions
+
+## Convergence Properties
+
+Q-learning is proven to converge to the optimal Q-function under certain conditions:
+- All state-action pairs are visited infinitely often
+- Learning rate α decays appropriately
+- The environment is a finite MDP
+
+## Example Implementation
+
+```python
+import numpy as np
+import random
+
+def q_learning(env, episodes=1000, alpha=0.1, gamma=0.99, epsilon=0.1):
+    # Initialize Q-table
+    n_states = env.observation_space.n
+    n_actions = env.action_space.n
+    Q = np.zeros((n_states, n_actions))
+    
+    for episode in range(episodes):
+        # Initialize state
+        state = env.reset()
+        done = False
+        
+        while not done:
+            # Choose action using epsilon-greedy
+            if random.uniform(0, 1) < epsilon:
+                action = env.action_space.sample()  # Explore
+            else:
+                action = np.argmax(Q[state, :])     # Exploit
+            
+            # Take action and observe next state and reward
+            next_state, reward, done, _ = env.step(action)
+            
+            # Update Q-value using Q-learning update rule
+            Q[state, action] = Q[state, action] + alpha * (
+                reward + gamma * np.max(Q[next_state, :]) - Q[state, action]
+            )
+            
+            # Move to next state
+            state = next_state
+    
+    return Q
+```
+
+## Example Application: Grid World
+
+Consider a simple 4x4 grid world where:
+- The agent starts in the top-left corner
+- The goal is in the bottom-right corner
+- There are obstacles in certain cells
+- Available actions: up, down, left, right
+- Reward: -1 for each step, +10 for reaching the goal, -10 for hitting an obstacle
+
+Q-learning would learn a policy that:
+1. Initially explores randomly
+2. Gradually identifies paths that lead to the goal
+3. Eventually finds the optimal (shortest) path to the goal
+4. Learns to avoid obstacles
+
+## Limitations of Tabular Q-Learning
+
+- **State Space Size**: Requires a table entry for each state-action pair, impractical for large state spaces
+- **Continuous State Spaces**: Cannot directly handle continuous state spaces without discretization
+- **Generalization**: Doesn't naturally generalize learning between similar states
+- **Sample Efficiency**: May require many interactions to learn optimal policy
+
+## Extensions and Variants
+
+### Deep Q-Networks (DQN)
+- Uses neural networks to approximate Q-function
+- Handles high-dimensional state spaces
+- Employs techniques like experience replay and target networks for stability
+
+### Double Q-Learning
+- Addresses overestimation bias in standard Q-learning
+- Uses two Q-functions to decouple action selection and evaluation
+
+### Prioritized Experience Replay
+- Samples important transitions more frequently
+- Improves sample efficiency
+
+### Dueling Network Architecture
+- Separates state value and advantage functions
+- Improves learning in many environments
+
+## Applications of Q-Learning
+
+- **Game Playing**: Teaching agents to play Atari games, board games
+- **Robotics**: Teaching robots basic control and navigation
+- **Resource Management**: Network routing, inventory management
+- **Recommendation Systems**: Learning user preferences
+- **Healthcare**: Treatment optimization
+- **Finance**: Trading strategies, portfolio management
+
+## Advantages of Q-Learning
+
+- **Model-Free**: Doesn't require knowledge of environment dynamics
+- **Off-Policy**: Can learn from any experience, not just the current policy
+- **Simplicity**: Relatively straightforward to implement in tabular form
+- **Guaranteed Convergence**: Converges to optimal policy under certain conditions
+- **Flexibility**: Can be extended to handle complex problems
+
+Q-learning remains one of the most important algorithms in reinforcement learning, serving as the foundation for many modern approaches and continuing to be useful in a wide range of applications.

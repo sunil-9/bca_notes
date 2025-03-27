@@ -1,0 +1,149 @@
+---
+sidebar_position: 2
+id: self-training
+title: Self-Training
+description: Understanding Self-Training (Pseudo-Labeling) in Semi-Supervised Learning
+---
+
+# Self-Training (Pseudo-Labeling)
+
+Self-training is one of the oldest and simplest semi-supervised learning techniques. Also known as pseudo-labeling or self-teaching, it leverages a model's own predictions to gradually expand its labeled dataset.
+
+## Basic Algorithm
+
+1. **Train initial model**: Train a model using only the available labeled data
+2. **Generate pseudo-labels**: Use the trained model to predict labels for unlabeled data
+3. **Select confident predictions**: Choose predictions with high confidence scores
+4. **Augment training set**: Add selected pseudo-labeled examples to the labeled dataset
+5. **Retrain model**: Train the model again using the expanded labeled dataset
+6. **Repeat**: Iterate the process until convergence or a stopping criterion is met
+
+## Confidence Selection Strategies
+
+Several strategies exist for selecting which unlabeled data points to include:
+
+### Threshold-Based Selection
+- Only include predictions with confidence above a certain threshold
+- Example: For a classifier, select predictions with probability > 0.95
+
+### Top-K Selection
+- In each iteration, select the K most confident predictions
+- Allows for controlling the growth rate of the labeled dataset
+
+### Class-Balanced Selection
+- Select the most confident predictions for each class
+- Helps prevent the majority class from dominating pseudo-labels
+
+### Curriculum Learning
+- Start with a high confidence threshold and gradually lower it
+- Incorporates easy examples first, progressively tackling harder ones
+
+## Mathematical Formulation
+
+Let:
+- $L = \{(x_i, y_i)\}_{i=1}^{l}$ be the labeled dataset
+- $U = \{x_j\}_{j=1}^{u}$ be the unlabeled dataset
+- $f_\theta(x)$ be the model with parameters $\theta$
+
+The self-training process can be formalized as:
+
+1. Train $f_\theta$ on $L$ to get $\hat{\theta}$
+2. For each $x_j \in U$, predict $\hat{y}_j = f_{\hat{\theta}}(x_j)$
+3. Define confidence function $c(x_j, \hat{y}_j)$
+4. Select $S = \{(x_j, \hat{y}_j) | c(x_j, \hat{y}_j) > \tau\}$ where $\tau$ is a threshold
+5. Update $L \leftarrow L \cup S$ and $U \leftarrow U \setminus \{x_j | (x_j, \hat{y}_j) \in S\}$
+6. Repeat until convergence
+
+## Example Implementation
+
+```python
+# Pseudo-code for self-training
+def self_training(model, labeled_data, unlabeled_data, confidence_threshold=0.95, max_iterations=10):
+    X_l, y_l = labeled_data
+    X_u = unlabeled_data
+    
+    for iteration in range(max_iterations):
+        # Train model on labeled data
+        model.fit(X_l, y_l)
+        
+        # Predict on unlabeled data
+        y_pred = model.predict(X_u)
+        confidence = model.predict_proba(X_u).max(axis=1)
+        
+        # Select confident predictions
+        mask = confidence > confidence_threshold
+        if not any(mask):
+            break
+        
+        # Add to labeled data
+        X_l_new = X_u[mask]
+        y_l_new = y_pred[mask]
+        X_l = np.vstack([X_l, X_l_new])
+        y_l = np.concatenate([y_l, y_l_new])
+        
+        # Remove from unlabeled data
+        X_u = X_u[~mask]
+        
+        print(f"Iteration {iteration+1}: Added {mask.sum()} samples")
+        
+    return model, X_l, y_l
+```
+
+## Advantages
+
+- **Simplicity**: Easy to implement and understand
+- **Compatibility**: Works with any supervised learning algorithm
+- **Efficiency**: No need to modify the base learning algorithm
+- **Modularity**: Can use different models for different iterations
+- **Practicality**: Often works well in practice, especially with modern deep learning
+
+## Limitations
+
+- **Error Propagation**: Incorrect pseudo-labels can reinforce themselves
+- **Bias Amplification**: Existing model biases can be amplified through self-reinforcement
+- **Class Imbalance**: May exacerbate imbalances in class distribution
+- **Threshold Selection**: Performance depends heavily on confidence threshold
+- **Limited Information Utilization**: Doesn't directly use the structure of unlabeled data
+
+## Enhancements and Variations
+
+### Iterative Cross-Validation
+- Use part of labeled data as validation set
+- Prevents error accumulation by monitoring performance
+
+### Ensemble-Based Self-Training
+- Use ensemble of models to generate pseudo-labels
+- Reduces the risk of error propagation through multiple views
+
+### Self-Training with Data Augmentation
+- Apply data augmentation to pseudo-labeled examples
+- Improves robustness and generalization
+
+### Confidence Regularization
+- Add regularization terms to prevent overconfidence
+- Helps mitigate confirmation bias
+
+## Modern Applications
+
+### Pseudo-Labeling in Deep Learning
+- Simplified self-training commonly used in deep learning
+- Often combined with mixup, consistency regularization, and other techniques
+
+### UDA (Unsupervised Data Augmentation)
+- Combines self-training with strong data augmentation
+- Enforces consistency between different augmented views
+
+### Noisy Student
+- Teacher model generates pseudo-labels
+- Larger student model trained on original and pseudo-labeled data
+- Process repeated with student becoming the new teacher
+
+## Real-World Applications
+
+- **NLP**: Using small amounts of labeled text with large unlabeled corpora
+- **Computer Vision**: Leveraging abundant unlabeled images with limited annotations
+- **Speech Recognition**: Expanding limited transcribed data with untranscribed audio
+- **Medical Imaging**: Using few expert-labeled scans with many unlabeled scans
+- **Autonomous Driving**: Expanding labeled scenarios with unlabeled driving data
+
+Self-training remains one of the most practical and widely used approaches in semi-supervised learning, particularly in scenarios where modifying the underlying algorithm is challenging or when simplicity is valued.

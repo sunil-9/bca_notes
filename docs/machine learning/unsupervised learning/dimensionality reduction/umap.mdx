@@ -1,0 +1,138 @@
+---
+sidebar_position: 3
+id: umap
+title: UMAP (Uniform Manifold Approximation and Projection)
+description: Understanding UMAP for Fast Non-linear Dimensionality Reduction
+---
+
+# UMAP (Uniform Manifold Approximation and Projection)
+
+UMAP is a state-of-the-art dimensionality reduction technique introduced in 2018 that addresses many limitations of t-SNE while maintaining strong visualization capabilities. It's based on manifold learning techniques and topological data analysis.
+
+## Core Concepts
+
+UMAP is built on three key mathematical foundations:
+
+1. **Riemannian geometry**: Modeling the manifold on which the data lies
+2. **Topological data analysis**: Constructing a fuzzy topological representation of the data
+3. **Stochastic gradient descent**: Optimizing the low-dimensional layout
+
+## How UMAP Works
+
+### Phase 1: Building a Graph Representation
+
+1. **Construct a weighted k-nearest neighbor graph**
+   - For each point, find its k nearest neighbors
+   - Weight edges based on distances, using a locally adaptive metric
+   - Weights are derived from an exponential decay function scaled by a local distance scale ρ
+
+2. **Create a fuzzy topological representation**
+   - Convert distances to probabilities of connection
+   - The probability function is based on the distance and the local connectivity
+   - This creates a more robust representation than a binary cut-off
+
+### Phase 2: Optimizing the Low-Dimensional Layout
+
+1. **Initialize points in low-dimensional space**
+   - Often initialized with spectral embedding for stability
+  
+2. **Optimize the layout with stochastic gradient descent**
+   - Define a similar graph in low-dimensional space using the Student's t-distribution (like t-SNE)
+   - Minimize cross-entropy between the high-dimensional and low-dimensional graphs
+   - Apply force-directed graph layout algorithms to efficiently optimize
+
+## Key Parameters
+
+### n_neighbors
+- **Function**: Controls how UMAP balances local versus global structure
+- **Default**: 15
+- **Effect**: 
+  - Small values (2-5): Focus on very local structure
+  - Large values (50-100): Focus on global structure
+  - Values in between: Balance of local and global
+
+### min_dist
+- **Function**: Controls how tightly UMAP packs points together
+- **Default**: 0.1
+- **Effect**:
+  - Small values (0.0-0.1): Tight clusters, good for cluster identification
+  - Large values (0.5-0.99): More scattered points, better for visualizing relative distances
+
+### metric
+- **Function**: Distance measure used to find neighbors
+- **Default**: Euclidean
+- **Options**: Manhattan, Correlation, Cosine, etc.
+
+### n_components
+- **Function**: Dimensionality of the target embedding
+- **Default**: 2 (for visualization)
+- **Typical values**: 2-10 (but can be higher for general dimensionality reduction)
+
+## Advantages over t-SNE and PCA
+
+- **Speed**: Much faster than t-SNE, especially for large datasets
+- **Scalability**: Can handle larger datasets efficiently
+- **Preserves structure**: Better at preserving both local and global structure
+- **Consistency**: More stable results across different runs
+- **Theoretical foundation**: Strong mathematical underpinnings
+- **General purpose**: Useful as both a visualization tool and dimensionality reduction for preprocessing
+
+## Example Comparison
+
+| Dataset size | PCA time | t-SNE time | UMAP time |
+|--------------|----------|------------|-----------|
+| 10,000 points | 0.2s    | 45s        | 2.5s      |
+| 100,000 points | 2s     | 30min+     | 30s       |
+| 1,000,000 points | 20s  | N/A        | 5min      |
+
+## Limitations
+
+- Still sensitive to parameter selection (though less than t-SNE)
+- Non-deterministic results due to stochastic optimization
+- More difficult to interpret than PCA
+- Implementation complexity is high
+- May still struggle with very high-dimensional data (thousands of dimensions)
+
+## Applications
+
+- **Visualization**: Exploring high-dimensional datasets in 2D/3D
+- **Preprocessing**: Dimensionality reduction before machine learning
+- **Bioinformatics**: Single-cell RNA sequencing analysis
+- **Computer Vision**: Feature visualization in neural networks
+- **NLP**: Document and word embedding visualization
+- **Anomaly Detection**: Finding outliers in complex datasets
+
+## Comparison with Other Methods
+
+| Feature | UMAP | t-SNE | PCA |
+|---------|------|-------|-----|
+| Preserves global structure | ✓✓ | ✗ | ✓✓✓ |
+| Preserves local structure | ✓✓✓ | ✓✓✓ | ✗ |
+| Speed | Fast | Slow | Very Fast |
+| Scalability | Good | Poor | Excellent |
+| Non-linear | Yes | Yes | No |
+| Theoretical foundation | Strong | Medium | Strong |
+| Out-of-sample projection | ✓ | ✗ | ✓✓✓ |
+
+## Code Example Pseudocode
+
+```python
+# Import UMAP
+from umap import UMAP
+
+# Configure UMAP
+umap_model = UMAP(
+    n_neighbors=15,    # Balance local/global structure
+    min_dist=0.1,      # How tightly to pack points
+    n_components=2,    # Output dimensions
+    metric='euclidean' # Distance metric
+)
+
+# Fit and transform data
+embedding = umap_model.fit_transform(data)
+
+# Visualize results
+plt.scatter(embedding[:, 0], embedding[:, 1], c=labels)
+plt.title('UMAP Embedding')
+plt.show()
+```

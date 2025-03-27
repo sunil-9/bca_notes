@@ -1,0 +1,216 @@
+---
+sidebar_position: 5
+id: actor-critic
+title: Actor-Critic Methods
+description: Understanding Actor-Critic algorithms in Reinforcement Learning
+---
+
+# Actor-Critic Methods
+
+Actor-Critic methods represent a powerful family of reinforcement learning algorithms that combine the strengths of both policy-based and value-based approaches. They maintain two components: an actor that determines the policy (how to act) and a critic that evaluates the policy (how good the actions are).
+
+## Core Concept
+
+In Actor-Critic methods:
+- The **Actor** is a policy function that maps states to actions or action probabilities
+- The **Critic** is a value function that evaluates the actor's policy by estimating state or state-action values
+- The actor is updated using policy gradients, guided by feedback from the critic
+- The critic is updated using temporal difference (TD) learning
+
+This hybrid approach aims to reduce the high variance of policy gradient methods while maintaining their beneficial properties.
+
+## Actor-Critic Framework
+
+### Actor
+- Parameterized by θ<sub>a</sub>
+- Represents policy π(a|s; θ<sub>a</sub>)
+- Updated to maximize expected return, guided by the critic
+
+### Critic
+- Parameterized by θ<sub>c</sub>
+- Typically represents state-value function V(s; θ<sub>c</sub>) or action-value function Q(s,a; θ<sub>c</sub>)
+- Updated to better estimate the true value function
+
+## Advantage Function
+
+Most Actor-Critic methods use the advantage function A(s,a) instead of directly using Q(s,a):
+
+$$A(s,a) = Q(s,a) - V(s)$$
+
+The advantage function measures how much better or worse an action is compared to the average action in that state. Using advantages:
+- Reduces variance in policy gradient estimates
+- Tells the actor which actions are better than expected
+- Provides a more focused learning signal
+
+## Basic Actor-Critic Algorithm
+
+1. **Initialize** actor parameters θ<sub>a</sub> and critic parameters θ<sub>c</sub>
+2. **Observe** initial state s
+3. **For each step**:
+   - Select action a ~ π(a|s; θ<sub>a</sub>)
+   - Execute action a, observe reward r and next state s'
+   - Calculate TD error: δ = r + γV(s'; θ<sub>c</sub>) - V(s; θ<sub>c</sub>)
+   - Update critic: θ<sub>c</sub> ← θ<sub>c</sub> + α<sub>c</sub> · δ · ∇<sub>θc</sub>V(s; θ<sub>c</sub>)
+   - Update actor: θ<sub>a</sub> ← θ<sub>a</sub> + α<sub>a</sub> · δ · ∇<sub>θa</sub>log π(a|s; θ<sub>a</sub>)
+   - s ← s'
+
+## Implementation Example
+
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import torch.nn.functional as F
+from torch.distributions import Categorical
+
+class ActorCritic(nn.Module):
+    def __init__(self, input_dim, n_actions, hidden_dim=128):
+        super(ActorCritic, self).__init__()
+        
+        # Shared feature extractor
+        self.shared = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.ReLU()
+        )
+        
+        # Actor (policy) network
+        self.actor = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, n_actions),
+            nn.Softmax(dim=-1)
+        )
+        
+        # Critic (value) network
+        self.critic = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, 1)
+        )
+    
+    def forward(self, x):
+        shared_features = self.shared(x)
+        action_probs = self.actor(shared_features)
+        state_value = self.critic(shared_features)
+        return action_probs, state_value
+
+def train_actor_critic(env, model, optimizer, episodes=1000, gamma=0.99):
+    for episode in range(episodes):
+        state = env.reset()
+        done = False
+        episode_reward = 0
+        
+        while not done:
+            state_tensor = torch.FloatTensor(state).unsqueeze(0)
+            
+            # Get action probabilities and state value
+            action_probs, state_value = model(state_tensor)
+            
+            # Sample action from the distribution
+            m = Categorical(action_probs)
+            action = m.sample()
+            
+            # Take step in environment
+            next_state, reward, done, _ = env.step(action.item())
+            episode_reward += reward
+            
+            # Calculate next state value (0 if terminal)
+            next_state_tensor = torch.FloatTensor(next_state).unsqueeze(0)
+            _, next_value = model(next_state_tensor)
+            next_value = next_value * (1 - done)
+            
+            # Calculate TD error / advantage
+            advantage = reward + gamma * next_value - state_value
+            
+            # Calculate losses
+            actor_loss = -m.log_prob(action) * advantage.detach()
+            critic_loss = F.smooth_l1_loss(state_value, reward + gamma * next_value.detach())
+            
+            # Combined loss
+            loss = actor_loss + critic_loss
+            
+            # Update model
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            
+            state = next_state
+        
+        if episode % 10 == 0:
+            print(f"Episode {episode}, Reward: {episode_reward}")
+```
+
+## Popular Actor-Critic Variants
+
+### Advantage Actor-Critic (A2C)
+- Synchronous version of A3C
+- Uses advantage function to reduce variance
+- Updates after collecting experiences from multiple workers
+
+### Asynchronous Advantage Actor-Critic (A3C)
+- Uses multiple parallel agents to collect experiences
+- Each agent has its own copy of the environment and parameters
+- Periodically updates a global network and re-synchronizes
+- Improves exploration and training stability
+
+### Soft Actor-Critic (SAC)
+- Maximum entropy RL framework
+- Encourages exploration by maximizing entropy
+- Actor aims to maximize both expected return and entropy
+- Uses two Q-functions to mitigate overestimation bias
+- State-of-the-art performance on many continuous control tasks
+
+### Deep Deterministic Policy Gradient (DDPG)
+- Actor-critic method for continuous action spaces
+- Uses deterministic policy instead of stochastic
+- Employs experience replay and target networks like DQN
+- Particularly effective for continuous control problems
+
+### Twin Delayed DDPG (TD3)
+- Addresses function approximation errors in DDPG
+- Uses two critics to reduce overestimation bias
+- Delayed policy updates and target policy smoothing
+- More stable and better performing than DDPG
+
+### Proximal Policy Optimization (PPO)
+- Uses clipped surrogate objective
+- Balances exploration and exploitation
+- Often simpler to implement and tune than other methods
+- Widely used due to its robust performance
+
+## Advantages of Actor-Critic Methods
+
+1. **Reduced Variance**: Critic helps reduce the variance of policy gradient updates
+2. **Online Learning**: Can learn incrementally, without waiting for episode completion
+3. **Flexibility**: Works in continuous action spaces and partially observable environments
+4. **Sample Efficiency**: Often more sample efficient than pure policy gradient methods
+5. **Stability**: Typically more stable than pure value-based methods with function approximation
+
+## Limitations
+
+1. **Complexity**: More components to design and tune than pure methods
+2. **Bias-Variance Tradeoff**: Introducing a critic reduces variance but may add bias
+3. **Training Stability**: Sensitive to relative learning rates of actor and critic
+4. **Credit Assignment**: Still faces challenges with long-term credit assignment
+5. **Hyperparameter Sensitivity**: Performance depends on careful hyperparameter tuning
+
+## Applications
+
+- **Robotics**: Learning complex motor skills and dexterous manipulation
+- **Game Playing**: Strategy games, board games, video games
+- **Autonomous Vehicles**: Path planning and control in complex environments
+- **Resource Management**: Power systems, network management, cloud computing
+- **Natural Language Processing**: Dialogue systems, text generation
+- **Finance**: Portfolio optimization, trading strategies
+
+## Implementation Tips
+
+1. **Normalize Advantages**: Helps stabilize training
+2. **Shared Networks**: Often beneficial to share lower layers between actor and critic
+3. **Learning Rate Balance**: Typically use different learning rates for actor and critic
+4. **Entropy Regularization**: Add entropy term to encourage exploration
+5. **Gradient Clipping**: Prevent large updates that destabilize training
+6. **Reward Scaling**: Normalize rewards to a consistent scale
+7. **Architecture Tuning**: Experiment with different network architectures for actor and critic
+
+Actor-Critic methods represent a powerful and flexible approach to reinforcement learning, combining the best aspects of policy-based and value-based methods. They continue to be at the forefront of research and applications in deep reinforcement learning.

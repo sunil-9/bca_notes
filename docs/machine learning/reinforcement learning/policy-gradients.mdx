@@ -1,0 +1,181 @@
+---
+sidebar_position: 3
+id: policy-gradients
+title: Policy Gradient Methods
+description: Understanding Policy Gradient Algorithms in Reinforcement Learning
+---
+
+# Policy Gradient Methods
+
+Policy gradient methods are a family of reinforcement learning algorithms that directly optimize the policy without learning a value function as an intermediate step. They work by adjusting the parameters of the policy in the direction of greater cumulative reward.
+
+## Core Concept
+
+Unlike value-based methods (such as Q-learning) that learn which actions are best in each state, policy gradient methods learn a parameterized policy that directly maps states to actions or action probabilities. The policy is optimized by following the gradient of expected return with respect to the policy parameters.
+
+## Mathematical Foundation
+
+Let's denote:
+- θ as the policy parameters
+- π<sub>θ</sub>(a|s) as the probability of taking action a in state s under policy π with parameters θ
+- τ = (s<sub>0</sub>, a<sub>0</sub>, r<sub>1</sub>, s<sub>1</sub>, a<sub>1</sub>, ...) as a trajectory
+- R(τ) as the total reward of trajectory τ
+- p(τ;θ) as the probability of trajectory τ under policy π<sub>θ</sub>
+
+The objective is to maximize the expected return:
+
+$$J(θ) = \mathbb{E}_{\tau \sim p(τ;θ)}[R(τ)]$$
+
+The policy gradient theorem gives us the gradient of this objective:
+
+$$\nabla_θ J(θ) = \mathbb{E}_{\tau \sim p(τ;θ)}[R(τ) \nabla_θ \log p(τ;θ)]$$
+
+This simplifies to:
+
+$$\nabla_θ J(θ) = \mathbb{E}_{s,a}[\nabla_θ \log \pi_θ(a|s) \cdot Q^{\pi}(s,a)]$$
+
+Where Q<sup>π</sup>(s,a) is the expected return of taking action a in state s and then following policy π.
+
+## REINFORCE Algorithm (Monte Carlo Policy Gradient)
+
+The simplest policy gradient algorithm is REINFORCE, which uses the actual returns from complete episodes to update the policy.
+
+### Algorithm Steps:
+
+1. **Initialize** policy parameters θ randomly
+2. For each episode:
+   - Generate a trajectory τ by following policy π<sub>θ</sub>
+   - For each step t in the trajectory:
+     - Calculate the return G<sub>t</sub> (sum of rewards from step t onwards)
+     - Update policy parameters: θ ← θ + α∇<sub>θ</sub>log π<sub>θ</sub>(a<sub>t</sub>|s<sub>t</sub>)G<sub>t</sub>
+
+### REINFORCE with Baseline
+
+To reduce variance in the updates, a baseline function b(s) is often subtracted:
+
+$$\nabla_θ J(θ) = \mathbb{E}_{s,a}[\nabla_θ \log \pi_θ(a|s) \cdot (Q^{\pi}(s,a) - b(s))]$$
+
+Typically, the state-value function V<sup>π</sup>(s) is used as the baseline, as it doesn't change the expected gradient but reduces variance.
+
+## Implementation Example
+
+```python
+def reinforce(env, policy_network, optimizer, episodes=1000, gamma=0.99):
+    for episode in range(episodes):
+        # Reset environment and collect trajectory
+        state = env.reset()
+        episode_states, episode_actions, episode_rewards = [], [], []
+        done = False
+        
+        while not done:
+            # Convert state to tensor for policy network
+            state_tensor = torch.FloatTensor(state).unsqueeze(0)
+            
+            # Get action probabilities from policy network
+            action_probs = policy_network(state_tensor)
+            
+            # Sample action from the distribution
+            action_distribution = Categorical(action_probs)
+            action = action_distribution.sample()
+            
+            # Take action in environment
+            next_state, reward, done, _ = env.step(action.item())
+            
+            # Store trajectory information
+            episode_states.append(state)
+            episode_actions.append(action)
+            episode_rewards.append(reward)
+            
+            state = next_state
+        
+        # Calculate returns
+        returns = []
+        G = 0
+        for reward in reversed(episode_rewards):
+            G = reward + gamma * G
+            returns.insert(0, G)
+        
+        # Convert to tensor and normalize returns
+        returns = torch.tensor(returns)
+        returns = (returns - returns.mean()) / (returns.std() + 1e-8)
+        
+        # Calculate loss
+        loss = 0
+        for action, G, state in zip(episode_actions, returns, episode_states):
+            state_tensor = torch.FloatTensor(state).unsqueeze(0)
+            action_probs = policy_network(state_tensor)
+            action_distribution = Categorical(action_probs)
+            
+            # Policy gradient loss
+            loss -= action_distribution.log_prob(action) * G
+        
+        # Update policy
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+```
+
+## Advantages of Policy Gradient Methods
+
+1. **Handle continuous action spaces** naturally without discretization
+2. **Learn stochastic policies** directly, which can be optimal in partially observable environments
+3. **Can learn policies with specific properties** (e.g., smoothness) by policy parameterization
+4. **Better convergence properties** in certain environments
+5. **Can directly optimize for the objective** of interest
+
+## Limitations of Policy Gradient Methods
+
+1. **High variance** in gradient estimates leading to unstable learning
+2. **Sample inefficiency** requiring many samples for reliable gradient estimation
+3. **Susceptible to converging to local optima** rather than global optima
+4. **Sensitive to step size** (learning rate)
+5. **Difficult to debug** due to stochastic nature
+
+## Advanced Policy Gradient Methods
+
+### Trust Region Policy Optimization (TRPO)
+- Constrains policy updates to ensure improvement
+- Uses KL-divergence constraint to prevent large changes
+- More stable learning than vanilla policy gradients
+
+### Proximal Policy Optimization (PPO)
+- Simplifies TRPO while maintaining performance
+- Uses clipped objective function to limit policy changes
+- Widely used due to good performance and implementation simplicity
+
+### Advantage Actor-Critic (A2C/A3C)
+- Combines policy gradients with value function estimation
+- Actor (policy) determines which actions to take
+- Critic (value function) reduces variance by estimating advantage
+- A3C uses asynchronous parallel actors for better exploration
+
+### Deterministic Policy Gradient (DPG)
+- For continuous action spaces
+- Learns deterministic policy instead of stochastic
+- Basis for algorithms like DDPG (Deep Deterministic Policy Gradient)
+
+### Soft Actor-Critic (SAC)
+- Maximum entropy reinforcement learning
+- Encourages exploration by maximizing entropy
+- State-of-the-art performance in many continuous control tasks
+
+## Applications
+
+- **Robotics**: Learning complex motor skills and control policies
+- **Game Playing**: Strategic decision making in complex games
+- **Resource Allocation**: Optimizing allocation under constraints
+- **Autonomous Vehicles**: Learning driving policies
+- **Natural Language Processing**: Dialogue systems and text generation
+- **Finance**: Trading strategies and portfolio management
+
+## Implementation Tips
+
+1. **Normalize advantages or returns** to stabilize training
+2. **Use appropriate baseline functions** to reduce variance
+3. **Implement entropy regularization** to encourage exploration
+4. **Use appropriate neural network architectures** for your policy
+5. **Carefully tune learning rates** to balance stability and speed
+6. **Use experience replay** where appropriate
+7. **Monitor policy entropy** to detect premature convergence
+
+Policy gradient methods represent a powerful and flexible approach to reinforcement learning, particularly well-suited to problems with continuous or high-dimensional action spaces, and continue to be an active area of research and application.
