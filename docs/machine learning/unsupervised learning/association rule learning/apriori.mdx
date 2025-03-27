@@ -53,36 +53,36 @@ Consider this small transaction dataset:
 
 | Transaction ID | Items Purchased                  |
 |----------------|----------------------------------|
-| 1              | Bread, Milk                      |
-| 2              | Bread, Diapers, Beer, Eggs       |
-| 3              | Milk, Diapers, Beer, Cola        |
-| 4              | Bread, Milk, Diapers, Beer       |
-| 5              | Bread, Milk, Diapers, Cola       |
+| 1              | `Bread`, `Milk`                      |
+| 2              | `Bread`, `Diapers`, `Beer`, `Eggs`       |
+| 3              | `Milk`, `Diapers`, `Beer`, `Cola`        |
+| 4              | `Bread`, `Milk`, `Diapers`, `Beer`       |
+| 5              | `Bread`, `Milk`, `Diapers`, `Cola`       |
 
 With minimum support = 0.4 (40%) and minimum confidence = 0.7 (70%):
 
 ### Step 1: Find frequent 1-itemsets
-- Support(Bread) = 4/5 = 0.8
-- Support(Milk) = 4/5 = 0.8
-- Support(Diapers) = 4/5 = 0.8
-- Support(Beer) = 3/5 = 0.6
-- Support(Cola) = 2/5 = 0.4
-- Support(Eggs) = 1/5 = 0.2 (below minimum support, discard)
+- Support(`Bread`) = 4/5 = 0.8
+- Support(`Milk`) = 4/5 = 0.8
+- Support(`Diapers`) = 4/5 = 0.8
+- Support(`Beer`) = 3/5 = 0.6
+- Support(`Cola`) = 2/5 = 0.4
+- Support(`Eggs`) = 1/5 = 0.2 (below minimum support, discard)
 
 ### Step 2: Find frequent 2-itemsets
 Generate candidates and check support:
-- Support(Bread, Milk) = 3/5 = 0.6
-- Support(Bread, Diapers) = 3/5 = 0.6
-- Support(Milk, Diapers) = 3/5 = 0.6
+- Support(`Bread`, `Milk`) = 3/5 = 0.6
+- Support(`Bread`, `Diapers`) = 3/5 = 0.6
+- Support(`Milk`, `Diapers`) = 3/5 = 0.6
 - etc.
 
 ### Step 3: Find frequent 3-itemsets
 Continue the process...
 
 ### Step 4: Generate rules
-For example, from the frequent itemset {Bread, Milk, Diapers}:
-- Bread → {Milk, Diapers}: Confidence = 0.75
-- Milk → {Bread, Diapers}: Confidence = 0.75
+For example, from the frequent itemset {`Bread`, `Milk`, `Diapers`}:
+- `Bread` → {`Milk`, `Diapers`}: Confidence = 0.75
+- `Milk` → {`Bread`, `Diapers`}: Confidence = 0.75
 - etc.
 
 ## Advantages of Apriori
