@@ -1,4 +1,4 @@
-### Structure of Mobile Operating Systems
+# Structure of Mobile Operating Systems
 
 A mobile OS serves as a software platform upon which application programs run on mobile devices such as PDAs, cellular phones, and smartphones. Here's an overview of the structure of mobile operating systems:
 

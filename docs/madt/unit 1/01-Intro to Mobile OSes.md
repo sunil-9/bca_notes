@@ -48,7 +48,7 @@ Mobile operating systems are specifically designed for mobile devices such as sm
 
 ![IOS](/img/android/ios.jpg)
 
-### Overview of Mobile Operating Systems (Continued)
+### Overview of Mobile Operating Systems 
 
 #### Ubuntu Touch (Ubuntu Phone):
 - **Description:** Ubuntu Touch, developed by Canonical UK Ltd and the Ubuntu Community, is a mobile version of the Ubuntu operating system. It targets touchscreen mobile devices such as smartphones and tablets.

@@ -1,4 +1,4 @@
-**Eclipse:**  
+# Eclipse
 
 From the moment the Android SDK was released, Eclipse has been the standard IDE for Android development and remains so to this day. From our perspective, these are the main reasons for this: 
 
