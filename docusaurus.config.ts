@@ -56,12 +56,22 @@ const config: Config = {
       type: "text/css",
     },
   ],
+  
+  // Add Google AdSense script to every page
+  scripts: [
+    {
+      src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4987525106509640",
+      async: true,
+      crossorigin: "anonymous",
+    },
+  ],
 
   themeConfig: {
     docs: {
       sidebar: {
         hideable: true,
       },
+      
     },
 
     metadata: [
