@@ -22,6 +22,149 @@ ADB commands are incredibly useful for interacting with Android devices from a c
 
 10. **Simulate input**: `adb shell input` to simulate various types of input events like taps and key presses.
 
+lets explore some of the examples of ADB commands in detail:
+
+```markdown
+# ADB Command Examples
+
+---
+
+## ✅ Install and Uninstall Apps
+
+**Install an APK:**
+```bash
+adb install C:/Users/sunil/Downloads/app.apk
+```
+
+**Uninstall an app:**
+```bash
+adb uninstall com.example.app
+```
+
+---
+
+## ✅ Manage Files Between PC and Android
+
+**Copy a file from PC to device:**
+```bash
+adb push C:/Users/sunil/Desktop/test.txt /sdcard/test.txt
+```
+
+**Copy a file from device to PC:**
+```bash
+adb pull /sdcard/test.txt C:/Users/sunil/Desktop/test.txt
+```
+
+---
+
+## ✅ Access Device Shell
+
+**Open a terminal shell on the Android device:**
+```bash
+adb shell
+```
+
+---
+
+## ✅ Capture Screenshots
+
+**Take a screenshot and save it on the device:**
+```bash
+adb shell screencap /sdcard/screen.png
+```
+
+**Then pull it to your computer:**
+```bash
+adb pull /sdcard/screen.png
+```
+
+---
+
+## ✅ Record Screen
+
+**Start screen recording (10 seconds example):**
+```bash
+adb shell screenrecord --time-limit 10 /sdcard/demo.mp4
+```
+
+**Pull the video to your PC:**
+```bash
+adb pull /sdcard/demo.mp4
+```
+
+---
+
+## ✅ View Logs in Real-Time
+
+```bash
+adb logcat
+```
+
+**Filter by tag (e.g., for logs related to "ActivityManager"):**
+```bash
+adb logcat | grep ActivityManager
+```
+
+---
+
+## ✅ Reboot Device
+
+```bash
+adb reboot
+```
+
+---
+
+## ✅ Backup and Restore Data
+
+**Create a full backup (apps + data):**
+```bash
+adb backup -apk -shared -all -f backup.ab
+```
+
+**Restore from backup:**
+```bash
+adb restore backup.ab
+```
+
+---
+
+## ✅ Access System Info
+
+**Get detailed info about device services:**
+```bash
+adb shell dumpsys
+```
+
+**Example: Battery status**
+```bash
+adb shell dumpsys battery
+```
+
+---
+
+## ✅ Simulate User Input
+
+**Tap on screen (x=100, y=200):**
+```bash
+adb shell input tap 100 200
+```
+
+**Swipe (from x=100,y=500 to x=300,y=500):**
+```bash
+adb shell input swipe 100 500 300 500
+```
+
+**Type text:**
+```bash
+adb shell input text "HelloWorld"
+```
+
+**Press hardware key (e.g., Home button):**
+```bash
+adb shell input keyevent 3  # KEYCODE_HOME
+```
+
 ---
 
 Lets explore some of the more advanced tasks you can perform using ADB commands:
