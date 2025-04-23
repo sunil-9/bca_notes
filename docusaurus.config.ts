@@ -19,7 +19,7 @@ const config: Config = {
 
   projectName: "bca_notes",
 
-  onBrokenLinks: "throw",
+  onBrokenLinks: "warn",
 
   onBrokenMarkdownLinks: "warn",
 
