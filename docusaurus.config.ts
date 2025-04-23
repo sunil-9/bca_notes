@@ -129,7 +129,7 @@ const config: Config = {
     image: "img/social-card.jpg",
 
     navbar: {
-      title: "DDS Notes",
+      // title: "DDS Notes",
       logo: {
         alt: "DDS Notes",
         src: "img/logo.svg",
