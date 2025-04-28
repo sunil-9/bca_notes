@@ -18,7 +18,7 @@
 - Hierarchical Inheritance: In hierarchical inheritance, multiple child classes inherit properties and methods from a single-parent class. This creates a tree-like structure of classes, where the parent class is at the top and the child classes are at the bottom.
 
 
-- Multiple Inheritance (through interfaces): Java does not support multiple inheritance of classes, but it does support multiple inheritance through interfaces. An interface is a collection of abstract methods that a class can implement. A class can implement multiple interfaces and inherit their methods.
+- Multiple Inheritance `through interfaces`: Java does not support multiple inheritance of classes, but it does support multiple inheritance through interfaces. An interface is a collection of abstract methods that a class can implement. A class can implement multiple interfaces and inherit their methods.
 
 4. **Polymorphism**:
    - Polymorphism allows objects of different types to be treated as objects of a common superclass.
