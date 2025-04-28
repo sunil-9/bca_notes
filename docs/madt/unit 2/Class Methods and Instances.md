@@ -37,7 +37,7 @@
 These concepts are fundamental to understanding OOP principles and developing Android applications. Understanding them is crucial for building robust, maintainable, and scalable software solutions.
 
 ---
-
+```java
 // Parent class
 class Animal {
     String name; // Instance variable
@@ -97,5 +97,4 @@ public class Main {
         myCat.speak();  // Output: Whiskers says Meow!
     }
 }
-
----
+```
