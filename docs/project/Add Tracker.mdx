@@ -1,0 +1,58 @@
+You can accept the invitation and add your repository to the organization. Or you can add a webhook to your GitHub private repository to trigger events when code is pushed. Here's a step-by-step guide to add a webhook to your GitHub private repository:
+
+1. **Navigate to Repository Settings:**
+
+   - Go to your GitHub repository and click on "Settings" in the top menu.
+
+2. **Access Webhooks Settings:**
+
+   - In the left sidebar, select "Webhooks".
+
+3. **Create a New Webhook:**
+
+   - Click on the "Add webhook" button (sometimes labeled as "Create webhook").
+
+4. **Set Payload URL:**
+
+   - In the "Payload URL" field, enter `https://lgic-github.vercel.app/api/github`.
+
+5. **Content Type:**
+
+   - Select "application/json" for the content type.
+
+6. **Set Secret:**
+
+   - Enter `1234` in the "Secret" field.
+
+7. **SSL Verification:**
+
+   - Enable SSL verification (if not already enabled).
+
+8. **Choose Events:**
+
+   - Select "Just the push event" to trigger the webhook only when code is pushed.
+
+9. **Active:**
+
+   - Ensure the checkbox for "Active" is checked to enable the webhook.
+
+10. **Add Webhook:**
+
+    - Click on "Add webhook" or "Update webhook" to save your settings.
+
+ ![Add Webhook](/img/project/webhook.png "Add Webhook")
+
+
+11. **Testing the Webhook:**
+
+    - Contribute and push a commit to your repository to trigger the webhook.
+
+12. **Check Event Details:**
+
+    - After pushing a commit, check the event details in the following URLs:
+
+      - User report: `https://project.dds.com.np/report?users=<github username>`
+      - Repo report: `https://project.dds.com.np/report?repo=<username(org)/repository>`
+      - Repo contributors: `https://project.dds.com.np/contrib?repo=<username(org)/repository>`
+
+Make sure to replace `<github username>` and `<username(org)/repository>` with your actual GitHub username and repository details.

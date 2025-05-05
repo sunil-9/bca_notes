@@ -155,6 +155,12 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          sidebarId: "project",
+          position: "left",
+          label: "Project",
+        },
+        {
+          type: "docSidebar",
           sidebarId: "workshopSidebar",
           position: "left",
           label: "Workshop",
