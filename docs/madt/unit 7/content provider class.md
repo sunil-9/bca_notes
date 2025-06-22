@@ -160,3 +160,47 @@ public class MyContentProvider extends ContentProvider {
     }
 }
 ```
+
+
+```java
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class MyDatabaseHelper extends SQLiteOpenHelper {
+
+    // Database name and version
+    private static final String DATABASE_NAME = "mydatabase.db";
+    private static final int DATABASE_VERSION = 1;
+
+    // Table name and column names
+    public static final String TABLE_NAME = "mydata";
+    public static final String ID_COLUMN = "_id"; // Important: Must be _id for CursorAdapters
+    public static final String NAME_COLUMN = "name";
+    public static final String VALUE_COLUMN = "value";
+
+    // SQL to create the table
+    private static final String CREATE_TABLE = 
+        "CREATE TABLE " + TABLE_NAME + " (" +
+        ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        NAME_COLUMN + " TEXT NOT NULL, " +
+        VALUE_COLUMN + " TEXT" +
+        ");";
+
+    public MyDatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE); // Create table when DB is first created
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop old table if it exists
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db); // Recreate the table
+    }
+}
+```
